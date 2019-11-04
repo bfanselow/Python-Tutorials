@@ -2,4 +2,4 @@
 Random collection of python scripts, modules, apps
 
 ## /LEARN
-Simple demonstrations of the trickier concepts in Python
+Simple scripts to test/demonstrate some of the trickier concepts in Python
