@@ -1,5 +1,5 @@
 # Python
 Random collection of python scripts, modules, apps
 
-## LEARN
+## /LEARN
 Simple demonstrations of the trickier concepts in Python
