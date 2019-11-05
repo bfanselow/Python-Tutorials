@@ -22,7 +22,8 @@ Fun Examples
     [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59]
 
 
->List Slicing using (start:stop:step) syntax: reverse the order of a list with \[::-1]
+
+>List Slicing: reverse the order of a list with \[start:stop:step] => \[::-1]
 
     >>> sentance = 'This is a test sentance'
     >>> l_chars = list(sentance)
