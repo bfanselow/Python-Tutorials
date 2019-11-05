@@ -14,10 +14,10 @@ A random collection of python scripts, modules, and apps
 Fun Examples
 ------------
 
-List Comprehension: building a list of prime numbers up to 60. ([1 is NOT a prime number!](https://blogs.scientificamerican.com/roots-of-unity/why-isnt-1-a-prime-number/))
+List Comprehension: building a list of prime numbers up to 60. (BTW: [1 is NOT a prime number!](https://blogs.scientificamerican.com/roots-of-unity/why-isnt-1-a-prime-number/))
 
-    >>> l_noprimes = [j for i in range(2,8) for j in range(2*i, 60, i)]
-    >>> l_primes = [p for p in range(2,60) if p not in l_noprimes]
+    >>> l_non_primes = [j for i in range(2,8) for j in range(2*i, 60, i)]
+    >>> l_primes = [p for p in range(2,60) if p not in l_non_primes]
     >>> l_primes
     [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59]
 
