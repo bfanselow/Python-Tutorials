@@ -5,11 +5,10 @@ A random collection of python scripts, modules, and apps
 
 / LEARN
 ---------
-Simple scripts to test/demonstrate some of the more powerful, but trickier concepts in Python.
-* Concepts
+* **Concepts**: simple scripts to test/demonstrate some of the more powerful, but trickier concepts in Python.
   - [listComprehension.py](https://github.com/bfanselow/Python/blob/master/LEARN/listComprehension.py)
   - ``listSlicing.py``
-* Tools
+* **Tools**: simple tests of various tools/libs
   - ``pandas_dataframe.py``
 
 Fun Examples
