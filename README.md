@@ -8,6 +8,8 @@ A random collection of python scripts, modules, and apps
 * **Concepts**: simple scripts to test/demonstrate some of the more powerful, but trickier concepts in Python.
   - [listComprehension.py](https://github.com/bfanselow/Python/blob/master/LEARN/listComprehension.py)
   - ``listSlicing.py``
+  - ``decoratorTests.py``
+  
 * **Tools**: simple tests of various tools/libs
   - ``pandas_dataframe.py``
 
