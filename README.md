@@ -6,11 +6,12 @@ A random collection of python scripts, modules, and apps
 / LEARN
 ---------
 * **Concepts**: simple scripts to test/demonstrate some of the more powerful, but trickier concepts in Python.
-  - ``listComprehension.py``
-  - ``listSlicing.py``
-  - ``decoratorDemos.py``
+  - ``list_comprehension.py``
+  - ``list_slicing.py``
+  - ``DecoratorDemos.py``
   
 * **Tools**: simple tests of various tools/libs
+  - ``numpy_demos.py
   - ``pandas_dataframe.py``
 
 Fun Examples
