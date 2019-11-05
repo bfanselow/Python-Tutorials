@@ -25,11 +25,7 @@ Fun Examples
 >List Slicing using (start:stop:step) syntax: reverse the order of a list with \[::-1]
 
     >>> sentance = 'This is a test sentance'
-    >>> sentance
-    'This is a test sentance'
     >>> l_chars = list(sentance)
-    >>> l_chars
-    ['T', 'h', 'i', 's', ' ', 'i', 's', ' ', 'a', ' ', 't', 'e', 's', 't', ' ', 's', 'e', 'n', 't', 'a', 'n', 'c', 'e']
     >>> l_chars_reverse = l_chars[::-1]
     >>> l_chars_reverse
     ['e', 'c', 'n', 'a', 't', 'n', 'e', 's', ' ', 't', 's', 'e', 't', ' ', 'a', ' ', 's', 'i', ' ', 's', 'i', 'h', 'T']
