@@ -36,8 +36,8 @@ def nonprimes(stop):
   ## This is a complex (nested) list comprehension.
   ## This is equivelent to 2 nested for() loops:
   ##   l_np = []
-  ##   for j in range(2, 8): ## start with first for(): 2,3,4,5,6,7
-  ##     for i in range(i*2, 50, i): ## nested for() with stop=50: 4,6,8,10,...,3,6,9,12,...,8,12,16,20,...,10,15,20,25,...
+  ##   for i in range(2, 8): ## start with first for(): 2,3,4,5,6,7
+  ##     for j in range(i*2, 50, i): ## nested for() with stop=50: 4,6,8,10,...,3,6,9,12,...,8,12,16,20,...,10,15,20,25,...
   ##       l_np.append(j)
   ##
   l_np = [j for i in range(2,8) for j in range(i*2, stop, i)]
