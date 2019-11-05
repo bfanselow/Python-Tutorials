@@ -13,7 +13,7 @@ Simple scripts to test/demonstrate some of the powerful, but trickier concepts i
 Examples
 --------
 
-    List Comprehension
+  List Comprehension
 
     >>> import geopandas
     >>> from shapely.geometry import Polygon
