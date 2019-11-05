@@ -1,5 +1,4 @@
 ![python](https://user-images.githubusercontent.com/24737190/68251048-94c15980-ffdf-11e9-97bd-98b4df9ee1fe.png)
-
 Python
 =========
 
