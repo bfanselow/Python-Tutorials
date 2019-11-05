@@ -10,10 +10,11 @@ Simple scripts to test/demonstrate some of the powerful, but trickier concepts i
 - ``listSlicing.py``
 - ``pandas_dataframe.py``
 
-Examples
---------
+Fun Examples
+------------
 
-List Comprehension
+# List Comprehension
+  
   Build a list of prime numbers up to 60
 
     >>> l_noprimes = [j for i in range(2,8) for j in range(2*i, 60, i)]
