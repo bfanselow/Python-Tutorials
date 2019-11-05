@@ -7,5 +7,11 @@ Introduction
 ------------
 A random collection of python scripts, modules, and apps
 
-## /LEARN
+/ LEARN
+---------
 Simple scripts to test/demonstrate some of the trickier concepts in Python
+- ``pandas``
+- ``shapely``
+- ``fiona``
+- ``pyproj``
+
