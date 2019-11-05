@@ -11,7 +11,7 @@ A random collection of python scripts, modules, and apps
   - ``DecoratorDemos.py``
   
 * **Tools**: simple tests of various tools/libs
-  - ``numpy_demos.py
+  - ``numpy_demos.py``
   - ``pandas_dataframe.py``
 
 Fun Examples
