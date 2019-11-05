@@ -14,6 +14,7 @@ Fun Examples
 ------------
 
 >List Comprehension: building a list of prime numbers up to 60
+ BTW: 1 is NOT a prime number!(https://blogs.scientificamerican.com/roots-of-unity/why-isnt-1-a-prime-number/)
 
     >>> l_noprimes = [j for i in range(2,8) for j in range(2*i, 60, i)]
     >>> l_primes = [p for p in range(2,60) if p not in l_noprimes]
