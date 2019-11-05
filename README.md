@@ -6,7 +6,7 @@ A random collection of python scripts, modules, and apps
 / LEARN
 ---------
 Simple scripts to test/demonstrate some of the powerful, but trickier concepts in Python
-- [Python/listComprehension.py](listComprehension.py)
+- [listComprehension.py](Python/LEARN/listComprehension.py)
 - ``listSlicing.py``
 - ``pandas_dataframe.py``
 
