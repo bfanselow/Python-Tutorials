@@ -26,7 +26,7 @@ List Comprehension: building a list of prime numbers up to 60. (BTW: [1 is NOT a
 
 
 
-List Slicing: reverse the order of a list with \[start:stop:step] => \[::-1]
+List Slicing: reverse the order of a list with slice notation \[start:stop:step] => \[::-1]
 
     >>> sentance = 'This is a test sentance'
     >>> l_chars = list(sentance)
