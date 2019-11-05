@@ -13,7 +13,7 @@ Simple scripts to test/demonstrate some of the powerful, but trickier concepts i
 Fun Examples
 ------------
 
-# List Comprehension
+List Comprehension
   
   Build a list of prime numbers up to 60
 
