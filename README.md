@@ -30,20 +30,11 @@ List Comprehension: building a list of prime numbers up to 60. (BTW: [1 is NOT a
 
 
 List Slicing: reverse the order of a list with slice notation \[start:stop:step] => \[::-1]
-
-    >>> sentance = 'This is a test sentance'
-    >>> l_chars = list(sentance)
-    >>> l_chars_reverse = l_chars[::-1]
-    >>> l_chars_reverse
-    ['e', 'c', 'n', 'a', 't', 'n', 'e', 's', ' ', 't', 's', 'e', 't', ' ', 'a', ' ', 's', 'i', ' ', 's', 'i', 'h', 'T']
-    >>> print(' '.join(l_chars_reverse))
-    'e c n a t n e s   t s e t   a   s i   s i h T'
-
-    >>> palindrome = 'step on no pets'
+    >>> palindrome = 'Step on no pets'
     >>> l_chars_reverse = list(palindrome)[::-1]
     >>> l_chars_reverse
-    ['s', 't', 'e', 'p', ' ', 'o', 'n', ' ', 'n', 'o', ' ', 'p', 'e', 't', 's']
+    ['s', 't', 'e', 'p', ' ', 'o', 'n', ' ', 'n', 'o', ' ', 'p', 'e', 't', 'S']
     >>> print(' '.join(l_chars_reverse))
-    's t e p   o n   n o   p e t s'
+    's t e p   o n   n o   p e t S'
     
 ![python](https://user-images.githubusercontent.com/24737190/68251048-94c15980-ffdf-11e9-97bd-98b4df9ee1fe.png)
