@@ -17,7 +17,7 @@ Simple scripts written for the purpose of learning and understanding python conc
   - ``numpy_demos.py``
   - ``pandas_dataframe.py``
 
-Fun Examples
+Fun Samples
 ------------
 
 List Comprehension: building a list of prime numbers up to 60. (BTW: [1 is NOT a prime number!](https://blogs.scientificamerican.com/roots-of-unity/why-isnt-1-a-prime-number/))
@@ -33,8 +33,6 @@ List Slicing: simple/quick way to reverse the order of a string with slice notat
 
     >>> palindrome = 'Step on no pets'
     >>> l_chars_reverse = list(palindrome)[::-1]
-    >>> l_chars_reverse
-    ['s', 't', 'e', 'p', ' ', 'o', 'n', ' ', 'n', 'o', ' ', 'p', 'e', 't', 'S']
     >>> print(''.join(l_chars_reverse))
     'step on no petS'
     
