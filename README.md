@@ -11,7 +11,7 @@ Simple scripts written for the purpose of learning and understanding python conc
   - ``args_kwargs.py``
   - ``list_comprehension.py``
   - ``list_slicing.py``
-  - ``DecoratorDemos.py``
+  - ``decorator_demos.py``
   
 * **Tools**: simple tests of various tools/libs
   - ``numpy_demos.py``
