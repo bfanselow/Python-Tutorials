@@ -30,6 +30,7 @@ List Comprehension: building a list of prime numbers up to 60. (BTW: [1 is NOT a
 
 
 List Slicing: reverse the order of a list with slice notation \[start:stop:step] => \[::-1]
+
     >>> palindrome = 'Step on no pets'
     >>> l_chars_reverse = list(palindrome)[::-1]
     >>> l_chars_reverse
