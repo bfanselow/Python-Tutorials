@@ -35,7 +35,7 @@ List Slicing: simple/quick way to reverse the order of a string with slice notat
     >>> l_chars_reverse = list(palindrome)[::-1]
     >>> l_chars_reverse
     ['s', 't', 'e', 'p', ' ', 'o', 'n', ' ', 'n', 'o', ' ', 'p', 'e', 't', 'S']
-    >>> print(' '.join(l_chars_reverse))
-    's t e p   o n   n o   p e t S'
+    >>> print(''.join(l_chars_reverse))
+    'step on no petS'
     
 ![python](https://user-images.githubusercontent.com/24737190/68251048-94c15980-ffdf-11e9-97bd-98b4df9ee1fe.png)
