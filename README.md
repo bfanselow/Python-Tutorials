@@ -5,6 +5,8 @@ A random collection of python scripts, modules, and apps
 
 / LEARN
 ---------
+Simple scripts written for the purpose of learning and understanding python concepts, tools, tricks, etc.
+
 * **Concepts**: simple scripts to test/demonstrate some of the more powerful, but trickier concepts in Python.
   - ``args_kwargs.py``
   - ``list_comprehension.py``
