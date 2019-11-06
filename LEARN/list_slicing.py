@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 
-## Slice notation: [start:stop:step]
-## Selection of items goes from "start" index up to (but NOT including) "stop" index in increments of "step". 
-##  * default start=0 if start is None.
-##  * default step=1 if step is None.
-##  * negative start, stop can be used in same way but index is counted from "tail" of list.
-##  * negative step can be used in same way but implies stepping in reverse (right-to-left).  
-
+""" 
+ Quick demo of using list slice notation: [start:stop:step]
+ 
+ Selection of items goes from "start" index up to (but NOT including) "stop" index in increments of "step". 
+  * default start=0 if start is None.
+  * default step=1 if step is None.
+  * negative start, stop can be used in same way but index is counted from "tail" of list.
+  * negative step can be used in same way but implies stepping in reverse (right-to-left).  
+"""
 
 l_nums = [10, 20, 30, 40, 50, 60, 70, 80, 90]
 print("\n\n========================================================")
