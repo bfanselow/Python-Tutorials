@@ -6,6 +6,7 @@ A random collection of python scripts, modules, and apps
 / LEARN
 ---------
 * **Concepts**: simple scripts to test/demonstrate some of the more powerful, but trickier concepts in Python.
+  - ``args_kwargs.py``
   - ``list_comprehension.py``
   - ``list_slicing.py``
   - ``DecoratorDemos.py``
