@@ -1,6 +1,6 @@
 Description
 -----------
-Python3 Class used to instantiate multiprocessing-queue logging objects. Such objects can then be passed to multiprocessing workers to provide a single, common file-logging facility for all the multiprocessing workers. 
+Python3 Class used to instantiate multiprocessing-queue logging objects. Such objects can then be passed to multiprocessing workers to provide a single, common file-logging facility for all the multiprocessing workers. See __Background__ below on why this is important.
 
 Usage
 -----
