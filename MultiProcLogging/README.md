@@ -1,9 +1,9 @@
 Description
-===========
+-----------
 Python3 Class used to instantiate multiprocessing-queue logging objects. Such objects can then be passed to multiprocessing workers to provide a single, common file-logging facility for all the multiprocessing workers. 
 
 Usage
-======
+-----
 (see __\_\_main\_\___ at bottom of __MpQLogger.py__ for details)
 1) Instantiate an MpQLogger object: __mpql = MpQLogger(d_init)__
 2) Spawn multiprocess workers, passing the MPQL object to each one.
