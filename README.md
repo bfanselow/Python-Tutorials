@@ -13,9 +13,15 @@ Simple scripts written for the purpose of learning and understanding python conc
   - ``list_slicing.py``
   - ``decorator_demos.py``
   
-* **Tools**: simple tests of various tools/libs
+* **Packages**: simple tests of various Python packages
   - ``numpy_demos.py``
   - ``pandas_dataframe.py``
+  
+  / TOOLBOX
+---------
+My personal toolbox of Python scripts, modules, etc.
+  - ``MultiProcLogging:  Multiprocess logging``
+
 
 Fun Samples
 ------------
