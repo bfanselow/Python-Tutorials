@@ -6,7 +6,7 @@ Usage
 -----
 (see __\_\_main\_\___ at bottom of __MpQLogger.py__ for details)
 1) Instantiate an MpQLogger object: __mpql = MpQLogger(d_init)__
-2) Spawn multiprocess workers, passing the MPQL object to each one.
+2) Spawn multiprocess workers, passing the *__mpql__* object to each one.
 3) Each multiproc worker can log to shared logfile using syntax: __mpql.log('\<LEVEL>\', \<msg>\)__
 
 Background
