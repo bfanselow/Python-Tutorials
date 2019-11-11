@@ -17,7 +17,7 @@ Simple scripts written for the purpose of learning and understanding python conc
   - ``numpy_demos.py``
   - ``pandas_dataframe.py``
   
-  / TOOLBOX
+/ TOOLBOX
 ---------
 My personal toolbox of Python scripts, modules, etc.
   - ``MultiProcLogging:  Multiprocess logging``
