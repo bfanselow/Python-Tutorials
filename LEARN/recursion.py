@@ -17,13 +17,13 @@
      4!=4*3!,  3!=3*2!, 2!=2*1!, 
      1! is the "base" (smallest) case 
 
- NOTICE: 
+ NOTICE!!!!!!!: 
    Python will save you from forgetting the base case and raise an
    RecursionError() exception with the maximum recursion depth is
    exceeded.  However, keep in mind that recursive functions can
-   often become very expenisive and time-consuming. Careful 
-   consideration of the function logic is important to avoid costly
-   processing.  For example, compre the two different Fibonacci 
+   often become extremely expensive/time-consuming. THerefore, careful 
+   consideration of the function logic is critical to avoid costly
+   processing.  For example, compare the two different Fibonacci 
    functions below. The "fast" version is 42,000 times faster than
    the "slow" one!!! 
 
