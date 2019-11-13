@@ -2,7 +2,7 @@
 
 """
 
-  File: listComprehension.py
+  File: list_comprehension.py
   Description:
     Simple tests to demonstrate the list-comprehension concept
 
