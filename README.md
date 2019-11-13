@@ -5,7 +5,7 @@ Python3 scripts, modules, classes, and apps grouped into three categories:
 
 / LEARN
 ---------
-Simple scripts written for the purpose of learning and understanding python concepts, packages, modules, etc.
+Simple scripts written for the purpose of learning and understanding python concepts, modules, and packages.
 
 * **Concepts**: some of the more powerful, but trickier concepts in Python.
     (args-kwargs, list-comprehension, list-slicing, map-function, recursion, etc.)
