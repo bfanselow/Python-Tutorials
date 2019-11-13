@@ -3,18 +3,28 @@
  Class: MDbHandler
  Child-class of parent-class: StdApp()
 
- Python3 DB-access class for Maria (mysql) Databases
+ Python3 Parent DB-access class for Maria (mysql) Databases
+ 
+ Usage:
+  Create child class specific to some table in the DB (i.e. MDbHandler_my_table.py)
+  In script which invokes this child-class:
+    import DATABASE as config_db
+    ...
+    try:
+      DBH = MDbHandler_my_table({ 'config_db': config_db, 'storage_id': <storage_id>})
+    except Exception as e:
+      raise
+    ...
+    with DBH:
+      DBH.<func>()...
+      ...
+    
 
- Requires: mysql-connector: (pip3 install mysql-connector)
+ Requires: 
+   mysql-connector: (pip3 install mysql-connector)
 
  Uses the concept of "phases" to handle mutiple tables in same database
  with same table-name base, suffixed by what we refer to as the "phase".
-
- Four different storage PHASES provide data separation to simplify and speed up processing:
-  * scheduled: Data for scheduled requests. Associated with state=scheduled
-  * staged: Data for staged requests. Associated with state=staged
-  * processing: Data for requests that have been submitted for processing. Associated with states=(inprogress,paused,waiting_approval), or with states=(success,failure,error,canceled) which have not been updated in at least 7 days.
-  * archive: Special "archive" storage for data that can no longer be processed AND whose last-update is more than 7 days. Associated with states=(success,failure,error,canceled)
 
 
  =====================================================================
