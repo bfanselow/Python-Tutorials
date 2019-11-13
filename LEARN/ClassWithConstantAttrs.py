@@ -7,8 +7,8 @@
   
   Description:
 
-  This class demonstrates some of the ways to "hide" class attributes in Python,
-  or make them CONSTANT, so that they cannot be viewed but not modified.
+  This class demonstrates some of the ways to make class attributes behave
+  as a CONSTANT, so that they can be viewed but not modified.
 
   In many languages, one can specify class attributes of type "protected" 
   and "private". Protected means that a class and its subclasses have access 
@@ -23,8 +23,8 @@
   visible to code outside the class that contains them, although you can get around 
   it if you're determined enough (use "<obj>._<className>__var" as shown below).
 
-  The best way to enforce that the class attribute not be modified/deleted,
-  you can use the @property decorator as demonstrated below. 
+  The best way to enforce that the class attribute not be modified/deleted is
+  to use the @property decorator as demonstrated below. 
 
   TEST: Execute the Class.main() 
   # python3 ClassWithConstantAttr.py 
