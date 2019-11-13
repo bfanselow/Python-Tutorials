@@ -1,6 +1,6 @@
 LEARN
 =====
-Scripts written for the purpose of better understanding common Python lanaguage concepts, or specific modules/packages
+Scripts written for the purpose of better understanding tricky Python language constructs/concepts, or specific modules/packages
 
 
 A few fun Examples
