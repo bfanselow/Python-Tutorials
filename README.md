@@ -8,10 +8,7 @@ A random collection of python scripts, modules, and apps
 Simple scripts written for the purpose of learning and understanding python concepts, packages, modules, etc.
 
 * **Concepts**: some of the more powerful, but trickier concepts in Python.
-  - ``args_kwargs.py``
-  - ``list_comprehension.py``
-  - ``list_slicing.py``
-  - ``decorator_demos.py``
+    (args-kwargs, list-comprehension, list-slicing, map-function, recursion, etc.)
   
 * **Packages**: simple tests of various Python packages
   - ``numpy_demos.py``
