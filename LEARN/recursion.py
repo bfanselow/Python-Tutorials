@@ -19,9 +19,9 @@
 
  NOTICE!!!!!!!: 
    Python will save you from forgetting the base case and raise an
-   RecursionError() exception with the maximum recursion depth is
+   RecursionError() exception if the maximum recursion depth is
    exceeded.  However, keep in mind that recursive functions can
-   often become extremely expensive/time-consuming. THerefore, careful 
+   often become extremely expensive/time-consuming. Therefore, careful 
    consideration of the function logic is critical to avoid costly
    processing.  For example, compare the two different Fibonacci 
    functions below. The "fast" version is 42,000 times faster than
