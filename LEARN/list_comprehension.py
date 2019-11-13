@@ -91,7 +91,7 @@ if __name__ == "__main__":
   print("\nList of 2^x where x in [0..11]")
   print( doubler(0, 12) )
   
-  print("\nLost of Non-prime numbers from 4 to 60")
+  print("\nList of Non-prime numbers from 4 to 60")
   print( nonprimes(60) )
   
   print("\nList of Prime numbers from 4 to 60")
