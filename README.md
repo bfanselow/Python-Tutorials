@@ -1,7 +1,7 @@
 Python
 =========
 
-A random collection of python scripts, modules, and apps
+A random collection of python3 scripts, modules, and apps
 
 / LEARN
 ---------
