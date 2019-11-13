@@ -1,6 +1,11 @@
 """
 
+  File: ClassWithConstantAttr.py
   class-name: ClassWithConstantAttr()
+  Author: Bill Fanselow
+  Date: 11-10-2019
+  
+  Description:
 
   This class demonstrates some of the ways to "hide" class attributes in Python,
   or make them CONSTANT, so that they cannot be viewed but not modified.
