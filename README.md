@@ -10,7 +10,7 @@ Simple scripts written for the purpose of learning and understanding python conc
 * **Concepts**: some of the more powerful, but trickier concepts in Python.
     (args-kwargs, list-comprehension, list-slicing, map-function, recursion, etc.)
   
-* **Packages**: simple tests of various Python packages
+* **Modules/Packages**: simple tests/demos of various Python modules/packages
   - ``numpy_demos.py``
   - ``pandas_dataframe.py``
   
