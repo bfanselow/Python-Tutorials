@@ -1,6 +1,10 @@
 """
 
-  Object (dict|list) manipulation methods 
+  File: utils_object.py
+  Author: Bill Fanselow
+  
+  Description:
+    Object (dict|list) manipulation functions 
 
 """
 
