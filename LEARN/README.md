@@ -1,3 +1,8 @@
+LEARN
+=====
+Scripts written for the purpose of better understanding common Python lanaguage concepts, or specific modules/packages
+
+
 Fun Samples
 ------------
 
