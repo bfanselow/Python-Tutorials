@@ -66,11 +66,15 @@ def fibonacci_recursion_fast(n):
 ##--------------------------------------------------------------------
 @func_timer
 def timed_fibonacci_recursion_slow(n):
+  ## made a seperate function so that the timing decorator is not called on each recursion, rather only
+  ## times the total time for all calculations
   return fibonacci_recursion_slow(n)
 
 ##--------------------------------------------------------------------
 @func_timer
 def timed_fibonacci_recursion_fast(n):
+  ## made a seperate function so that the timing decorator is not called on each recursion, rather only
+  ## times the total time for all calculations
   return fibonacci_recursion_fast(n)
 
 ##--------------------------------------------------------------------
