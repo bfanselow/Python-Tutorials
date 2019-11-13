@@ -24,7 +24,8 @@
   it if you're determined enough (use "<obj>._<className>__var" as shown below).
 
   The best way to enforce that the class attribute not be modified/deleted is
-  to use the @property decorator as demonstrated below. 
+  to use the @property decorator as demonstrated below. All of these options are
+  demonstrated by this class.
 
   TEST: Execute the Class.main() 
   # python3 ClassWithConstantAttr.py 
