@@ -3,8 +3,8 @@ LEARN
 Scripts written for the purpose of better understanding common Python lanaguage concepts, or specific modules/packages
 
 
-Fun Samples
-------------
+A few fun Examples
+------------------
 
 List Comprehension: building a list of prime numbers up to 60. (BTW: [1 is NOT a prime number!](https://blogs.scientificamerican.com/roots-of-unity/why-isnt-1-a-prime-number/))
 
