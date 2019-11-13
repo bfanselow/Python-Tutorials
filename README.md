@@ -16,7 +16,7 @@ Simple scripts written for the purpose of learning and understanding python conc
   
 / TOOLBOX
 ---------
-My personal toolbox of Python scripts, classes, modules, etc.
+My personal toolbox of (utility) scripts, classes, modules used across many different projects.
   - **MultiProcLogging**:  Create a MP.Queue() with which to write to a shared log-file from multi-process workers
 
 / APPS
