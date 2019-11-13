@@ -1,6 +1,11 @@
 """
 
- Datetime methods 
+ File: utils_datetime.py
+ Author: Bill Fanselow
+ 
+ Description:
+   Date/Time handling functions
+
 
 """
 
