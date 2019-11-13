@@ -1,11 +1,18 @@
 
-############################################################
-"""
- Generic utils shared across WORKFLOW modules.
- Requires: pip install jmespath
 
 """
-############################################################
+
+ File: utils.py
+ Author: Bill Fanselow
+ 
+ Description:
+ Generic utility functions
+ 
+ Requires: 
+   pip install jmespath
+
+"""
+
 ##----------------------------------------------------------
 ## Python2 compatiblity
 from __future__ import (division, print_function)
