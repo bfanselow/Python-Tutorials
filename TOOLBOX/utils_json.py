@@ -1,10 +1,18 @@
 
-############################################################
-"""
- Requires: pip install jmespath
 
 """
-############################################################
+
+ File: utils_json.py
+ Author: Bill Fanselow
+ 
+ Description:
+   json parsing/handling functions
+
+ Requires: 
+   pip install jmespath
+
+"""
+
 ##-----------------------------------------------------------
 ## Python2 compatiblity
 from __future__ import (division, print_function)
