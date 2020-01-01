@@ -1,6 +1,6 @@
 """
 
- Demonstration of teh built-in @classmethod decorator for "class-factory" functionalty.
+ Simple demonstration of the built-in @classmethod decorator for "class-factory" functionalty.
 
   >>> from Burger import Burger
   >>> Burger()
