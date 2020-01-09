@@ -6,7 +6,7 @@
     Uses time.perf_counter() by default, but can use time.process_time() if specified in init().
     The difference is that perf_counter() returns absolute time including system time when your
     Python process is not running (thus subject to system load). Instead, process_time() returns
-    only user time (excluding system time), which is only the time of your process.
+    only user time (only the time of your process - excluding system time).
   Author: Bill Fanselow
   Created: 10-07-2020
 
