@@ -24,7 +24,7 @@ class TimerError(Exception):
 #----------------------------------------------------------------------------
 class PerfTimer:
   """
-  Instantiate a code performace-timing object for profiling code.
+  Instantiate a code performance-timing object for profiling code.
 
   Init-Args:
     d_init (dict): Initialization args (optional)
