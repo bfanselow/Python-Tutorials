@@ -11,48 +11,47 @@
 
 """
 #------------------------------------------------------------
-## create simple list of x^2 where x in range(start,stop)
 def squares(start=0, stop=10):
-  ##
-  ## This is equivelent to:
-  ##   l_sq = []
-  ##   for x in range(start, stop):
-  ##     l_sq.append(x**2)
-  ##
+  """
+  Create simple list of x^2 where x in range(start,stop)
+   This is equivelent to:
+    l_sq = []
+    for x in range(start, stop):
+      l_sq.append(x**2)
+  """
   l_sq = [x**2 for x in range(start,stop)]
   return(l_sq) 
 
 #------------------------------------------------------------
-## create list of 2^x where x in range(start,stop)
 def doubler(start=0, stop=10):
+  """Create list of 2^x where x in range(start,stop)"""
   l_db = [ 2**x for x in range(start,stop)]
   return(l_db) 
 
 #------------------------------------------------------------
-## create list of non-prime numbers from 4 to stop 
-## (note that 1 is NOT considered a prime number)
 def nonprimes(stop):
-  ##
-  ## This is a complex (nested) list comprehension.
-  ## This is equivelent to 2 nested for() loops:
-  ##   l_np = []
-  ##   for i in range(2, 8): ## start with first for(): 2,3,4,5,6,7
-  ##     for j in range(i*2, 50, i): ## nested for() with stop=50: 4,6,8,10,...,3,6,9,12,...,8,12,16,20,...,10,15,20,25,...
-  ##       l_np.append(j)
-  ##
+  """
+  Create list of non-prime numbers from 4 to stop (note that 1 is NOT considered a prime number)
+  This is a complex (nested) list comprehension.
+  This is equivelent to 2 nested for() loops:
+     l_np = []
+     for i in range(2, 8): ## start with first for(): 2,3,4,5,6,7
+       for j in range(i*2, 50, i): ## nested for() with stop=50: 4,6,8,10,...,3,6,9,12,...,8,12,16,20,...,10,15,20,25,...
+         l_np.append(j)
+  """
   l_np = [j for i in range(2,8) for j in range(i*2, stop, i)]
   return(l_np) 
 
 #------------------------------------------------------------
-## create list of prime numbers from 4 to stop
 def primes(stop):
+  """Create list of prime numbers from 4 to stop"""
   l_nonprimes = nonprimes(stop)
   l_p = [x for x in range(2,stop) if x not in l_nonprimes]
   return(l_p) 
 
 #------------------------------------------------------------
-## perform multiple string operations on a sentance 
 def word_parse(sentance=None):
+  """Perform multiple string operations on a sentance"""
   if not sentance:
     sentance = "Hello my name is Bill and I am pleased to meet you"
   l_words = sentance.split()
@@ -60,9 +59,8 @@ def word_parse(sentance=None):
   return(l_parsed) 
 
 #------------------------------------------------------------
-## Recursive quicksort of a list of integers 
 def quick_sort(l_integers):
-
+  """Recursive quicksort of a list of integers"""
   if len(l_integers) <= 1:
     return(l_integers)
   ## Get the number associated with the mid-point index of the list
