@@ -25,15 +25,15 @@ import inspect
 # DECORATORS
 #------------------------------------------------------------------------
 def decorate_by_hand(func_to_decorate):
-    ##
-    ##  Remember, functions are just objects and can be passed to other functions.
-    ##  A decorator is just a function that accepts another function as parameter,
-    ##  so as to "wrap" itself around the other function. This allows you to
-    ##  perform some operations before and/or after executing the function.
-    ##
-    ## Pros: inutitive, fast
-    ## Cons: doesn't easily handle function args and function signatures such as func_to_decorate.__name__
-    ##
+    """
+    Test old-school method-decoration without decorator lib methods.
+    Remember, functions are just objects and can be passed to other functions.
+    A decorator is just a function that accepts another function as parameter,
+    so as to "wrap" itself around the other function. This allows you to
+    perform some operations before and/or after executing the function.
+    Pros: inutitive, fast
+    Cons: doesn't easily handle function args and function signatures such as func_to_decorate.__name__
+    """
     tag = 'decorate_by_hand'
     print("%s: Decorating function (%s) by hand..." % (tag, func_to_decorate.__name__))
 
@@ -49,10 +49,11 @@ def decorate_by_hand(func_to_decorate):
 
 #------------------------------------------------------------------------
 def decorator_with_args(func_to_decorate):
-    ##
-    ## Pros: simple, fast
-    ## Cons: doesn't easily handle function signatures such as func_to_decorate.__name__
-    ##
+    """
+    Test decoration with method args.
+    Pros: simple, fast
+    Cons: doesn't easily handle function signatures such as func_to_decorate.__name__
+    """
     tag = 'decorator_with_args'
     print("%s: Decorating function with args..." % (tag))
     def func_wrapper_with_args(*args, **kwargs):
@@ -66,11 +67,13 @@ def decorator_with_args(func_to_decorate):
 
 #------------------------------------------------------------------------
 def decorator_with_wraps(func_to_decorate):
-    ##
-    ## Pros: easier to use. Handles func_to_decorate._name__ 
-    ## Cons: Breaks funtion introspection a can be seen with inspect.getfullargspec( test_func_3 )) 
-    ##       This may seem like a non-issue, but there are some bugs that can arise from 
-    ##       broken-introspection. 
+    """
+    Test decoration with functools.wraps
+    Pros: easier to use. Handles func_to_decorate._name__ 
+    Cons: Breaks funtion introspection a can be seen with inspect.getfullargspec( test_func_3 )) 
+    This may seem like a non-issue, but there are some bugs that can arise from 
+    broken-introspection. 
+    """
     @functools.wraps(func_to_decorate)
     def wrapper(*args, **kwargs):
       print("  [@wraps.wrapper]: Executing (pre) tasks before running function...")
@@ -81,10 +84,11 @@ def decorator_with_wraps(func_to_decorate):
 #------------------------------------------------------------------------
 @decorator
 def decorator_decorator(func_to_decorate, *args, **kwargs):
-    ##
-    ## Pros: Easier syntax 
-    ## Cons: Slower than previous approaches, though unlikely to be noticed 
-    ##
+    """
+    Test with decorator lib
+    Pros: Easier syntax 
+    Cons: Slower than previous approaches, though unlikely to be noticed 
+    """
     print("[decorator_decorator}: Calling decorated function...")
     text = func_to_decorate(*args, **kwargs)
     return( text )
