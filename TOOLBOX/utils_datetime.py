@@ -6,7 +6,6 @@
  Description:
    Date/Time handling functions
 
-
 """
 
 ##----------------------------------------------------------
@@ -22,23 +21,20 @@ myname = 'utils_datetime.py'
 
 DEBUG = 2 
 
-
 #------------------------------------------------------------------------
 class MethodInputError(Exception):
   pass
 
 #------------------------------------------------------------------------
 def datetime_duration(ts_start, ts_end, units="seconds"):
-  
-  ##
-  ##  Calculate the time duration between two input dates.
-  ##  Args:
-  ##      * timestamp-start (datetime string) 
-  ##      * timestamp-end (datetime string) 
-  ##      * Optional units (default seconds) 
-  ##  Return:
-  ##    Duration value between timestamps in specified units 
-  ##
+  """
+   Calculate the time duration between two input dates.
+   Args:
+        * timestamp-start (datetime string) 
+        * timestamp-end (datetime string) 
+        * Optional units (default seconds) 
+   Return: Duration value between timestamps in specified units 
+  """
     tag = 'datetime_duration()'
 
     m = re.match(r'^(\d{4}\-\d{2}\-\d{2}\s\d{2}:\d{2}:\d{2})$', ts_start)
@@ -81,35 +77,31 @@ def datetime_duration(ts_start, ts_end, units="seconds"):
 
 #------------------------------------------------------------------------
 def datetime_duration_from_now(timestamp, units="seconds"):
-  
-  ##
-  ##  Calculate the time duration between one input datetime string and now(),
-  ##  where the timestamp is the start of the window and now() is the end.
-  ##  Args:
-  ##      * timestamp (datetime string) 
-  ##      * Optional units (default seconds) 
-  ##  Return:
-  ##    Duration value between timestamp and now() in specified units 
-  ##
-    tag = 'datetime_duration_from_now()'
+  """
+   Calculate the time duration between one input datetime string and now(),
+   where the timestamp is the start of the window and now() is the end.
+   Args:
+        * timestamp (datetime string) 
+        * Optional units (default seconds) 
+   Return: Duration value between timestamp and now() in specified units 
+  """
+  tag = 'datetime_duration_from_now()'
 
-    ts_now = gmt_now()
+  ts_now = gmt_now()
+  duration = datetime_duration(timestamp, ts_now, units)
 
-    duration = datetime_duration(timestamp, ts_now, units)
-
-    return(duration)
+  return(duration)
 
 #------------------------------------------------------------------------
 def gmt_now_with_delta(d_delta, format=None):
-  ## 
-  ##  Get the current timestamp string in UTC with a time delta.
-  ##  Args:
-  ##   * Dict of delta units=>values (seconds,minutes,hours,days,months)
-  ##      Example: d_delta = {'seconds': 10, 'minutes': 20, 'days': 2 } 
-  ##   * Optional datetime formatting.
-  ##  Return:
-  ##    String representation of the timestamp in UTC timezone.
-  ##
+  """
+   Get the current timestamp string in UTC with a time delta.
+   Args:
+     * Dict of delta units=>values (seconds,minutes,hours,days,months)
+        Example: d_delta = {'seconds': 10, 'minutes': 20, 'days': 2 } 
+     * Optional datetime formatting.
+   Return: String representation of the timestamp in UTC timezone.
+  """
 
   tag = 'gmt_now_with_delta()' 
  
@@ -125,13 +117,12 @@ def gmt_now_with_delta(d_delta, format=None):
 
 #------------------------------------------------------------------------
 def gmt_now(format=None):
-  ## 
-  ##  Get the current timestamp string in UTC.
-  ##  Args:
-  ##   * Optional datetime formatting.
-  ##  Return:
-  ##    String representation of the timestamp in UTC timezone.
-  ## 
+  """
+   Get the current timestamp string in UTC.
+   Args:
+     * Optional datetime formatting.
+    Return: String representation of the timestamp in UTC timezone.
+  """ 
 
   tag = 'gmt_now()'
 
@@ -146,39 +137,36 @@ def gmt_now(format=None):
 
 #------------------------------------------------------------------------
 def timestamp_to_str(timestamp):
-  ## 
-  ##   Convert epoch timestamp to a time string in UTC.
-  ##   Args:
-  ##     * timestamp: The epoch time, in seconds, to convert.
-  ##   Return:
-  ##      String representation of the timestamp in UTC timezone.
-  ## 
+  """
+   Convert epoch timestamp to a time string in UTC.
+   Args:
+       * timestamp: The epoch time, in seconds, to convert.
+   Return: String representation of the timestamp in UTC timezone.
+  """ 
     
-    tag = 'timestamp_to_str()'
+  tag = 'timestamp_to_str()'
 
-    if not timestamp:
-        return ''
-    if timestamp == sys.maxsize:
-        # sys.maxsize represents infinity.
-        return 'inf'
-    utc = pytz.timezone('UTC')
-    return datetime.datetime.fromtimestamp(timestamp, tz=utc).strftime('%Y-%m-%d %H:%M:%S %Z')
-
-
+  if not timestamp:
+    return ''
+  if timestamp == sys.maxsize:
+    # sys.maxsize represents infinity.
+    return 'inf'
+  utc = pytz.timezone('UTC')
+  return datetime.datetime.fromtimestamp(timestamp, tz=utc).strftime('%Y-%m-%d %H:%M:%S %Z')
+ 
 #------------------------------------------------------------------------
 def str_to_timestamp(time_str):
-  ## 
-  ##  Convert a time string to epoch timestamp.
-  ##  Args:
-  ##    * time_str: String representation of the timestamp in UTC timezone.
-  ##  Returns
-  ##   The epoch time, in seconds.
-  ##
+  """ 
+   Convert a time string to epoch timestamp.
+   Args:
+     * time_str: String representation of the timestamp in UTC timezone.
+   Returns: The epoch time, in seconds.
+  """
 
-    tag = 'str_to_timestamp()'
+  tag = 'str_to_timestamp()'
 
-    date = datetime.datetime.strptime(time_str, '%Y-%m-%d %H:%M:%S %Z')
-    return calendar.timegm(date.utctimetuple())
+  date = datetime.datetime.strptime(time_str, '%Y-%m-%d %H:%M:%S %Z')
+  return calendar.timegm(date.utctimetuple())
 
 #------------------------------------------------------------------------
 ## UNIT-TEST EACH METHOD() 
