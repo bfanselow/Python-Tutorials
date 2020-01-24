@@ -36,23 +36,23 @@ DEBUG = 2
 
 #------------------------------------------------------------------------
 def stderr_notify(caller, msg, d_args=None):
-
-  ## Simple exception handler for printing exception info to STDERR. 
-  ## d_args is optional and can have any of the following:
-  ##   1) 'exc': <excObject> 
-  ##      If this is present the exception info will be printed to STDERR. 
-  ##      Otherwise only <msg> is printed to STDERR
-  ##            
-  ##   2) 'exit': <exit_code> 
-  ##      If this is present the method will call sys.exit(<ecode>).
-  ##      Otherwise STDERR is printed but no exiting. 
-  ##
-  ## Example usage (typically after ... except Exception as e: )
-  ## 1) Notice with exception-info AND exit:    exc_stderr(myname, "<error-msg>", {'exc': <excObj>, 'exit':2}) 
-  ## 2) Notice with NO exception-info AND exit: exc_stderr(myname, "<error-msg>", {'exit':2})          
-  ## 3) Notice with Exception-info and NO exit: exc_stderr(myname, "<error-msg>", {'exc': <excObj>} )         
-  ## 4) Notice ONLY: exc_stderr(myname, "<error-msg>" )         
-
+  """
+   Simple exception handler for printing exception info to STDERR. 
+   d_args is optional and can have any of the following:
+     1) 'exc': <excObject> 
+        If this is present the exception info will be printed to STDERR. 
+        Otherwise only <msg> is printed to STDERR
+              
+     2) 'exit': <exit_code> 
+        If this is present the method will call sys.exit(<ecode>).
+        Otherwise STDERR is printed but no exiting. 
+  
+   Example usage (typically after ... except Exception as e: )
+   1) Notice with exception-info AND exit:    exc_stderr(myname, "<error-msg>", {'exc': <excObj>, 'exit':2}) 
+   2) Notice with NO exception-info AND exit: exc_stderr(myname, "<error-msg>", {'exit':2})          
+   3) Notice with Exception-info and NO exit: exc_stderr(myname, "<error-msg>", {'exc': <excObj>} )         
+   4) Notice ONLY: exc_stderr(myname, "<error-msg>" )         
+  """
   exc = None
   exit = None
 
@@ -99,22 +99,19 @@ def makeUniqHash(input_text=None):
 
 #------------------------------------------------------------------------
 def isExecutable(path):
-  ##
-  ## Check if <path> is on system and executable by caller
-  ## 
+  """ Check if <path> is on system and executable by caller """
 
   status = shutil.which(path)
-
   return(status)
 
 #------------------------------------------------------------------------
 def getDataType(obj, mode="specific"):
-  ##
-  ## Simplify the tedious process of determining data-type. If default mode
-  ## (mode="specific") is overridden with mode="generic" several data-types
-  ## (str,int,float,bool) are combined into a single new type called "scaler".
-  ## Return: data-type
-  ##
+  """
+   Simplify the tedious process of determining data-type. If default mode
+   (mode="specific") is overridden with mode="generic" several data-types
+   (str,int,float,bool) are combined into a single new type called "scaler".
+   Return: data-type
+  """
   type = None
     
   l_scalar_types = ['str', 'int', 'float', 'bool' ]
@@ -142,14 +139,13 @@ def getDataType(obj, mode="specific"):
 
 #------------------------------------------------------------------------
 def getStrNumericType(str):
-  ##
-  ## Identify the numeric type of a number which has been cast in string from. 
-  ## Example: Suppose we have the string "3.03". We don't want to know the
-  ##          obvious - that it is actually type=string, we want to know what
-  ##          numeric type (INT or FLOAT) is contained in this string.
-  ##           
-  ## Return: Numeric data-type. Returns None if string is not a number (ether INT or FLOAT)
-  ##
+  """
+   Identify the numeric type of a number which has been cast in string from. 
+   Example: Suppose we have the string "3.03". We don't want to know the
+            obvious - that it is actually type=string, we want to know what
+            numeric type (INT or FLOAT) is contained in this string.        
+   Return: Numeric data-type. Returns None if string is not a number (ether INT or FLOAT)
+  """
   numeric_type = None
 
   m = re.match("^(\d+)$", str)
@@ -164,14 +160,13 @@ def getStrNumericType(str):
 
 #------------------------------------------------------------------------
 def castStrNumericType(str):
-  ##
-  ## Identify the numeric type of a number which has been cast in string from
-  ## and cast it to the appropriate numeric type.
-  ## Example: Suppose we have the string "3.03". We need to identify that the
-  ##          numeric-type is a float and cast it as a float. Same logic for int. 
-  ##           
-  ## Return: Number appropriately casted to its type. Returns None if string is not a number (ether INT or FLOAT)
-  ##
+  """
+   Identify the numeric type of a number which has been cast in string from
+   and cast it to the appropriate numeric type.
+   Example: Suppose we have the string "3.03". We need to identify that the
+            numeric-type is a float and cast it as a float. Same logic for int.    
+   Return: Number appropriately casted to its type. Returns None if string is not a number (ether INT or FLOAT)
+  """
   casted_number = None
 
   m = re.match("^(\d+)$", str)
@@ -197,17 +192,16 @@ def print_line_sep(char, count, pre_nl_count=0, post_nl_count=0):
   if post_nl_count > 0:
     print( "\n" * post_nl_count )
 
-
 #------------------------------------------------------------------------
 def get_obj_val(d_obj, find_expr):
-
-  ## Determine if input is valid dict 
-  ## If valid dict, apply the jmespath parsing and return matched value(s) 
-  ## The matched value(s) could be any datatype (dict, list, str, int, etc.) 
-  ## If more than one match is found, match will be a list of matched objects.
-  ## If invalid dict, return False  
-  ## TODO: if input is invalid, raise expcetion
-
+  """
+   Determine if input is valid dict 
+   If valid dict, apply the jmespath parsing and return matched value(s) 
+   The matched value(s) could be any datatype (dict, list, str, int, etc.) 
+   If more than one match is found, match will be a list of matched objects.
+   If invalid dict, return False  
+   TODO: if input is invalid, raise expcetion
+  """
   tag = myname + '.get_obj_val'
 
   if isinstance( d_obj, dict ):
@@ -222,10 +216,8 @@ def get_obj_val(d_obj, find_expr):
     print( d_obj )
     return False 
 
-
 #------------------------------------------------------------------------
 def get_user_name():
-  ##return( getpass.getuser() )
     try:
       return getuser()
     except KeyError:
@@ -233,7 +225,7 @@ def get_user_name():
 
 #------------------------------------------------------------------------
 def dataDump(data, title=None):
-  ## Mimic Perl's data Dumper()
+  """Mimic Perl's data Dumper()"""
 
   if title is None:
     title = 'DataDump'
@@ -244,7 +236,7 @@ def dataDump(data, title=None):
 
 #------------------------------------------------------------------------
 def printTodo(text, title=None):
-  ## print a "TODO" statement (for use during development)
+  """print a "TODO" statement (for use during development)"""
 
   if title is None:
     print("\n\n--TODO-----------------" )
@@ -254,7 +246,6 @@ def printTodo(text, title=None):
   print("----------------------------\n\n" )
  
 #------------------------------------------------------------------------
-
 ##
 ## UNIT-TEST EACH METHOD() 
 ##
