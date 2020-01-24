@@ -18,10 +18,10 @@ class MethodInputError(Exception):
 
 ##===========================================================================
 def is_dict_subset(d_superset, d_subset):
-  ##
-  ## Check to see if one dict (d_subset) is a subset of another dict (d_superset).
-  ## Retrun True if subset, False otherwise.
-  ##
+  """
+   Check to see if one dict (d_subset) is a subset of another dict (d_superset).
+   Retrun True if subset, False otherwise.
+  """
   myname = 'is_dict_subset'
 
   if not isinstance(d_superset, dict):
@@ -57,11 +57,11 @@ def is_dict_subset(d_superset, d_subset):
 
 ##===========================================================================
 def is_list_subset(l_superset, l_subset):
-  ##
-  ## Check to see if one list (l_subset) is a subset of another list (l_superset).
-  ## (order does not matter)
-  ## Retrun True if subset, False otherwise.
-  ##
+  """
+   Check to see if one list (l_subset) is a subset of another list (l_superset).
+   (order does not matter)
+   Retrun True if subset, False otherwise.
+  """
   myname = 'is_list_subset'
   
   if not isinstance(l_superset, list):
