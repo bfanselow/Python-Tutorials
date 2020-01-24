@@ -26,45 +26,43 @@ myname = 'utils_json.py'
 
 DEBUG = 2 
 
-
 #----------------------------------------------------------
 def value_converter(obj):
-  ##
-  ## Convert any json values which are not serializable
-  ## Usage:  json.dumps(obj, default=value_converter)
+  """
+   Convert any json values which are not serializable
+   Usage:  json.dumps(obj, default=value_converter)
+  """
+  ## datetime object: json.dumps() throws "TypeError: Object of type 'datetime' is not JSON serializable"
+  if isinstance(obj, (datetime, date)):
+    return obj.isoformat()
 
-    ## datetime object: json.dumps() throws "TypeError: Object of type 'datetime' is not JSON serializable"
-    if isinstance(obj, (datetime, date)):
-        return obj.isoformat()
-
-    raise TypeError ("Type %s not serializable" % type(obj))
+  raise TypeError ("Type %s not serializable" % type(obj))
 
 #----------------------------------------------------------
 def dict_to_json(d_input):
+  """ Convert dict to json with automatic conversions which would normally fail in default json.dumps()"""
+  json_str = None
+  try:
+    json_str = json.dumps(d_input, default=value_converter)
+  except Exception as e:
+    raise 
 
-   json_str = None
-   try:
-     json_str = json.dumps(d_input, default=value_converter)
-   except Exception as e:
-     raise 
-
-   return(json_str)
+  return(json_str)
 
 #----------------------------------------------------------
 def json_to_dict(json_str):
+  """ Convert json to dict"""
+  d_dict = None
+  try:
+    d_dict = json.loads(json_str)
+  except Exception as e:
+    raise 
 
-   d_dict = None
-   try:
-     d_dict = json.loads(json_str)
-   except Exception as e:
-     raise 
-
-   return(d_dict)
+  return(d_dict)
 
 #----------------------------------------------------------
 def is_json(json_str):
-
-  ## determine if a string is valid json  
+  """Determine if a string is valid json"""
   
   tag = myname + '.is_json'
  
@@ -80,11 +78,11 @@ def is_json(json_str):
 
 #----------------------------------------------------------
 def read_json_config(cfg_file_path):
-  
-  ## read a json config file
-  ## If valid json, return a dict containing the data  
-  ## If invalid json, return False  
-  
+  """
+   Read a json config file
+   If valid json, return a dict containing the data  
+   If invalid json, return False  
+  """
   tag = myname + '.read_json_config'
   
   if DEBUG > 1:
@@ -101,13 +99,13 @@ def read_json_config(cfg_file_path):
 #----------------------------------------------------------
 
 def get_json_val(json_str, find_expr):
-
-  ## If valid json, apply the jmsepath parsing and return the matched value(s) 
-  ## The matched value(s) could be any datatype found in a json (dict, list, str, int, etc.) 
-  ## If more than one match is found, match will be a list of matched objects.
-  ## If invalid json, return False  
-  ## TODO: if input is invalid, raise expcetion
-
+  """
+   If valid json, apply the jmsepath parsing and return the matched value(s) 
+   The matched value(s) could be any datatype found in a json (dict, list, str, int, etc.) 
+   If more than one match is found, match will be a list of matched objects.
+   If invalid json, return False  
+   TODO: if input is invalid, raise expcetion
+  """
   tag = myname + '.get_json_val'
  
   if is_json(json_str):
@@ -121,8 +119,7 @@ def get_json_val(json_str, find_expr):
     print( "%s: ERROR - Invalid input json str. Cannot perform jmespath operation" % (tag))
     return False 
 
-#----------------------------------------------------------
-
+##----------------------------------------------------------
 ##
 ## UNIT-TEST EACH METHOD() 
 ##
