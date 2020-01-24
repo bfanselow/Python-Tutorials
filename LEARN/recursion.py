@@ -48,8 +48,10 @@ def factorial_recursion(n):
 
 ##--------------------------------------------------------------------
 def fibonacci_recursion_slow(n):
-  ## F(n) = F(n-1) + F(n-2) where F(0) = 0 and F(1) = 1
-  ## Sequence: 0,1,1,2,3,5,8,13,...
+  """
+  F(n) = F(n-1) + F(n-2) where F(0) = 0 and F(1) = 1
+  Sequence: 0,1,1,2,3,5,8,13,...
+  """
   if n == 0:   ## "base" case
     return(0)
   elif n == 1:  ## another "base" case
@@ -66,15 +68,19 @@ def fibonacci_recursion_fast(n):
 ##--------------------------------------------------------------------
 @func_timer
 def timed_fibonacci_recursion_slow(n):
-  ## made a seperate function so that the timing decorator is not called on each recursion, rather only
-  ## times the total time for all calculations
+  """
+  Made a seperate function so that the timing decorator is not called on each recursion, rather only
+  times the total time for all calculations.
+  """
   return fibonacci_recursion_slow(n)
 
 ##--------------------------------------------------------------------
 @func_timer
 def timed_fibonacci_recursion_fast(n):
-  ## made a seperate function so that the timing decorator is not called on each recursion, rather only
-  ## times the total time for all calculations
+  """
+  Made a seperate function so that the timing decorator is not called on each recursion, rather only
+  times the total time for all calculations.
+  """
   return fibonacci_recursion_fast(n)
 
 ##--------------------------------------------------------------------
