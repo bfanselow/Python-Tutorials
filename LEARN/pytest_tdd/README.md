@@ -1,12 +1,16 @@
-### Test-Driven-Development (TDD) using Python's "pytest"
+# Test-Driven-Development (TDD) using Python's "pytest"
 
-### What exactly is TDD?
-## Myth: TDD means creating all the tests for your application's functionality before writing any code. This myth creates the misconception that TDD practitioners don’t bother with good design and architecture phases.
-## Reality: TDD does not mean you create all tests before writing any code.  TDD is simply a sequence by which you write code when you’re ready to start writing code. It an iterative process throughout the entire (iterative) development process.  Good TDD habits imply that when you begin to write actual code for a new piece of functionality, you start with a test that fails and then write the functionality such that the test eventually passes. TDD can be summarized as breaking your code into tiny pieces of functionality and then carefully defining “done” before you start the next incremental piece. Write a test that fails; now write the code that makes the test pass; When it passes, you’ll be done with the current bit you’re working on.
+## What exactly is TDD?
+### Myth:
+TDD means creating all the tests for your application's functionality before writing any code. This myth creates the misconception that TDD practitioners don’t bother with good design and architecture phases.
 
-## Example: create a "BankAccount" class to model the opening an account, with methods for depositing and withdrawing funds from that account.
+### Reality:
+TDD does not mean you create all tests before writing any code.  TDD is simply a sequence by which you write code when you’re ready to start writing code. It an iterative process throughout the entire (iterative) development process.  Good TDD habits imply that when you begin to write actual code for a new piece of functionality, you start with a test that fails and then write the functionality such that the test eventually passes. TDD can be summarized as breaking your code into tiny pieces of functionality and then carefully defining “done” before you start the next incremental piece. Write a test that fails; now write the code that makes the test pass; When it passes, you’ll be done with the current bit you’re working on.
 
-## TDD steps:
+## Example:
+create a "BankAccount" class to model the opening an account, with methods for depositing and withdrawing funds from that account.
+
+### TDD steps:
 1) create a project dir ./pytest_tdd to host a BankAccount class
 2) Optional virtualenv:  cd pytest_tdd; virtualenv [-p python3.x] <ve_name>; source <ve_name>bin/activate; pip install -U pytest
 3) Create a "tests" dir to host all pytest test files.
