@@ -7,7 +7,7 @@ TDD means creating all the tests for your application's functionality before wri
 TDD does not mean you create all tests before writing any code.  TDD is simply a sequence by which you write code when you’re ready to start writing code. It an iterative process throughout the entire (iterative) development process.  Good TDD habits imply that when you begin to write actual code for a new piece of functionality, you start with a test that fails and then write the functionality such that the test eventually passes. TDD can be summarized as breaking your code into tiny pieces of functionality and then carefully defining “done” before you start the next incremental piece. Write a test that fails; now write the code that makes the test pass; When it passes, you’ll be done with the current bit you’re working on.
 
 ## Pytest/TDD Example:
-Create a **BankAccount** class to model the opening an account, with methods for depositing and withdrawing funds from that account.
+Create a **BankAccount** class to model the basics of an account: opening account, and depositing and withdrawing funds from that account.
 
 ### TDD steps:
 1) Create a project dir **./pytest_tdd** to host a **BankAccount** class.
