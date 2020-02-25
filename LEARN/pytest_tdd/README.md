@@ -10,14 +10,14 @@ TDD does not mean you create all tests before writing any code.  TDD is simply a
 Create a "BankAccount" class to model the opening an account, with methods for depositing and withdrawing funds from that account.
 
 ### TDD steps:
-1) Create a project dir ./pytest_tdd to host a BankAccount class
-   (optional virtualenv:  cd pytest_tdd; virtualenv [-p python3.x] <ve_name>; source <ve_name>bin/activate; pip install -U pytest)
-2) Create a "tests" dir to host all pytest test files.
-3) In the tests dir, create a test file: "test_bank_account.py" and write some simple functionality tests (which will fail).
-4) run the tests: python3 -m pytest -v
-   (If we want to run only certain tests we can specify test-names by regex:  python3 -m pytest -k <regex> -v)
-5) Create the BankAccount.py class to pass the simple tests. 
-6) Iterative repetition of steps 3-5: consider additional functionality; write more tests; add additional functionality to pass tests. 
+1) Create a project dir **./pytest_tdd** to host a **BankAccount** class.
+   (optional virtualenv:  *cd pytest_tdd; virtualenv [-p python3.x] <ve_name>; source <ve_name>bin/activate; pip install -U pytest*)
+2) Create a **tests** dir to host all pytest test files.
+3) Create the **BankAccount** class "skeleton". Consider the most basic class functionality and document this in method docstrings, but hold off on writing code for the actual functionality.
+4) In the **tests** dir, create a test file prefixed by **test_** (e.g."test_bank_account.py") and write pytest methods to test the basic functionality of the **BankAccount** class.
+5) Run the tests: *python3 -m pytest -v*  (tests will fail as the functionality is typically not coded yet).
+6) Write functionality code in the **BankAccount.py** class such that the current tests will pass. 
+7) Iteratively repeat steps 3-6: consider additional functionality; write more tests; add additional functionality to pass tests. 
 
 <pre>
 /pytest_tdd
@@ -35,5 +35,6 @@ Create a "BankAccount" class to model the opening an account, with methods for d
 
 
 ## NOTES:
+* If we want to run only certain tests we can specify test-names by regex:  *python3 -m pytest -k <regex> -v*.
 * It is tempting to write tests that fail as a way of ensuring that the functionality fails in an expected way. Do NOT write tests that purposely fail. ALL tests should pass!  If you need to ensure that a method handles failure conditions, write the test such that the failure condition is properly handled such that the test PASSES! For example, write a test that verifies that an exception gets raised on failure and then write the code that raises the exception.
 * Do not make "test coverage" the goal of testing. If you make a certain level of coverage a target, people will try to attain it. The trouble is that high coverage numbers are too easy to reach with low quality testing. You're likely to get lots of tests looking for things that rarely go wrong and distracting you from testing the things that really matter.
