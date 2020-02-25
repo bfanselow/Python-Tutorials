@@ -20,12 +20,15 @@ Create a "BankAccount" class to model the opening an account, with methods for d
 6) Create the BankAccount.py class to pass the simple tests. 
 7) Iterative repetition of steps 4-6: consider additional functionality; write more tests; add additional functionality to pass tests. 
 
+<pre>
 /pytest_tdd
   |-BankAccount.py
   |-conftest.py
   |-tests
      |  
      |-test_bank_account.py
+</pre>
+
 
 ## Optimizing for many tests
 * conftest.py file: Primary use is for "@pytest.fixture" definitions. These allows us to defined commonly used variables, methods, etc. used throughout the tests - minimizing "boilerplate" code.
