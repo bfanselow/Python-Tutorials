@@ -29,7 +29,6 @@ StopIteration
 ```
 
 ---
-
 ## When to use Generators
 
 ### Handling large data streams or files
