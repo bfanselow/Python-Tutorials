@@ -47,7 +47,7 @@ for row in csv_gen:
 print("Row count is: %d" % (row_count))
 ```
 
-However, what if the file is larger than your system's available memory? Even though open() returns a generator object (which you can lazily iterate through line by line), file.read().split() loads everything into memory causing a MemoryError() exception.  
+However, what if the file is larger than your system's available memory? Even though *open()* returns a generator object (which you can lazily iterate through line by line), *file.read().split()* loads everything into memory causing a MemoryError() exception.  
 
 This is one scenario where Python Generators can be extremely useful.  
 Consider a new csv_reader() function:
@@ -58,7 +58,7 @@ def csv_reader(file_name):
 ```
 This code will produce the correct result with no memory errors. You’ve turned csv_reader() into a generator function. 
 It opens a file, loops through each line, and "yields" each row, rather than returning it.
-The keywork "yield" indicates where a value is sent back to the caller just like "return". However unlike return, you don’t exit the function afterward.  Instead, the state of the function is remembered so that when next() is called on the generator object, the next iterable result is yielded.
+The keyword **yield** indicates where a value is sent back to the caller just like "return". However unlike return, you don’t exit the function afterward.  Instead, the state of the function is remembered so that when next() is called on the generator object, the next iterable result is yielded.
 
 
 ### Creating infinite sequences
