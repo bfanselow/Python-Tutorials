@@ -1,13 +1,13 @@
 # Concurrency
 
-### Demonstration script **(webscrape_comparison.py)** require:
+### Demonstration script (*webscrape_comparison.py*) require:
  * Python 3.6+ 
  * pip install -r requirements.txt
 
 ---
 ###Concurrency basically means *"progressing at the same time"*, which is not necessarily in a true *parallel* fashion.
 
-### Three types of concurrency in Python
+###Three types of concurrency in Python
  * **multi-processing**
  * **multi-threading**
  * **asynio**
@@ -30,7 +30,7 @@ Starting Asyncio download of 80 sites...
 AsyncIO download of 80 sites - Duration: 1.2234148979187012 seconds
 ```
 
-## Concurrency Discussion
+##Concurrency Discussion
 Each type of concurrency has its own strenghts and weaknesses. Choosing which type to use depends on the type of problem:
  - **multi-processing** is best suited for CPU bound problems (multi-processing)
  - **multi-threading** and **asyncio** are best suited for I/O bound problems. They actaully slow things down for CPU bound problems! 
