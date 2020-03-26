@@ -3,7 +3,7 @@
 ## Summary
 Functions containing a **yield** statement are compiled as "generators". Using a yield expression in a function’s body causes that function to be a generator function, or just "Generator".
 
-These generator functions return a "generator object" (of type "iterator") which supports the iteration protocol methods - automatically supporting a __next()__ method..  You can loop over the generator object with __next__() like a list. However, unlike lists, these "lazy iterators" do not store their contents in memory.  You only compute the next value when required. This makes generators memory and compute efficient; they refrain from saving long sequences in memory or doing all expensive computations upfront. On encountering the yield statement, the iterator returns the provided value and suspends the function's execution, preserving all local variables. Execution resumes on the following call to the iterator's next() method, picking up after the yield statement.
+These generator functions return a "generator object" (of type "iterator") which supports the iteration protocol methods - automatically supporting a \_\_next()\_\_ method..  You can loop over the generator object with __next__() like a list. However, unlike lists, these "lazy iterators" do not store their contents in memory.  You only compute the next value when required. This makes generators memory and compute efficient; they refrain from saving long sequences in memory or doing all expensive computations upfront. On encountering the yield statement, the iterator returns the provided value and suspends the function's execution, preserving all local variables. Execution resumes on the following call to the iterator's next() method, picking up after the yield statement.
 
 **Example 1:**
 ```
@@ -30,7 +30,6 @@ StopIteration
 
 **Example 2:**
 ```
-import time
 def counter (maximum):
     i = 0
     while i <= maximum:
