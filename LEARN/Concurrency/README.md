@@ -42,7 +42,7 @@ Each type of concurrency has its own strenghts and weaknesses. Choosing which ty
 **ADVANTAGES**:   
  * True parallelism (and thus time-savings) *if* the system has multiple processors (i.e. multi-core). Both other forms of concurrency only utilize a single core (due to Python's GIL).
 
-**DISADVANTAGES**:   
+**DIS-ADVANTAGES**:   
  * Higher resource cost than threads since a full copy of the resources (code, file-handles, memory-stack, etc) is mades for each process.
  * Generally not as fast as multi-threading or asyncio (due to extra overhead) when dealing with I/O bound problems.
  * Compared to multi-threaing much harder to communicate between the multiple processes than between threads.
@@ -57,7 +57,7 @@ Each type of concurrency has its own strenghts and weaknesses. Choosing which ty
  * Compared to mutli-processing is generally faster for I/O bound problems.
  * Compared to asyncio, context-switching is done for you which can be nice in simple scenarios.
 
-**DISADVANTAGES**:   
+**DIS-ADVANTAGES**:   
   * Threads can interact in ways that are subtle and hard to detect. In particular, race conditions often result in random, 
     intermittent bugs that are difficult to find. Proper usage of thread-locks (or thread-local) variables is critical.
   * Compared to asyncio, context-switching is pre-emptive which can be less efficient is some scenarios. 
@@ -69,7 +69,7 @@ Each type of concurrency has its own strenghts and weaknesses. Choosing which ty
 **ADVANTAGES**:    
   * Compared to multi-threading, allows you to know exactly where the code will shift from one task to the next making code less prone to race conditions. 
   * Compared to multi-threading less resource usages since each thread needs to have its own stack. With async code, all the code shares the same stack and the stack is kept small due to continuously unwinding the stack between tasks.
-**DISADVANTAGES**:    
+**DIS-ADVANTAGES**:    
   * Difficult to learn, complex to code correctly. 
 
 
