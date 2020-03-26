@@ -3,9 +3,9 @@
 ## Summary
 Functions containing a **yield** statement are compiled as "generators". Using a yield expression in a function’s body causes that function to be a generator function, or just "Generator".
 
-These generator functions return a "generator object" (of type "iterator") which supports the iteration protocol methods - automatically supporting a \_\_next()\_\_ method..  You can loop over the generator object with __next__() like a list. However, unlike lists, these "lazy iterators" do not store their contents in memory.  You only compute the next value when required. This makes generators memory and compute efficient; they refrain from saving long sequences in memory or doing all expensive computations upfront. On encountering the yield statement, the iterator returns the provided value and suspends the function's execution, preserving all local variables. Execution resumes on the following call to the iterator's next() method, picking up after the yield statement.
+These generator functions return a "generator object" (of type "iterator") which supports the iteration protocol methods - automatically supporting a \_\_next\_\_() method..  You can loop over the generator object with __next__() like a list. However, unlike lists, these "lazy iterators" do not store their contents in memory.  You only compute the next value when required. This makes generators memory and compute efficient; they refrain from saving long sequences in memory or doing all expensive computations upfront. On encountering the yield statement, the iterator returns the provided value and suspends the function's execution, preserving all local variables. Execution resumes on the following call to the iterator's next() method, picking up after the yield statement.
 
-**Example 1:**
+**Example:**
 ```
 def spell_word(word):
     for c in word:
@@ -26,15 +26,6 @@ def spell_word(word):
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 StopIteration
-```
-
-**Example 2:**
-```
-def counter (maximum):
-    i = 0
-    while i <= maximum:
-        yield i
-        i += 1
 ```
 
 ---
@@ -74,7 +65,7 @@ The keywork "yield" indicates where a value is sent back to the caller just like
 ### Creating infinite sequences
 Another common use case for generators is for generating an infinite sequence. The function range(12) provides a finite sequence. However, to get an inifite sequence, Generators are required.
 
-Example:
+**Example:**
 ```
 def infinite_sequence():
     num = 0
@@ -162,7 +153,7 @@ A generator object exposes some other methods that can be invoked to manipulate 
  * close()
 These additional methods turn generators from one-way producers of information into both producers and consumers.
 
-### **send()**
+### send()
 The yield statement is actually an expression which returns a value that can be assigned to a variable or otherwise operated on:
 val = (yield i). Values are sent into a generator by calling its send(value) method. The generator's code is then resumed and the yield expression returns the specified value. If the regular next() method is called, the yield returns None.
 ```
@@ -202,7 +193,7 @@ throw() allows you to throw exceptions with the generator.  Here is test of send
 ### close() 
 Calling close() is roughly equivalent to throw(GeneratorExit()). As name suggests, it can be used to terminate the iteration.
 
-Example of send() and throw()
+**Example of send() and throw()**
 ```
 >>> from examples import talk_gen
 >>> gen = talk_gen('Bill')
@@ -236,7 +227,7 @@ Traceback (most recent call last):
 StopIteration
 ```
 
-Example of close()
+**Example of close()**
 ```
 >>> from examples import talk_gen
 >>> gen = talk_gen('Bill')
