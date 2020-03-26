@@ -40,8 +40,7 @@ Each type of concurrency has its own strenghts and weaknesses. Choosing which ty
   Separate **processes** can progress at the same time. They can even  be *statrted* and progress in true **parallel** fashion on a multi-core system.  On a single core system the processes will progress at the same time by context swithing (i.e. time sharing).  If the processes are CPU bound (cpu instensive, very little cpu waiting) then there is no real benefit to single-core multiprocessing. However, if the processes have I/O bound (cpu spends lots of time idle waiting for I/O operations), then there can be significant time savings on either single or multi core system. On a multi-core system, there are huge savings for CPU bound problems.
 
 **ADVANTAGES**:   
- * True parallelism IF the system has multiple processors (i.e. multi-core). Both other forms of concurrency only utilize a single core (due to Python's GIL).
- * Huge time savings when dealing with CPU bound problems.
+ * True parallelism (and thus time-savings) *if* the system has multiple processors (i.e. multi-core). Both other forms of concurrency only utilize a single core (due to Python's GIL).
 
 **DISADVANTAGES**:   
  * Higher resource cost than threads since a full copy of the resources (code, file-handles, memory-stack, etc) is mades for each process.
