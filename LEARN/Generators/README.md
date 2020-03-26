@@ -155,7 +155,7 @@ A generator object exposes some other methods that can be invoked to manipulate 
 These additional methods turn generators from one-way producers of information into both producers and consumers.
 
 ### send()
-The yield statement is actually an expression which returns a value that can be assigned to a variable or otherwise operated on:
+The **yield** statement is actually an expression which returns a value that can be assigned to a variable or otherwise operated on:
 val = (yield i). Values are sent into a generator by calling its send(value) method. The generator's code is then resumed and the yield expression returns the specified value. If the regular next() method is called, the yield returns None.
 ```
 def gen_counter_with_send(max):
