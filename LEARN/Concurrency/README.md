@@ -33,7 +33,7 @@ AsyncIO download of 80 sites - Duration: 1.2234148979187012 seconds
 
 ## Concurrency Discussion
 Each type of concurrency has its own strenghts and weaknesses. Choosing which type to use depends on the type of problem:
- - **multi-processing** is best suited for CPU bound problems (multi-processing)
+ - **multi-processing** is best suited for CPU bound problems (when the system has multiple CPU cores). 
  - **multi-threading** and **asyncio** are best suited for I/O bound problems. They actaully slow things down for CPU bound problems! 
 
 ### multi-processing
