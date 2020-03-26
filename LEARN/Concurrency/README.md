@@ -65,7 +65,10 @@ Separate **threads** can progress at the same time. In Python (due to GIL) threa
 
 ---
 ### asyncio (a.k.a cooperative multi-tasking)
-Separate **tasks** can progress at the same time. Much like multi-threading tasks are not actaully started (or progressing) in parallel. The OS performs context-switching between them on a single core (due to GIL).  However, unlike multi-threading, asyncio uses "cooperative" multi-tasking in which tasks accounce that they are ready to be swithced out. This can be extra work for the programmer, but they will always know where in the code the tasks will be swapped.  (Requires python 3.4+) 
+
+**WARNINNG: asyncio syntax has undergone numerous changes across Python versions**  
+
+Separate **tasks** can progress at the same time. Much like multi-threading tasks are not actaully started (or progressing) in parallel. The OS performs context-switching between them on a single core (due to GIL).  However, unlike multi-threading, asyncio uses "cooperative" multi-tasking in which tasks accounce that they are ready to be swithced out. This can be extra work for the programmer, but they will always know where in the code the tasks will be swapped.
 
 **ADVANTAGES**:    
   * Compared to multi-threading, allows you to know exactly where the code will shift from one task to the next making code less prone to race conditions. 
