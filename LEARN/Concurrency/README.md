@@ -70,6 +70,7 @@ Separate **tasks** can progress at the same time. Much like multi-threading task
 **ADVANTAGES**:    
   * Compared to multi-threading, allows you to know exactly where the code will shift from one task to the next making code less prone to race conditions. 
   * Compared to multi-threading less resource usages since each thread needs to have its own stack. With async code, all the code shares the same stack and the stack is kept small due to continuously unwinding the stack between tasks.
+
 **DIS-ADVANTAGES**:    
   * Difficult to learn, complex to code correctly. 
 
