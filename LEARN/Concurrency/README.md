@@ -37,7 +37,7 @@ Each type of concurrency has its own strenghts and weaknesses. Choosing which ty
  - **multi-threading** and **asyncio** are best suited for I/O bound problems. They actaully slow things down for CPU bound problems! 
 
 ### multi-processing
-  Separate *processes* can progress at the same time. They can even  be *statrted* and progress in **parallel** on a multi-core system.  On a single core system the processes will progress at the same time by context swithing (i.e. time sharing).  If the processes are CPU bound (cpu instensive, very little cpu waiting) then there is no real benefit. However, if the processes have I/O bound (cpu spends lots of time idle waiting for I/O operations), then there can be signficate time savings on either single or multi core system.
+  Separate **processes** can progress at the same time. They can even  be *statrted* and progress in true **parallel** fashion on a multi-core system.  On a single core system the processes will progress at the same time by context swithing (i.e. time sharing).  If the processes are CPU bound (cpu instensive, very little cpu waiting) then there is no real benefit to single-core multiprocessing. However, if the processes have I/O bound (cpu spends lots of time idle waiting for I/O operations), then there can be significant time savings on either single or multi core system. On a multi-core system, there are huge savings for CPU bound problems.
 
 **ADVANTAGES**:   
  * True parallelism IF the system has multiple processors (i.e. multi-core). Both other forms of concurrency only utilize a single core (due to Python's GIL).
