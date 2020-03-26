@@ -3,8 +3,6 @@
   Example generator functions
 
 """
-import sys
-import time
 
 ##---------------------------------------------------------
 def gen_counter (max):

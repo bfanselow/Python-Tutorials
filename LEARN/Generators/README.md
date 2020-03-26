@@ -103,7 +103,7 @@ Or try calling __next__() on the generator object directly on the console (usefu
 >>> gen.__next__()
 4
 ```
-An alternative syntax can also be used: next(gen) just calls gen.__next__()
+An alternative syntax can also be used: next(gen) just calls gen.\_\_next\_\_()
 ```
 >>> next(gen)
 0
@@ -116,7 +116,7 @@ An alternative syntax can also be used: next(gen) just calls gen.__next__()
 
 ## Generator Details
 
-When you call next() on a generator, the code within the function is executed up to yield.  When the Python yield statement is hit, the program suspends function execution and returns the yielded value. (In contrast, return stops function execution completely.) When a function is suspended, the "state" of that function is saved. This includes any variable bindings local to the generator, the instruction pointer, the internal stack, and any exception handling.  This allows you to resume function execution whenever you call one of the generator’s methods. In this way, all function evaluation picks back up right after yield. This can be demonstrated by using multiple Python yield statements:
+When you call **next()** on a generator, the code within the function is executed up to yield.  When the Python yield statement is hit, the program suspends function execution and returns the yielded value. (In contrast, return stops function execution completely.) When a function is suspended, the "state" of that function is saved. This includes any variable bindings local to the generator, the instruction pointer, the internal stack, and any exception handling.  This allows you to resume function execution whenever you call one of the generator’s methods. In this way, all function evaluation picks back up right after yield. This can be demonstrated by using multiple Python yield statements:
 ```
 def multi_yield():
     yield_1 = "This is result of first yield"
@@ -150,7 +150,7 @@ Example:
 A generator object exposes some other methods that can be invoked to manipulate the generator. 
  * send()
  * throw()
- * close()
+ * close()  
 These additional methods turn generators from one-way producers of information into both producers and consumers.
 
 ### send()
@@ -191,7 +191,7 @@ StopIteration
 throw() allows you to throw exceptions with the generator.  Here is test of send() and throw()
 
 ### close() 
-Calling close() is roughly equivalent to throw(GeneratorExit()). As name suggests, it can be used to terminate the iteration.
+Calling close() is roughly equivalent to throw(GeneratorExit()). As its name suggests, it can be used to terminate the iteration.
 
 **Example of send() and throw()**
 ```
