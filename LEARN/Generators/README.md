@@ -148,9 +148,10 @@ Example:
 ---
 
 A generator object exposes some other methods that can be invoked to manipulate the generator. 
- * send()
- * throw()
- * close()  
+ * **send()**
+ * **throw()**
+ * **close()**
+
 These additional methods turn generators from one-way producers of information into both producers and consumers.
 
 ### send()
