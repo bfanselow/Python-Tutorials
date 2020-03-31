@@ -1690,7 +1690,7 @@ if __name__ == "__main__":
     'host':     'localhost', 
     'database': 'sars',
     'user':     'sars_ro',
-    'password': '!SarS_RO!'
+    'password': '********'
   } 
 
   d_init_args = { 'db_args': d_db_args }

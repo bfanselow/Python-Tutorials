@@ -1,7 +1,7 @@
 # Python MariaDB/Mysql access 
 
 ## MariaDB.py
-Top-level connection and generic SQL methods. Provides configurable connection persistence.
+Top-level db-connection handling and generic SQL methods. Provides configurable db-connection persistence.
 
 ## MariaDB_users.py
 Example of MariaDB_\<table\>.py class which provides SQL methods for a specific table.

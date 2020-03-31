@@ -259,7 +259,7 @@ if __name__ == "__main__":
   DB_ARGS = {
     'host': 'localhost',
     'database': 'sars',
-    'user': 'sars_admin',
+    'user': 'sars_ro',
     'password':   '**********'
   }
 
