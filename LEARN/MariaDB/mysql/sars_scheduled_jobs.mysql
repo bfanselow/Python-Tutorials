@@ -1,0 +1,32 @@
+use sars;
+DROP TABLE if exists sars_scheduled_jobs; 
+CREATE TABLE sars_scheduled_jobs
+ (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+  FK_job_id varchar(32) NOT NULL,
+  FOREIGN KEY (FK_job_id) REFERENCES sars_job_input(job_id),
+  series_id varchar(32),
+  ts_scheduled_start DATETIME NOT NULL,
+  enabled BOOL NOT NULL DEFAULT 1, 
+  rc_lock BOOL NOT NULL DEFAULT 0
+)
+ENGINE=InnoDB;
+##
+## Rows in this table are inserted when a user registers a new
+## scheduling request. The input scheduling data is immediately
+## converted to specific date/time instances, each of which
+## is entered as a row in this table. Rows in this table are
+## ONLY updated in the case of toggling the enabled value. 
+## Rows are deleted if the users updates or deletes a previously 
+## entered job-scheduling request.
+##
+## *series_id* is only assinged when there are multiple instances
+## in a series which are occurs only for scheduling types "INTERVAL",
+## and "CRON".
+## 
+## *enabled* is intended to provide a way for user to temporarily
+## disable/re-enable specific job requests.
+## 
+## *rc_lock* is only used internally by the application processing
+## logic. It is basically a race-condition avoidance flag used during 
+## the data query/processing cycles. 

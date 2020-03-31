@@ -1,0 +1,24 @@
+use sars;
+DROP TABLE if exists sars_users; 
+CREATE TABLE sars_users
+(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  username varchar(32) NOT NULL,
+  fullname varchar(64) NOT NULL,
+  email varchar(256) NOT NULL,
+  password_hash VARCHAR(255),
+  api_key text,
+  is_authenticated BOOL NOT NULL DEFAULT 0, 
+  is_admin BOOL NOT NULL DEFAULT 0,
+  ts_created DATETIME NOT NULL,
+  ts_last_login DATETIME NOT NULL
+)
+ENGINE=InnoDB;
+ALTER TABLE sars_users ADD UNIQUE INDEX(username);
+##
+## Default inserts
+INSERT into sars_users (username, fullname, email, ts_created, is_admin) VALUES ('wfanselow', 'William Fanselow', 'wfanselow@gmail.com', now(), 1);
+INSERT into sars_users (username, fullname, email, ts_created) VALUES ('role_seceng', 'Security-Eng-Role-Account', 'wfanselow@gmail.com', now());
+##
+## NOTES:
+## *password* is actually a password "crypt"

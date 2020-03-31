@@ -1,0 +1,23 @@
+use sars;
+DROP TABLE if exists sars_triggered_jobs; 
+CREATE TABLE sars_triggered_jobs
+ (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+  FK_schedule_id INT NOT NULL,
+  FOREIGN KEY (FK_schedule_id) REFERENCES sars_scheduled_jobs(id),
+  ts_request datetime NOT NULL,
+  ts_response datetime NOT NULL,
+  timed_out BOOLEAN NOT NULL DEFAULT 0,
+  attempt_num smallint NOT NULL,
+  response text
+)
+ENGINE=InnoDB;
+##
+## Rows in this table will get inserted when a (scheduled) job is triggered.
+## The same row is updated when either: 1) a response comes back, or 2) if
+## the request times out.  If the job is configured with retries>0, a new
+## row is created with attempt_num incremented.
+##
+## *timed_out* identifies if an api request timed out (timed_out=1). 
+##
+## *attempt_num* counts the number of attempts (when retries>0).

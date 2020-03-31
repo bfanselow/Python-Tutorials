@@ -1,0 +1,27 @@
+use sars;
+DROP TABLE if exists sars_job_input; 
+CREATE TABLE sars_job_input
+ (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+  job_id varchar(32) NOT NULL,
+  FK_user_id int NOT NULL,
+  FOREIGN KEY (FK_user_id) REFERENCES sars_users(id),
+  schedule_type enum('ASAP', 'DELAY', 'DATETIME', 'INTERVAL', 'CRON') NOT NULL, 
+  schedule_data text NOT NULL, 
+  ts_window_start datetime NOT NULL, 
+  ts_window_end datetime NOT NULL, 
+  retries int DEFAULT 0,
+  timeout_secs int DEFAULT 300,
+  uri varchar(256) NOT NULL,
+  payload text,
+  method enum('GET', 'POST', 'PUT', 'DELETE') NOT NULL,
+  user_notes varchar(256)
+)
+ENGINE=InnoDB;
+ALTER TABLE sars_job_input ADD UNIQUE INDEX(job_id);
+## Rows in this table will get inserted when a user registers new job
+## for scheduling.  The actual scheduled date/time instances are then
+## calculated and one or more rows populated into "sars_scheduled_jobs".
+## Rows are never updated in this table. If the user updates or deletes
+## a previous input, this record is archived to "sars_job_input_archive"
+## and all scheduled jobs archived.

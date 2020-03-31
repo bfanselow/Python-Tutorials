@@ -1,0 +1,15 @@
+use sars;
+DROP TABLE if exists sars_groups; 
+CREATE TABLE sars_groups
+(  
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  groupname varchar(32) NOT NULL,
+  description varchar(128) NOT NULL
+)
+ENGINE=InnoDB;
+ALTER TABLE sars_groups ADD UNIQUE INDEX(groupname);
+##
+## Default inserts
+INSERT into sars_groups (groupname, description) VALUES ('super_user', 'God (root) privs');
+INSERT into sars_groups (groupname, description) VALUES ('admin', 'Elevated (admin) privs');
+INSERT into sars_groups (groupname, description) VALUES ('anon', 'Anonymous users');

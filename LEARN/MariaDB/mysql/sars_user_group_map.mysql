@@ -1,0 +1,31 @@
+use sars;
+DROP TABLE if exists sars_user_group_map; 
+CREATE TABLE sars_user_group_map
+(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    FK_user_id INT NOT NULL,
+    FOREIGN KEY (FK_user_id) REFERENCES sars_users(id),
+    FK_group_id INT NOT NULL,
+    FOREIGN KEY (FK_group_id) REFERENCES sars_groups(id),
+    UNIQUE KEY idx_user_group (FK_user_id,FK_group_id)
+)
+ENGINE=InnoDB;
+###########################################
+# QUERIES:
+# Get all users with the the group_id's to which they belong
+#  SELECT * FROM sars_users INNER JOIN sars_user_group_map ON sars_users.id = sars_user_group_map.FK_user_id
+#
+# Find all groups that sars_suser.id=1 is a member of:
+#  SELECT * FROM sars_users INNER JOIN sars_user_group_map ON sars_users.id = sars_user_group_map.FK_user_id WHERE FK_user_id = 1
+#
+# Find all groups that sars_users.username=wfanselow is a member of:
+#  SELECT * FROM sars_users INNER JOIN sars_user_group_map ON sars_users.id = sars_user_group_map.FK_user_id WHERE sars_users.username = "wfanselow"
+
+## Default inserts 
+# wfanselow (1) in group super_user (1)
+INSERT into sars_user_group_map (FK_user_id, FK_group_id ) VALUES (1,1);
+# anon (2) in group anonymous (2)
+INSERT into sars_user_group_map (FK_user_id, FK_group_id ) VALUES (1,3);
+# jroof (3) as admin (3) AND infrastructure (4)
+#INSERT into sars_user_group_map (FK_user_id, FK_group_id ) VALUES (3,3);
+#INSERT into sars_user_group_map (FK_user_id, FK_group_id ) VALUES (4,4);

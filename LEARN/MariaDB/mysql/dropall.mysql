@@ -1,0 +1,9 @@
+## Don't change the order (due to foreign-keys)!
+use sars;
+DROP table if exists sars_job_input_archive;
+DROP table if exists sars_triggered_jobs;
+DROP table if exists sars_scheduled_jobs;
+DROP table if exists sars_job_input;
+DROP table if exists sars_user_group_map;
+DROP table if exists sars_groups;
+DROP table if exists sars_users;

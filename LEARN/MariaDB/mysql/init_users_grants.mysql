@@ -1,0 +1,34 @@
+# First check users
+#  > desc mysql.user;
+#  > select * from mysql.user;
+#  > select * from mysql.user where User like "%sars%";
+
+## Due to mysql bug you may need to DROP users and flush first
+DROP user 'sars_ro'@'%';
+DROP user 'sars_rw'@'%';
+DROP user 'sars_admin'@'%';
+FLUSH PRIVILEGES;
+
+# read-only for (read-only) user
+CREATE USER 'sars_ro'@'%' IDENTIFIED BY '************';
+GRANT SELECT ON sars.sars_job_input TO 'sars_ro'@'%';
+GRANT SELECT ON sars.sars_scheduled_jobs TO 'sars_ro'@'%';
+GRANT SELECT ON sars.sars_triggered_jobs TO 'sars_ro'@'%';
+
+# read-write for standard app user
+CREATE USER 'sars_rw'@'%' IDENTIFIED BY '***************';
+GRANT SELECT, INSERT, UPDATE ON sars.sars_users TO 'sars_rw'@'%';
+GRANT SELECT, INSERT, DELETE ON sars.sars_job_input TO 'sars_rw'@'%';
+GRANT SELECT, INSERT ON sars.sars_job_input_archive TO 'sars_rw'@'%';
+GRANT SELECT, INSERT, UPDATE ON sars.sars_scheduled_jobs TO 'sars_rw'@'%';
+GRANT SELECT, INSERT ON sars.sars_triggered_jobs TO 'sars_rw'@'%';
+
+# read-write (admin) user 
+CREATE USER 'sars_admin'@'%' IDENTIFIED BY '************';
+GRANT SELECT, INSERT, UPDATE, DELETE ON sars.sars_users TO 'sars_admin'@'%';
+GRANT SELECT, INSERT, UPDATE, DELETE ON sars.sars_groups TO 'sars_admin'@'%';
+GRANT SELECT, INSERT, UPDATE, DELETE ON sars.sars_user_group_map TO 'sars_admin'@'%';
+GRANT SELECT, INSERT, UPDATE, DELETE ON sars.sars_job_input TO 'sars_admin'@'%';
+GRANT SELECT, INSERT, UPDATE, DELETE ON sars.sars_job_input_archive TO 'sars_admin'@'%';
+GRANT SELECT, INSERT, UPDATE, DELETE ON sars.sars_scheduled_jobs TO 'sars_admin'@'%';
+GRANT SELECT, INSERT, UPDATE, DELETE ON sars.sars_triggered_jobs TO 'sars_admin'@'%';
