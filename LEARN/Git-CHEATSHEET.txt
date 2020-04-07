@@ -1,0 +1,48 @@
+## Import a remote repo/project to a local dir
+$ git clone <project-URL>
+## Example:
+$ git clone https://github.com/bfanselow/SARS.git
+
+## If changes have been made to master branch by others after you import the above, update local master branch
+$ git pull
+
+## Modify a file on local instance
+## !! Don't do this if the project involves multiple contributors (see branching below)!!
+$ vi <some-existing-file>
+$ git add <some-existing-file>
+$ git commit -m <comments about changes>  (takes a snaphsot of project)
+
+## Add a file on local instance
+## !! Don't do this if the project involves multiple contributors (see branching below)!!
+$ vi <some-new-file>
+$ git add <some-new-file>
+$ git commit -m <comments about new file>  (takes a snaphsot of project)
+
+## Update the master branch.
+## !! Don't do this if the project involves multiple contributors (see branching below)!!
+$ git push
+
+## Create a new branch and activate/swith-to that branch
+$ git checkout -b "new_test_branch"
+
+## Push the new branch up to remote repo (for others to review, checkout, etc.)
+$ git push origin new_test_branch
+
+## See what branches exists and which one you are currently on
+$ git branch
+
+## Add a new file to the active branch
+$  git add "tests/test_service.py"
+
+## Commit (snapshot the changes)
+$ git commit -m "Added new branch with tests/test_service.py"
+
+## Push changes to remote repo (at this point the branch has NOT been merged with master. Wait till reviewed, tested, etc.)
+$ git push origin new_test_branch
+
+## Merge branch to master
+$ git merge new_test_branch --no-ff
+
+## Push newly merged master branch to remote
+$  git push (this is short for "git push origin master")
+
