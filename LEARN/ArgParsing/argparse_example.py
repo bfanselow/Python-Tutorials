@@ -4,7 +4,7 @@
   Description: Example of using "argparse" module to parse input args
   Test with $./argparse_example.py -h
 
-  Pros: Less manual coding necessary. More built-in logic
+  Pros: Less manual logic-coding necessary. More built-in logic
   Cons: Less customizable than working with getopt
 
 """

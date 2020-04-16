@@ -3,8 +3,8 @@
   File: getopt_example.py 
   Description: Example of using "getopt" module to parse input args
 
-  Pros:  More customizable than working with argparse. 
-  Cons: More manual coding necessary
+  Pros: More customizable than working with argparse. 
+  Cons: More manual logic-coding necessary. Less built-in logic
 
 """
 import sys
