@@ -8,4 +8,4 @@ Two standard library arg-parsing modules demonstrated here:
     - PROS: More built-in logic, so less logic coding
     - CONS: Less flexible/customizable
 
-### View/execute each to demonstrate usage
+### View/execute each script to demonstrate usage
