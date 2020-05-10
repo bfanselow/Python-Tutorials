@@ -8,7 +8,7 @@ Suppose you are testing the headlights on your car.
   1) Test-step: turn on the headlight switch
   2) Test-assertion: get out of your car and go see if the headlights are on.
 
-## Testing can be put into one of two categories:
+Testing can be put into one of two categories:
   * **Unit-testing**: testing an individual component.
   * **Integration Testing**: testing 2 or more of the components of a system in combination, making sure all components are working together end-to-end.
 
@@ -85,6 +85,9 @@ $ pytest -k <substr>
 
 Test several test files in a directorty
 $ pytest tests/  (OR python -m pytest tests/)
+
+Test with results sent to logfile
+$ python -m pytest --resultlog=testlog.log tests/ 
 ```
 ---
 ## Advanced Testing (with pytest)
@@ -109,12 +112,17 @@ def test_sum_NAN():
 If test steps produce the same Exception as you expected, the test will PASS.
 ---
 
-#### Side Effects
-Often, executing a piece of code uses external dependancies such as system calls or database access.  Such operations can alter other things in the environment, such as changing a file on the filesystem, or a value in a database. These are known as **side effects** and can be a tricky part of testing.  Side effects make unit testing difficult since each time a test is run, it might give a different result, or one test could impact the state of the application and cause another test to fail. Some amount of "restore/cleanup" work is required after each unit-test making the testing process very inefficient. 
+#### Side-Effects and Mocking
+Often, executing a piece of code uses internal or external dependancies (a.k.a "Collaborators") such as system calls or database access.  Such operations can be time-consuming at the very least, or even have undesirable **side-effects** in which other things in the environment are altered, such as a file on the filesystem, or a value in a database. Side effects make unit testing difficult since each time a test is run, it might give a different result, or one test could impact the state of the application and cause another test to fail. 
 
-Before testing is important to identify all of the external-dependancies and side-effects of your test steps. A few techniques can be used for testing applications with many external dependancies. 
+NOTE: If you find that a single unit of code you are testing has lots of different side effects, you might be breaking the **Single Responsibility Principle** - this unit of code is doing too many things and should be refactored. 
 
-* If you find that the unit of code you are testing has numerous different side effects, you might be breaking the **Single Responsibility Principle** - this unit of code is doing too many things and should be refactored. 
-* Use **Stubbing** and **Mocking**
+To speed up testing and minimize side-effects, one can replace the real collaborator dependancies with fake ones, using **Mocking**. The precise definition of mocking is highly debated and hard to pin down. Simpy put, **mocking** the replacement of one or more function calls or objects with mock calls or objects.A mock function call (often referred to as a **stub**) returns a predefined value immediately, without doing any work.  If the code under test uses a collaborator for input data and the goal of the test is simply to ensure the code behaves properly when interacting with the collaborate or to test the handling of the data response, use a **Stub** to mock the function. 
 
- 
+Example: Suppose the code being unit-tested depends on an API call that returns a JSON object. The call can take several seconds to complete and perhaps we are limited on how many total API calls we can make without being charfed. Rather than relying on the API being up and waiting for the call to return in each test and hitting our call limit, you can replace its real implementation with **stub** that returns hard-coded stduent-grade values. 
+Perhaps our test hits an API which has a limit on the number of calls we make and we don't want to exhaust that limit.
+
+If the goal of the test to verify the contract between the code under test and a collaborator, use a **Mock** object. With a mock object we can test more complicated interactions with the collaborator: For example:
+ * verify the the collaborator's method is called the correct number of times
+ * verify the collaborator's method is called with the correct parameters
+
