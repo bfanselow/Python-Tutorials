@@ -112,7 +112,7 @@ def test_sum_NAN():
 
 ---
 
-#### Side-Effects and Mocking
+### Side-Effects and Mocking
 Often, executing a piece of code uses internal or external dependancies (a.k.a "Collaborators") such as system calls or database access.  Such operations can be time-consuming at the very least, or even have undesirable **side-effects** in which other things in the environment are altered, such as a file on the filesystem, or a value in a database. Side effects make unit testing difficult since each time a test is run, it might give a different result, or one test could impact the state of the application and cause another test to fail. 
 
 NOTE: If you find that a single unit of code you are testing has lots of different side effects, you might be breaking the **Single Responsibility Principle** - this unit of code is doing too many things and should be refactored. 
