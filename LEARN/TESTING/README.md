@@ -103,13 +103,13 @@ It’s not always as easy as creating a static value for the input like a string
 #### Handling Expected Failures
 Sometimes we want to validate that our error-handling code handles errors as expected.  Within your test method use a special pytest.raises context manager. Inside the **with** block execute the test steps:   
 Example:
-Suppose we have a method that should raise a **TypeError** under certain conditions and we want to validate that it does that correctly:
+Suppose we have a method that should raise a **TypeError** under certain conditions and we want to validate that it does that correctly. Using the context-manager syntax, if test steps produce the same Exception as you expected, the test will PASS.
 ```
 def test_sum_NAN():
    with pytest.raises(TypeError):
       sum([1, 2, 'bad'])
 ```
-If test steps produce the same Exception as you expected, the test will PASS.
+
 ---
 
 #### Side-Effects and Mocking
