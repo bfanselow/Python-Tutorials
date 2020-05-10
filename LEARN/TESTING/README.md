@@ -1,5 +1,7 @@
 # Testing in Python
 
+***Something that is untested is broken*** --unkown
+
 ## Any Testing process can be broken into two steps:
 1) Test Step
 2) Test Assertion
