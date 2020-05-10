@@ -122,7 +122,7 @@ To speed up testing and minimize side-effects, one can replace the real collabor
 Example: Suppose the code being unit-tested depends on an API call that returns a JSON object. The call can take several seconds to complete and perhaps we are limited on how many total API calls we can make without being charfed. Rather than relying on the API being up and waiting for the call to return in each test and hitting our call limit, you can replace its real implementation with **stub** that returns hard-coded stduent-grade values. 
 Perhaps our test hits an API which has a limit on the number of calls we make and we don't want to exhaust that limit.
 
-If the goal of the test to verify the contract between the code under test and a collaborator, use a **Mock** object. With a mock object we can test more complicated interactions with the collaborator: For example:
- * verify the the collaborator's method is called the correct number of times
- * verify the collaborator's method is called with the correct parameters
+If the goal of the test to verify the contract between the code under test and a collaborator, use a **Mock** object. With a mock object we can test more complicated interactions with the collaborator. For example:
+ * verifying that the collaborator's method is called the correct number of times.
+ * verifying that the collaborator's method is called with the correct parameters.
 
