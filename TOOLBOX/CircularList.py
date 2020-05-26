@@ -5,9 +5,9 @@
   Class: CircList
 
   Implements a "circular" list which acts like a normal
-  list, but whose with the special property that the next
+  list, but has the special property that the next
   element after the "last" normal list element is the
-  first element, so the start and end of the list are
+  first element. In other words the start and end of the list are
   effectively adjacent.
 
   An index "pointer" keeps track of the current list index value,
