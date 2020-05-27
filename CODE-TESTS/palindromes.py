@@ -6,7 +6,7 @@
   (words spelled the same forward or backword) not including single letter
   words
 
-  Examples: civic, radar, level, rotor, kayak, reviver, racecar, madam, refer
+  Simple palindrome examples: civic, radar, level, rotor, kayak, reviver, racecar, madam, refer
 
 """
 import re
