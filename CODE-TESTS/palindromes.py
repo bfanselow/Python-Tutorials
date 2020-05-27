@@ -2,7 +2,7 @@
 
   palindromes.py
 
-  Given a paragraph of text, identify if there are any "palidromes"
+  Given a paragraph of text, identify if there are any "palindromes"
   (words spelled the same forward or backword) not including single letter
   words
 
