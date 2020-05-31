@@ -37,7 +37,7 @@ except Exception:
     recover()
 ```
 
-Also, whenever you **swallow** an exception, there should be an associated (timestamped) log message (with full stack trace) regardless of how you handle it. Using Python's logging module this is simple as each logger object has an exception() method, taking a message string. If called in the except block, the caught exception will automatically be fully logged, including the stack trace.
+Also, whenever you **swallow** an exception, there should be an associated (timestamped) log message (with full stack trace) regardless of how you handle it. Using Python's logging module makes this simple as each logger object has an exception() method, taking a message string. If called in the except block, the caught exception will automatically be fully logged, including the stack trace.
 ```
 try: 
     do_something()
