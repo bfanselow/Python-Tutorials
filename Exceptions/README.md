@@ -46,7 +46,7 @@ except ValueError as e:
     recover()
 ```
 
-If you working with someone else's code that does not use the logging moudle and you don't want to refactor everyting, write your own logging method such as the following:
+If you are working with someone else's code that does not use the logging module and you don't want to refactor everyting, write your own logging method such as the following:
 ```
 class ExceptionLogger():
     ...
@@ -69,12 +69,12 @@ except ValueError as e:
 ```
 
 ---
-If some code path must broadly catch all exceptions then it should log the exception (with timestamp and stack-track) and either:
-  2) Re-raise the same exception to be handled by calling code
-  3) Raise a different exception (instead of the original) to be handled by calling code
+If some code path must broadly catch all exceptions then it should log the exception (with timestamp and stack-track) and either:  
+  * Re-raise the same exception to be handled by calling code
+  * Raise a different exception (instead of the original) to be handled by calling code
 
 ### 2) Re-raise same exception
-Use this approach if you want to provide some local handling (such as logging), but also want the calling function to perform additonal handling.
+Use this approach if you want to provide some local handling (such as logging), but also want the higher-level code to perform some additonal handling.
 ```
 try: 
     do_something()
