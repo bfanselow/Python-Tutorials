@@ -1,6 +1,6 @@
 ## Do's and Don'ts of Python Exception Handling
-####
-The worst python anti-pattern - catching all exceptions and silently continuing - swallowing all exceptions.
+
+#### The absolute worst python anti-pattern: catching all exceptions and silently continuing (a.k.a. "swallowing" all exceptions).
 ```
 try:
   do_something()
