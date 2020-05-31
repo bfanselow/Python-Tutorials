@@ -17,7 +17,7 @@ Whenever we *catch* an exception with "except", we have three choices:
 
 ---
 ### 1) Swallowing the Exception
-Swallowing an exception only makes sense if we are catching **specific** exceptions that we know we can recover from (or take an alternate processing path) and when we deliberately do not want to terminate from the current processing.  Suppose we are iterating over a list of input objects and processing. We typically don't want to terminate processing if there is an error with one of the input objects. It may be preferrable to catch and handle specific errors so that we can continue processing the other objects. 
+Swallowing an exception only makes sense if we are catching **specific** exceptions that we know we can recover from (or take an alternate processing path) and when we deliberately do not want to terminate from the current processing.  Suppose we are iterating over a list of input objects and processing. We typically don't want to terminate processing if there is a *known* type of processing error with one of the input objects. It may be preferrable to catch and handle specific errors so that we can continue processing the other objects. 
 ```
 for o in object_list:
   try: 
