@@ -1,6 +1,6 @@
 ## Propertis vs *Getters* and *Setters*
 
-Getters (aka 'accessors') and setters (aka 'mutators') are used in most object oriented programming languages to ensure the principle of **data encapsulation**. In some languages using getters and setters to make class attributes private is considered good practice. Surprosingly, the Pythonic way to introduce attributes that are used by users of the class is to make them public (if they will never by used directly by users of the class make them private  (i.e. self.__attr).
+Getters (aka 'accessors') and setters (aka 'mutators') are used in most object oriented programming languages to ensure the principle of **data encapsulation**. In some languages using getters and setters to make all class attributes private is considered good practice. The Pythonic way to introduce class attributes is to make them public. If they will never (and must never) be used directly by users of the class then make them private (i.e. self.__attr).
 
 The exception to this is when we have an attribute which has some constraints on what values it can have (or whose value is conditianl on other attributes).  We don't want to allow a public attribute to be set to a value that is not allowed.  In this scenario it can be helpful to make the attribute private and provide a setter() method.  
 ```
