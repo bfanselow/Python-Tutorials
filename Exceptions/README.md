@@ -20,21 +20,21 @@ Whenever we *catch* an exception with "except", we have three choices:
 Swallowing an exception only makes sense if we are catching **specific** exceptions that we know we can recover from (or take an alternate processing path) and when we deliberately do not want to terminate from the current processing.  Suppose we are iterating over a list of input objects and processing. We typically don't want to terminate processing if there is a *known* type of processing error with one of the input objects. It may be preferrable to catch and handle specific errors so that we can continue processing the other objects. 
 ```
 for o in object_list:
-  try: 
-    process_object(o)
-  except ValueError: 
-    recover()
-  except KeyError:
-    alternate_route()
+    try: 
+        process_object(o)
+    except ValueError: 
+        recover()
+    except KeyError:
+        alternate_route()
 ```
 Note, in this case all other exceptions will be raised and handled by the calling code.
 
 You should **NEVER** swallow all Exceptions no matter how thorough you think your **recover()** method is. 
 ```
 try: 
-  do_something()
+    do_something()
 except Exception: 
-  recover()
+    recover()
 ```
 
 Also, whenever you **swallow** an exception, there should be an associated (timestamped) log message (with full stack trace) regardless of how you handle it. Using Python's logging module this is simple as each logger object has an exception() method, taking a message string. If called in the except block, the caught exception will automatically be fully logged, including the stack trace.
