@@ -1,4 +1,4 @@
-## Propertis vs *Getters* and *Setters*
+## Class Properties, *Getters* and *Setters*
 
 Getters (aka 'accessors') and setters (aka 'mutators') are used in most object oriented programming languages to ensure the principle of **data encapsulation**. In some languages using getters and setters to make all class attributes private is considered good practice. The Pythonic way to introduce class attributes is to make them public. If they will never (and must never) be used directly by users of the class then make them private (i.e. self.__attr).
 
