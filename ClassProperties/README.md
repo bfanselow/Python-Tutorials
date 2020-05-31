@@ -67,7 +67,8 @@ class Letter:
 ## When to use class properties
 Suppose we are building a new class with an attribute **X**:
 
-Will the value of **X** be needed by any of the users of out class?
-  * If not, we can (and should) make it a private attribute to keep things as simple as possible.
-  * If it's value has to be accessed, we should make it accessible as a public attribute.
+Will the value of **X** be needed by any of the users of our class?
+  * **NO**: we can (and should) make it a private attribute to keep things as simple as possible.
+  * **YES**: we should make it accessible as a public attribute.
+
     We will define it as a private attribute with the corresponding property, if and only if there are value contraints such that we have to perform checks or transformation of the data.
