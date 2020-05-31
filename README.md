@@ -1,6 +1,6 @@
-LEARN
+Learning Python
 =====
-Scripts and classes written for the purpose of better understanding tricky Python language constructs/concepts, or specific modules/packages
+Scripts, modules and classes written for the purpose of better understanding tricky Python language constructs/concepts, or specific modules/packages
 
 
 Some Fun Examples
