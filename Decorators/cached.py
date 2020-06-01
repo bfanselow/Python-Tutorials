@@ -18,8 +18,8 @@
     1) Only use this decorator with IDEMPOTENT functions/methods - an 
        operation that has no additional effect if it is called more than 
        once with the same input parameters. Using this on a NON-IDEMPOTENT 
-       function/method (such as one which makes a (non-idempotent) database 
-       call will obviously have unexpected/undesirable consequences. 
+       function/method, such as one which makes a (non-idempotent) database 
+       call, will obviously have unexpected/undesirable consequences. 
     2) Storing all previously processed input and outputs can place
        a load on memory such that this outweighs the time-savings of not having
        to re-evaulate an operation. Use this decorator carefully, and monitor
