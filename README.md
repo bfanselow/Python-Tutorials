@@ -1,4 +1,4 @@
-Learning Python
+Python Tutorials
 =====
 Scripts, modules and classes written for the purpose of better understanding tricky Python language constructs/concepts, or specific modules/packages
 
