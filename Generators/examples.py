@@ -45,6 +45,16 @@ def gen_counter_with_send(max):
             i += 1
 
 ##---------------------------------------------------------
+def ticker( start, interval):
+    """Generate an unending stream of datetimes in fixed intervals.
+    Useful to test processes which require datetime for each step.
+    """
+    current = start
+    while True:
+        yield current
+        current += interval
+
+##---------------------------------------------------------
 def talk_gen(name):
     """
      Simple example to test send(), throw() and close()
