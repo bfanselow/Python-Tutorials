@@ -1,4 +1,7 @@
 # Code Challenges
+#### Ansers at bottom of page
+
+---
 
 ### 1) With the following two expressions
 #### a) Compare the output of each
@@ -10,6 +13,7 @@
 ```
 #### b) Transform the output of each one into the output of the other
 
+---
 
 ### 2)
 #### a) Construct a 4x4 dim matrix iwth incrementing values from 1-16
@@ -34,8 +38,8 @@ array([[ 9,  10],
 ```
 
 ---
-## Answers:
-  1a)
+# Answers:
+###  1a)
 ```
 >>> dict([(i,x*x) for i,x in enumerate(range(1,7), start=1)])
 >>> {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36}
@@ -44,7 +48,7 @@ array([[ 9,  10],
 >>> [{1: 1}, {2: 4}, {3: 9}, {4: 16}, {5: 25}, {6: 36}]
 ...
 ```
-  1b)
+### 1b)
 ```
 >>> l = dict([(i,x*x) for i,x in enumerate(range(1,7), start=1)])
 >>> l
@@ -63,8 +67,10 @@ array([[ 9,  10],
 >>> [ next(iter(d.items())) for d in l]
 [(1, 1), (2, 4), (3, 9), (4, 16), (5, 25), (6, 36)]
 ```
+
 ---
-  2a)
+
+### 2a)
 ```
 >>> m = [ [j for j in range(i,i+4)] for i in range(1,17,4)]
 >>> m
@@ -76,7 +82,7 @@ array([[ 1,  2,  3,  4],
        [ 9, 10, 11, 12],
        [13, 14, 15, 16]])
 ```
-  2b) Top-right
+ ### 2b) Top-right
 ```
 >>> tr = [ l[2:] for l in m[:2]]
 >>> np.asarray(tr)
@@ -84,7 +90,7 @@ array([[3, 4],
        [7, 8]])
 
 ```
-  2b) Bottom-left
+###  2b) Bottom-left
 >>> bl = [ l[:2] for l in m[2:]]
 >>> bl
 [[9, 10], [13, 14]]
