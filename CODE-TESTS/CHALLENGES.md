@@ -75,6 +75,12 @@ array([[ 9,  10],
 >>> m = [ [j for j in range(i,i+4)] for i in range(1,17,4)]
 >>> m
 [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
+...
+# or we can construct it with:
+>>> m = [[ j for j in range((i*4)+1, (i*4)+4+1)] for i in range(4)]
+>>> m
+[[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
+...
 >>> import numpy as np
 >>> np.asarray(m)
 array([[ 1,  2,  3,  4],
