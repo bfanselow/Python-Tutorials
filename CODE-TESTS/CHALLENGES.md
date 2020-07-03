@@ -1,5 +1,5 @@
 # Code Challenges
-#### Ansers at bottom of page
+#### Answers at bottom of page
 
 ---
 
