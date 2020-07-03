@@ -3,8 +3,8 @@
 
 ---
 
-### 1) With the following two expressions
-#### a) Compare the output of each
+### 1)
+#### a) Compare the output of the following two expression
 ```
 >>> dict([(i,x*x) for i,x in enumerate(range(1,7), start=1)])
 ...
