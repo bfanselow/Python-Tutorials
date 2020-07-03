@@ -16,7 +16,7 @@
 ---
 
 ### 2)
-#### a) Construct a 4x4 dim matrix iwth incrementing values from 1-16
+#### a) Construct a 4x4 dim matrix with incrementing values from 1-16
 ```
 m = [[ 1,  2,  3,  4], [ 5,  6,  7,  8], [ 9, 10, 11, 12], [13, 14, 15, 16]]
 # visualize with numpy
