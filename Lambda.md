@@ -9,11 +9,12 @@
 >>> print("hello")
 >>> del print
 >>> print("hello")
+
+
 ```
 
 Or turn it into a grumpy old arse:
 ```
->>>
 >>> print = lambda *args, **kwargs: "shutup!"
 >>> print("hello")
 'shutup!'
