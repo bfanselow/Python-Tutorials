@@ -5,6 +5,8 @@
  * You’re not redefining print() - you’re defining another print() that shadows the built-in one. 
  * To return to using the original print(),  delete your custom one with **del print**.
 ```
+>>> print("hello")
+hello
 >>> print = lambda *args, **kwargs: None
 >>> print("hello")
 >>> del print
