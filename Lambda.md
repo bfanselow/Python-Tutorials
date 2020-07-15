@@ -11,7 +11,8 @@
 >>> print("hello")
 ```
 
-Or turn it into a grumpy arse:
+Or turn it into a grumpy old arse:
+```
 >>>
 >>> print = lambda *args, **kwargs: "shutup!"
 >>> print("hello")
