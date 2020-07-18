@@ -1,6 +1,6 @@
 """
- Problem: Given an R x C Matix (R-rows)x(C-columns), write an algorithm to sort the border elements
-   only in clockwise order.
+ Problem: Given an R x C Matix (R-rows)x(C-columns), write an algorithm to sort ONLY the border elements
+   in clockwise order.
 
 
  Example:
