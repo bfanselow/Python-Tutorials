@@ -5,7 +5,8 @@
 
  Example:
   M = [[1, 2, 3, 4, 0], [1,1,1,1,2], [1,2,2,2,4], [1,9,3,1,7]]
-  # [[1, 2, 3, 4, 0],
+  
+    [[1, 2, 3, 4, 0],
      [1, 1, 1, 1, 2],
      [1, 2, 2, 2, 4],
      [1, 9, 3, 1, 7]]
@@ -14,6 +15,7 @@
   Sorting these results in: [0, 1, 1, 1, 1, 1, 2, 2, 3, 3, 4, 4, 7, 9],
   Now, positioning these sorted elements back into Matrix border in clockwise direction
   results in new martix:
+  
    [[0, 1, 1, 1, 1]
     [9, 1, 1, 1, 1
     [7, 2, 2, 2, 2
@@ -22,7 +24,7 @@
 
 ## Soltuion:
 
-## First we use a specific matix and then create a generic solution
+## First we use a specific matix to design an algorithm and then we will create a generic solution
 
 ## Matrix
 >>> M = [[1, 2, 3, 4, 0], [1,1,1,1,2], [1,2,2,2,4], [1,9,3,1,7]]
@@ -33,18 +35,19 @@
 ## Clockwise border values
 >>> border_vals = [M[i][j] for i,j in border_idcs]
 
-## Zip togther the clockwise border indices and (sorted) border values
+## Zip togther the clockwise border indices and (sorted) border values to create a mapping of clockwise border elements and the sorted values.
 >>> d = dict(zip(border_idcs, sorted(border_vals)))
 >>> d
 {(0, 0): 0, (0, 1): 1, (0, 2): 1, (0, 3): 1, (0, 4): 1, (1, 4): 1, (2, 4): 2, (3, 4): 2, (3, 3): 3, (3, 2): 3, (3, 1): 4, (3, 0): 4, (2, 0): 7, (1, 0): 9}
 
-## Now reset the border values in clockwise order using the sorted values
+## Now reset the clockwise border values order using the sorted values
 >>> for t_idx, v in d.items():
 ...     M[t_idx[0]][t_idx[1]] = v
 ...
 >>> M
 [[0, 1, 1, 1, 1], [9, 1, 1, 1, 1], [7, 2, 2, 2, 2], [4, 4, 3, 3, 2]]
 
+## Sweet!
 
 ## Now, to our generic case
 >>> C = 5 # columns
