@@ -20,7 +20,7 @@
 >>> diagonal_idcs_tl_br = [(i,i) for i in range(len(M))]
 
 # Identify diagonal matrix indices trom bottom-left to top right (ignoring center element which is already counted)
->>> diagonal_idcs_bl_tr = [(i,j) for i,j in zip([*range(4,-1,-1)], [*range(5)]) if i != j ]
+>>> diagonal_idcs_bl_tr = [(i,j) for i,j in zip(range(4,-1,-1), range(5)) if i != j ]
 
 >>> diagonal_idcs_tl_br + diagonal_idcs_bl_tr
 [(0, 0), (1, 1), (2, 2), (3, 3), (4, 4), (4, 0), (3, 1), (1, 3), (0, 4)]
@@ -52,9 +52,9 @@ def sum_matrix_diagonals(matrix):
 
     # Identify diagonal matrix indices trom bottom-left to top right
     if len(matrix) % 2 == 0: # size is even
-        diagonal_idcs_bl_tr = [(i,j) for i,j in zip([*range(4,-1,-1)], [*range(5)]) ]
-    else: # size is odd (ignore central element)
-        diagonal_idcs_bl_tr = [(i,j) for i,j in zip([*range(4,-1,-1)], [*range(5)]) if i != j ]
+        diagonal_idcs_bl_tr = [(i,j) for i,j in zip(range(4,-1,-1), range(5)) ]
+    else: # size is odd (must ignore central element)
+        diagonal_idcs_bl_tr = [(i,j) for i,j in zip(range(4,-1,-1), range(5)) if i != j ]
 
     diagonal_idcs = diagonal_idcs_tl_br + diagonal_idcs_bl_tr
     diag_sum = sum([matrix[i][j] for i,j in diagonal_idcs])
