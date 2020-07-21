@@ -92,7 +92,8 @@ If we copy a mutable object, the copy have the same identity as the original. Ho
 ```
 
 ### Copying mutable objects   
-In contrast, if we copy a mutable object and make a change the copy, it will also change the original.  BEWARE!
+In contrast, if we copy a mutable object and make a change to the copy, this will also change the original.  BEWARE!
+This makes sense as our change to the copy did not create a new object (as for immutable object copies).
 ```
 >>> l = [1, 2, 3]
 >>> id(l)
