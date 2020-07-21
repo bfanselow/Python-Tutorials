@@ -2,14 +2,14 @@
 
 ### Identity   
 An object's *identity* (equivelent to the object's memory address) in Python never changes once it has been created.
-The identity of an object can be found with the **id()** function.
+The identity of an object can be found with the **id()** function.   
 ```
 >>> s = 'abc'
 >>> id(s)
 139884406490368
 ```
 
-The **is** operator can be used to compare the identity of objects
+The **is** operator can be used to compare the identity of objects   
 ```
 >>> s2 = s
 >>> s2 is s
@@ -17,8 +17,10 @@ True
 >>> id(s2)
 139884406490368
 ```
+
 ### Immutable Objects (int, float, decimal, bool, string, tuple, and range)
 We say that a Python object is immutable if its **identity* changes when we change its value
+```
 >>> a = '1234'
 >>> id(a)
 139884406490368
@@ -34,9 +36,11 @@ We say that a Python object is immutable if its **identity* changes when we chan
 35
 >>> id(N)
 139884405705696  # we actually created a new object rather than modifying the original!
+```
 
 ### Mutable Objects  (list, dictionary, set and user-defined classes) 
 We say that a Python object is mutable if we can change its value without changing its *identity*
+```
 >>> l = [1, 2, 3]
 >>> id(l)
 >>> l = [1, 2, 3]
@@ -45,6 +49,7 @@ We say that a Python object is mutable if we can change its value without changi
 >>> l.append(4)
 >>> id(l)
 139884406486664  # We changed the value of the object without changing its identity!
+```
 
 
 ### Comparing an object's **value** vs the object's identity   
@@ -85,7 +90,6 @@ If we copy mutable objects, they have the same identity. However, when we change
 >>> id(s1)
 139884406490704
 ```
-
 
 ### Copying mutable objects   
 Beware when using copying mutable objects as changing one changes both!
