@@ -19,7 +19,7 @@ True
 ```
 
 ### Immutable Objects (int, float, decimal, bool, string, tuple, and range)
-We say that a Python object is immutable if its **identity* changes when we change its value
+We say that a Python object is immutable if its **identity** changes when we change its value
 ```
 >>> a = '1234'
 >>> id(a)
