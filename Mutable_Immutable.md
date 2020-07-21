@@ -73,7 +73,7 @@ False
 ```
 
 ### Copying immutable objects
-If we copy mutable objects, they have the same identity. However, when we change one of the copies, it does not change the other since the change actually created a new object as we saw above.
+If we copy a mutable object, the copy have the same identity as the original. However, if we change the copy, this does not change the original since the change actually created a new object (as we saw above).
 ```
 >>> s = 'abc'
 >>> id(s)
@@ -92,7 +92,7 @@ If we copy mutable objects, they have the same identity. However, when we change
 ```
 
 ### Copying mutable objects   
-Beware when using copying mutable objects as changing one changes both!
+In contrast, if we copy a mutable object and make a change the copy, it will also change the original.  BEWARE!
 ```
 >>> l = [1, 2, 3]
 >>> id(l)
