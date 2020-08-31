@@ -100,7 +100,7 @@ This makes sense as our change to the copy did not create a new object (as for i
 139884406488136
 >>> l1 = l
 
-# By copying we create a new object with same identity
+# By copying we create a new object reference (almost like an "alias") having same identity
 
 >>> id(l1)
 139884406488136
