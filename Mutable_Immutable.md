@@ -43,8 +43,6 @@ We say that a Python object is mutable if we can change its value without changi
 ```
 >>> l = [1, 2, 3]
 >>> id(l)
->>> l = [1, 2, 3]
->>> id(l)
 139884406486664
 >>> l.append(4)
 >>> id(l)
