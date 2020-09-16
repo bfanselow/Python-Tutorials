@@ -38,7 +38,7 @@ We say that a Python object is immutable if its **identity** changes when we cha
 139884405705696  # we actually created a new object rather than modifying the original!
 ```
 
-### Mutable Objects  (list, dictionary, set and user-defined classes) 
+### Mutable Objects  (list, dictionary, set, and user-defined classes) 
 We say that a Python object is mutable if we can change its value without changing its *identity*
 ```
 >>> l = [1, 2, 3]
