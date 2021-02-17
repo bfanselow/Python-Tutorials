@@ -46,7 +46,7 @@ Each type of concurrency has its own strenghts and weaknesses. Choosing which ty
 **DIS-ADVANTAGES**:   
  * Higher resource cost than threads since a full copy of the resources (code, file-handles, memory-stack, etc) is made for each process.
  * Generally not as fast as multi-threading or asyncio (due to extra overhead) when dealing with I/O bound problems.
- * Compared to multi-threaing much harder to communicate between the multiple processes than between threads.
+ * Compared to multi-threading much harder to communicate between the multiple processes than between threads.
 
 ---
 ### multi-threading (a.k.a. pre-emptive multi-tasking)
