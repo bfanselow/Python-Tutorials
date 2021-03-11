@@ -15,7 +15,9 @@
     from resource_lock import ResourceLock
     ...
 
-    # Using direct acquire/release: 
+    #
+    # Using direct acquire/release:
+    #
     rl = ResourceLock
     def multi_reader_operations():
         # multiple threads can call this method concurrently which
@@ -56,16 +58,16 @@
   __init__() around thread Lock object.
   
   The notifyAll() method of a Condition object wakes up all threads that are
-  on a "wait" condition on the object. The only way a thread can get into such
-  a wait is in the acquire_exclusive() method, when it finds there are 
-  shared-lock holders active after acquiring the  lock. The wait call on the
-  Condition object releases the underlying lock, so release_shared() methods
-  can execute, but reacquires it again before waking up - acquire_exclusive()
-  can safely keep checking whenever it wakes up to check if it’s finally in a
-  "no-shared-lock-holders" situation. When that happens, acquire_exclusive()
-  returns to its caller, but keeps the lock, so no other shared or exclusive
-  lock can be acquired, until the release_exclusive() is called, which lets
-  the lock go again.
+  on a "wait" condition on the object. In this recipe the only way a thread
+  can get into such a wait is in the acquire_exclusive() method, when it
+  finds there are shared-lock holders active after acquiring the lock. The
+  wait call on the Condition object releases the underlying lock, so
+  release_shared() methods can execute, but reacquires it again before waking
+  up. So, acquire_exclusive() can safely keep checking whenever it wakes up
+  to see if it’s finally in a "no-shared-lock-holders" situation. When that
+  happens, acquire_exclusive() returns to its caller, but keeps the lock,
+  so no other shared or exclusive lock can be acquired, until the
+  release_exclusive() is called, which lets the lock go again.
 
   Note that this recipe offers no guarantee against a "starvation" situation
   where a Writer waits indefinitely, blocked by a steady stream of Readers
@@ -111,13 +113,19 @@ class ResourceLock:
 
     def acquire_exclusive(self):
         """
-        Acquire hte EXCLUSIVE lock. 
+        Acquire the EXCLUSIVE lock.
         Blocks until there are no acquired EXCLUSIVE or SHARED locks.
+
+        wait() can only be called when the calling thread has the lock.
+        It is used to block the thread and make it wait until some
+        other thread notifies it by calling notify() or notifyAll()
+        on the same condition object or until the timeout occurs.
+        It returns True if it is released by notify*() or False on timeout.
         """
         self.lock.acquire()
         while self.shared_lock_holders > 0:
-            logging.info("WAITING")
-            self.lock.wait()
+            logging.debug("WAITING on shared-lock holders to release")
+            self.lock.wait()  # TODO: could add timeout to wait
 
     def release_exclusive(self):
         """ Release the EXCLUSIVE lock. """
@@ -175,7 +183,7 @@ if __name__ == '__main__':
         logging.debug("%s: Writer finished" % tname)
 
     #
-    # test use of ResourceLock object directly with acquire/release methods 
+    # test use of ResourceLock object directly with acquire/release methods
     #
     def multi_reader_operations(tname, lock):
         logging.debug("%s: Reader checking lock..." % tname)
@@ -183,7 +191,6 @@ if __name__ == '__main__':
         reader_job(tname, lock)
         lock.release_shared()
         logging.debug("%s: Reader leaving" % tname)
-    
     
     def single_writer_operations(tname, lock):
         logging.debug("%s: Writer checking lock..." % tname)
@@ -193,7 +200,7 @@ if __name__ == '__main__':
         logging.debug("%s: Writer leaving" % tname)
    
     #
-    # test use of SharedLock and ExclusiveLock objects as context managers
+    # test use SharedLock, ExclusiveLock objects as context managers
     #
     def cm_multi_reader_operations(tname, lock):
         logging.debug("%s: Reader checking lock..." % tname)
@@ -201,13 +208,11 @@ if __name__ == '__main__':
             reader_job(tname, slock.lock)
         logging.debug("%s: Reader leaving" % tname)
     
-    
     def cm_single_writer_operations(tname, lock):
         logging.debug("%s: Writer checking lock..." % tname)
-        with ExclusiveLock(lock) as xlock: 
+        with ExclusiveLock(lock) as xlock:
             writer_job(tname, xlock.lock)
         logging.debug("%s: Writer leaving" % tname)
-    
     
     rl = ResourceLock()
     for i in range(50):
@@ -219,7 +224,7 @@ if __name__ == '__main__':
             # writer = threading.Thread(name=name, target=single_writer_operations, args=(name,rl,))
             writer = threading.Thread(name=name, target=cm_single_writer_operations, args=(name,rl,))
             writer.start()
-        # create lots of readers 
+        # create lots of readers freqently
         else:
             name = f'reader-{i}'
             # reader = threading.Thread(name=name, target=multi_reader_operations, args=(name,rl,))
