@@ -193,7 +193,7 @@ if __name__ == '__main__':
         logging.debug("%s: Writer leaving" % tname)
    
     #
-    # test use SharedLock, ExclusiveLock objects as context managers
+    # test use of SharedLock and ExclusiveLock objects as context managers
     #
     def cm_multi_reader_operations(tname, lock):
         logging.debug("%s: Reader checking lock..." % tname)
