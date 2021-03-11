@@ -1,5 +1,5 @@
 
-""" 
+"""
   Module: resource_lock.py
   Primary Class: ResourceLock
   Support Classes: SharedLock, ExclusiveLock
@@ -10,7 +10,7 @@
 
   Concepts taken from:
     https://www.oreilly.com/library/view/python-cookbook/0596001673/ch06s04.html
-  
+
   Usage:
     from resource_lock import ResourceLock
     ...
@@ -51,12 +51,12 @@
   lock which blocks other threads  from modifying the resource (i.e. "Writers"),
   while only one (Writer) thread can acquire an exclusive (X) lock which
   blocks all other threads from all resource access.
-  
+
   The class keeps track of the number of current shared-lock holders.  The
   acquire_shared() and release_shared() methods increment/decrement this number.
   Synchronization is performed by a threading.Condition object created in
   __init__() around thread Lock object.
-  
+
   The notifyAll() method of a Condition object wakes up all threads that are
   on a "wait" condition on the object. In this recipe the only way a thread
   can get into such a wait is in the acquire_exclusive() method, when it
@@ -83,6 +83,7 @@ import logging
 import threading
 
 logger = logging.getLogger(__name__)
+
 
 class ResourceLock:
 
@@ -159,6 +160,7 @@ class ExclusiveLock():
         self.lock.release_exclusive()
         return False  # raise exception if exited due to an exception
 
+
 # TESTING
 if __name__ == '__main__':
 
@@ -166,7 +168,7 @@ if __name__ == '__main__':
     from random import randrange
 
     logging.basicConfig(level=logging.DEBUG,
-        format='%(asctime)s: (%(threadName)-9s) %(message)s',)
+                        format='%(asctime)s: (%(threadName)-9s) %(message)s',)
 
     def reader_job(tname, lock):
         sleep = 1
@@ -174,7 +176,7 @@ if __name__ == '__main__':
         print(lock.__dict__)
         time.sleep(sleep)
         logging.debug("%s: Reader finished" % tname)
-    
+
     def writer_job(tname, lock):
         sleep = randrange(4)
         logging.debug("%s: Writer started job (%d seconds)" % (tname, sleep))
@@ -191,44 +193,44 @@ if __name__ == '__main__':
         reader_job(tname, lock)
         lock.release_shared()
         logging.debug("%s: Reader leaving" % tname)
-    
+
     def single_writer_operations(tname, lock):
         logging.debug("%s: Writer checking lock..." % tname)
         lock.acquire_exclusive()
         reader_job(tname, lock)
         lock.release_exclusive()
         logging.debug("%s: Writer leaving" % tname)
-   
+
     #
     # test use SharedLock, ExclusiveLock objects as context managers
     #
     def cm_multi_reader_operations(tname, lock):
         logging.debug("%s: Reader checking lock..." % tname)
-        with SharedLock(lock) as slock: 
+        with SharedLock(lock) as slock:
             reader_job(tname, slock.lock)
         logging.debug("%s: Reader leaving" % tname)
-    
+
     def cm_single_writer_operations(tname, lock):
         logging.debug("%s: Writer checking lock..." % tname)
         with ExclusiveLock(lock) as xlock:
             writer_job(tname, xlock.lock)
         logging.debug("%s: Writer leaving" % tname)
-    
+
     rl = ResourceLock()
     for i in range(50):
         pick = randrange(12)
-            
+
         # create a small number of writers occasionally
         if pick < 3:
             name = f'writer-{i}'
-            # writer = threading.Thread(name=name, target=single_writer_operations, args=(name,rl,))
-            writer = threading.Thread(name=name, target=cm_single_writer_operations, args=(name,rl,))
+            # writer = threading.Thread(name=name, target=single_writer_operations, args=(name, rl, ))
+            writer = threading.Thread(name=name, target=cm_single_writer_operations, args=(name, rl, ))
             writer.start()
         # create lots of readers freqently
         else:
             name = f'reader-{i}'
-            # reader = threading.Thread(name=name, target=multi_reader_operations, args=(name,rl,))
-            reader = threading.Thread(name=name, target=cm_multi_reader_operations, args=(name,rl,))
+            # reader = threading.Thread(name=name, target=multi_reader_operations, args=(name, rl, ))
+            reader = threading.Thread(name=name, target=cm_multi_reader_operations, args=(name, rl, ))
             reader.start()
             if pick > 9:
                 time.sleep(3)
