@@ -33,7 +33,7 @@
         ...do exclusive-lock work
         rl.release_exclusive()
     #
-    # Or using context-managers by instantiating child classes of ResourceLock
+    # Or using context-managers by instantiating supporting classes of ResourceLock
     #
     rl = ResourceLock
     def multi_reader_operations():
