@@ -36,12 +36,14 @@ $ cat test_parent_parent_parent/pylib.py
 import os
 import sys
 
-# root_folder = os.path.abspath(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 file = os.path.abspath(__file__)
 dir = os.path.dirname(file)
 parent = os.path.dirname(dir)
 parent_parent = os.path.dirname(parent)
 rootdir = os.path.abspath(parent_parent)
+# If you like one-liners:
+# rootir = os.path.abspath(os.path.dirname((os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(rootdir)
 
 
