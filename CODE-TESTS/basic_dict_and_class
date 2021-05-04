@@ -1,0 +1,197 @@
+##
+## Simple Dictionary syntax, usage
+##
+
+## Suppose we have the following table of fruits and their quantity
+# +——————————|————+
+# | cherries | 10 |
+# | apples   | 6  |
+# | bananas  | 13 |
+# +——————————+————+
+
+
+# Q: what is a good way to organize this data in a python data structure?
+# A: 
+>>> fruits = {'cherries': 10, 'bananas': 13, 'apples': 6}
+
+
+# Q: how to find the quantity of apples
+# A:
+>>> fruits['apples']
+6
+
+
+# Q: what happens if I say fruits[’oranges’]?
+>>> fruits['oranges']
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'oranges'
+
+# Q: Therefore, what is a good way to get the value if I’m not sure the fruit exists?
+# A: >>> fruits.get('oranges', 0)
+
+
+>>> [fruits[k] for k in ['apples', 'bananas', 'oranges']]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 1, in <listcomp>
+KeyError: 'oranges'
+# A: fruits.get(k, 0)
+>>> [fruits.get(k, 0) for k in ['apples', 'bananas', 'oranges']]
+[6, 13, 0]
+
+
+##
+## Identity, Mutability
+##
+## We say that a Python object is mutable if we can change its value without changing its identity
+
+# Quick identity question.  Suppose we define:
+>>> same_fruits = {'cherries': 10, 'bananas': 13, 'apples': 6}
+# Q: what does this evaluate to?
+>>> fruits == same_fruits
+# A:
+>>> True
+
+# Q: what does this evaluate to?
+>>> fruits is some_fruits
+# A:  (Mutable objects with same values do not necessarily have same identity)
+>>> False
+
+# What if we make of COPY of a mutable object?
+>>> fruits = {'cherries': 10, 'bananas': 13, 'apples': 1}
+>>> fruits_copy = fruits
+# Q:
+>>> fruits == fruits
+# A: 
+>>> True
+
+# Now, what if we modify the copy?
+>>> fruits_copy[‘apples’] = 5
+# Q: Do they have same value?
+>>> fruits == fruits
+# A: 
+>>> True
+# Q Do they both have same identify?
+>>> fruits is fruits
+# A: 
+>>> True
+
+
+##
+## Multi-level dicts
+##
+
+# Q Suppose we want to add more attributes: color, calories-preserving?
+# A
+fruits = {
+    'cherries': {’quantity’: 10, ‘color’: ‘red’, ‘calories’: 100},
+    ‘bananas':  {’quantity’: 13, ‘color’: ‘yellow’, ‘calories’: 150},
+    ‘apples':   {’quantity’: 10, ‘color’: ‘red’, ‘calories’: 120}
+}
+
+# Q: Allow for more than one color?
+# A
+fruits = {
+    'cherries': {’quantity’: 10, ‘color’: [‘red’], ‘calories’: 100},
+    ‘bananas':  {’quantity’: 13, ‘color’: [‘green’, ‘yellow’], ‘calories’: 150},
+    ‘apples':   {’quantity’: 10, ‘color’: [‘green’,‘red’], ‘calories’: 120}
+}
+
+
+##
+##. Advanced dict operations
+##
+
+# Merging two dicts. 
+# Suppose we define:
+>>> new_fruits = {'oranges': 1, 'grapes': 3, 'watermelon': 2}
+# Q: Construct a new dict that combines the two
+# A:
+>>>  {**new_fruits, **fruits}
+{'oranges': 1, 'grapes': 3, 'watermelon': 2, 'cherries': 10, 'bananas': 13, 'apples': 6}
+
+
+
+# Ordering
+# Q: print the original dict ordered (alphabetically) by fruit
+# A
+>>> dict(sorted(fruits.items()))
+{'apples': 6, 'bananas': 13, 'cherries': 10}
+
+
+# explanation
+>>> fruits.items()
+dict_items([('cherries', 10), ('bananas', 13), ('apples', 6)])
+>>> sorted(fruits.items())
+[('apples', 6), ('bananas', 13), ('cherries', 10)]
+>>> dict(sorted(fruits.items()))
+{'apples': 6, 'bananas': 13, 'cherries': 10}
+
+# Bonus
+# Q: reverse the order
+>>> dict(sorted(fruits.items(), reverse=True))
+{'cherries': 10, 'bananas': 13, 'apples': 6}
+
+# Q: Now print the same dict ordered (numerically) by quantity
+# A
+>>> {k: v for k,v in sorted(fruits.items(), key=lambda item: item[0])}
+{'apples': 6, 'bananas': 13, 'cherries': 10}
+
+# Q: reverse the order
+>>> {k: v for k,v in sorted(fruits.items(), key=lambda item: item[0], reverse=True)}
+{'cherries': 10, 'bananas': 13, 'apples': 6}
+
+
+##
+## ADVANCED 1
+##
+# Q: write an algorithm to find the fruit with the largest quantity
+>>> max(fruits.keys(), key=lambda key: fruits[key])
+'bananas’
+
+##
+## ADVANCED 2
+##
+# Q: write an algorithm to to sum the the quantities of two fruit “baskets” having same keys
+>>> fruits_A = {'cherries': 10, 'bananas': 13, 'apples': 6}
+>>> fruits_B = {'cherries': 5, 'bananas': 2, 'apples': 9}
+>>> { k: fruits_A.get(k)+fruits_B.get(k) for k in fruits_A.keys() }
+{'cherries': 15, 'bananas': 15, 'apples': 15}
+
+##
+## ADVANCED 3
+##
+# Write an algorithm to to sum the the quantities of two fruit “baskets” which some overlap of keys but also some different keys
+>>> fruits_A = {'cherries': 10, 'bananas': 13, 'apples': 6, ‘watermelon’: 2}
+>>> fruits_B = {'cherries': 5, 'bananas': 2, 'oranges': 9, 'grapes': 8}
+# Q1: Only sum those that overlap
+# A1
+>>> { k: fruits_A.get(k, 0)+fruits_B.get(k, 0) for k in set(fruits_A) & set(fruits_B) }
+{'bananas': 15, 'cherries': 15}
+# Q1: Sum all
+# A1
+>>> { k: fruits_A.get(k, 0)+fruits_B.get(k, 0) for k in set(fruits_A) | set(fruits_B) }
+{'grapes': 8, 'cherries': 15, 'oranges': 9, 'bananas': 15, 'watermelon': 2, 'apples': 6}
+
+
+##=========================================================================
+##
+## Classes
+##
+# Show how you could express our fruit data using classes
+class Fruit():
+    def __init__(self, name, color):
+        self.name = name
+        self.color = color
+    def show(obj):
+        print(f'I am a {self.name} with color {self.color}')
+
+
+A = Fruit(‘apple’, ‘green’)
+B = Fruit(‘banana’, ‘yellow’)
+C = Fruit(‘cherry’, ‘red’)
+
+>>>A.name
+>>>A.color
+>>>A.show()
