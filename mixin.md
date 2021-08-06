@@ -62,7 +62,7 @@ class UserRadioMixin(object):
        self.radio.set_station(station)
        self.radio.play_song()
 
-class Car(Vehicle, RadioUserMixin): # in Python the classname appended by "Mixin" is convention for a mixin class.
+class Car(Vehicle, UserRadiorMixin): # in Python the classname appended by "Mixin" is convention for a mixin class.
    ...
 
 
