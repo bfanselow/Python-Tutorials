@@ -2,7 +2,7 @@
 """
 
  Demonstrate how to skip an individual test case conditionally or unconditionally, as well as how 
- to mark a test as an expected failure (still fails but now counted as a failure in TestResult)
+ to mark a test as an expected failure (still fails but not counted as a failure in TestResult)
 
 
  Expected utput:
