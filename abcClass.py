@@ -19,14 +19,14 @@ class AbstractClassExample(ABC):
         
 
 
-class DoAdd42(AbstractClassExample):
+class Add42(AbstractClassExample):
 
     def do_math(self):
         value = self.value + 42
         print(f"Inside {__class__.__name__} Child Class. value={value}")
         return value
     
-class DoMul42(AbstractClassExample):
+class Mul42(AbstractClassExample):
    
     def do_math(self):
         value = self.value * 42
@@ -36,8 +36,8 @@ class DoMul42(AbstractClassExample):
 
 my_num = 10
 print(f"Start with num={my_num}")
-x = DoAdd42(my_num)
-y = DoMul42(my_num)
+x = Add42(my_num)
+y = Mul42(my_num)
 
 print(x.do_math())
 print(y.do_math())
