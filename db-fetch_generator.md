@@ -48,4 +48,4 @@ for result in results_iterator(cursor):
 
 This looks similar to code above, but internally the results_iterator() generator is chunking the database calls into a series of fetchmany() calls.
 The default here is that a 1000 records at a time are fetched, but you can change that according to your own requirements (either by changing the
-default, or just using the second parameter to ResultIter(). As always, trying different values with the profiler is probably a good idea.
+default, or just using the second parameter to results_iterator(). As always, trying different values with the profiler is probably a good idea.
