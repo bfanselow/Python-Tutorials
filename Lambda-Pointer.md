@@ -1,4 +1,4 @@
-# Functions are just objects in python and can be passed as an arg to other functions. This allows us do things like a function repeater:
+### Functions are just objects in python and can be passed as an arg to other functions. This allows us do things like a function repeater:
 
 ```
 >>> def repeat(func, count):
@@ -20,7 +20,7 @@ Howdy partner!
 Howdy partner!
 ```
 
-# But waht if we want to pass an arg in the function that is being passed as an arg?
+### But waht if we want to pass an arg in the function that is being passed as an arg?
 
 ```
 >>> def howdy(name="partner"):
@@ -41,7 +41,7 @@ Howdy partner
 Howdy partner
 ```
 
-# This syntax won't work as you are passing the RETURN of the executed function, which is None in this case
+### This syntax won't work as you are passing the RETURN of the executed function, which is None in this case
 ```
 >>> repeat(howdy('Bill'), 6)
 Howdy Bill
@@ -51,7 +51,7 @@ Traceback (most recent call last):
 TypeError: 'NoneType' object is not callable
 ```
 
-# SOLUTION: Use lambda
+### SOLUTION: Use lambda
 ```
 >>> repeat(lambda: howdy('Bill'), 6)
 Howdy Bill
@@ -63,7 +63,7 @@ Howdy Bill
 >>>
 ```
 
-# NOTE: Could also use functools.partial
+### NOTE: Could also use functools.partial
 ```
 from functools import partial
 repeat(partial(howdy, 'Bill'), 6)
