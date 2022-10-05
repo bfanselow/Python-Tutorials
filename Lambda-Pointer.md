@@ -20,7 +20,7 @@ Howdy partner!
 Howdy partner!
 ```
 
-#### But waht if we want to pass an arg in the function that is being passed as an arg?
+#### But what if we want to pass an arg in the function that is being passed as an arg?
 
 ```
 >>> def howdy(name="partner"):
