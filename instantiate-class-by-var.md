@@ -26,6 +26,8 @@ class Orange(Fruit):
 #### Now we want to instantiate a specific fruit by a (string) name. One way to do this is with globals() - a function which returns the dictionary of current global symbol table. The Symbol table is a data structure which contains all necessary information about the program. These include variable names, methods, classes, etc. Therefore, ```globals()['Strawberry']``` will refer to the Strawberry class
 
 ```
+from <some-lib> import Strawberry, Apple, Orange
+
 for name in ['Strawberry', 'Apple', 'Orange']:
     fruit = globals()[name]('hello')
 
@@ -51,4 +53,4 @@ for name in ['strawberry', 'apple', 'orange']:
     fruit = fruit_class('bonjour!')
 ```
 
-#### The advantage with this approach is that we can use arbitrary names instead of having to use the Class names. The disadvantge is that we have to import all the Classes in use.  This may not be desirable in some circumstances.
+#### The advantage with this approach is that we can use arbitrary names instead of having to use the Class names.
