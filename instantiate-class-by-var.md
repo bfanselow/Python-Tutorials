@@ -23,11 +23,7 @@ class Orange(Fruit):
 
 ```
 
-#### Now we want to instantiate a specific fruit by a (string) name.
-#### One way to do this is with globals() - a function which returns the dictionary of
-#### current global symbol table. The Symbol table is a data structure which contains
-#### all necessary information about the program. These include variable names, methods, classes, etc.
-#### Therefore, globals()['Strawberry'] will refer to the Strawberry class
+#### Now we want to instantiate a specific fruit by a (string) name. One way to do this is with globals() - a function which returns the dictionary of current global symbol table. The Symbol table is a data structure which contains all necessary information about the program. These include variable names, methods, classes, etc. Therefore, ```globals()['Strawberry']``` will refer to the Strawberry class
 
 ```
 for name in ['Strawberry', 'Apple', 'Orange']:
