@@ -35,8 +35,7 @@ for name in ['Strawberry', 'Apple', 'Orange']:
   Instantiating fruit "Orange": hello
 ```
 
-#### Another way to do this such that we can use an arbitrary variable name to reference the Class names, is to use Enum
-#### which maps a arbitrary name to its assocated Class
+#### Another way to do this such that we can use an arbitrary variable name to reference the Class names, is to use Enum which maps a arbitrary name to its assocated Class
 
 ```
 from enum import Enum
@@ -52,5 +51,4 @@ for name in ['strawberry', 'apple', 'orange']:
     fruit = fruit_class('bonjour!')
 ```
 
-#### The advantage with this approach is that we can use arbitrary names instead of having to use the Class names.
-#### The disadvantge is that we have to import all the Classes in use.  This may not be desirable in some circumstances.
+#### The advantage with this approach is that we can use arbitrary names instead of having to use the Class names. The disadvantge is that we have to import all the Classes in use.  This may not be desirable in some circumstances.
