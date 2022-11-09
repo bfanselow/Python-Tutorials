@@ -128,6 +128,25 @@ except Exception as e:
 else:
     cleanup_all_files()
 ```
+#### Identify specific exception types if the path depends on the type of exception
+```
+try:
+    do_some_operations(some_arg)
+except IOError as e:
+    log.exception(f"Some IO errors occured that we need to address here")
+    reset_operations()
+    cleanup_all_files()
+except OSError as e:
+    log.exception(f"Some OS errors occured that we don't know how to handle here")
+    raise
+except Exception as e:
+    log.exception(f"Some other exception occured that we don't know how to handle here")
+    raise
+else:
+    cleanup_all_files()
+```
+
+
 
 -----
 #### Exceptions are often used in Python for the "easier to ask for forgiveness than permission" (EAFP) principle.  Example, suppose you need a function that takes positive numbers as strings and converts them to int
