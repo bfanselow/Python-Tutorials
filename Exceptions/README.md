@@ -128,7 +128,7 @@ else:
 ```
 
 -----
-#### Exceptions are often used in Python for the "easier to ask for forgiveness than permission".  Example, suppose you need a function that takes positive numbers as strings and converts them to int
+#### Exceptions are often used in Python for the "easier to ask for forgiveness than permission" (EAFP) principle.  Example, suppose you need a function that takes positive numbers as strings and converts them to int
 ```
 >>> def to_integer(value):
 ...     if value.isdigit():
