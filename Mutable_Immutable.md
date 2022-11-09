@@ -115,13 +115,30 @@ Be very careful using mutable objects as default args in a function/method. Pyth
 
 Example:
 ```
->>> def f(value, key, hash={}):
-...     hash[value] = key
+>>> def f(key, value, hash={}):
+...     hash[key] = value
 ...     return hash
 
 >>> print(f('a', 1))
 {'a': 1}
 >>> print(f('b', 2))
 {'a': 1, 'b': 2}
+
+# Yikes! Did you expect the output to be {'b': 2}
 ```
-### Yikes! Did you expect the output to be {'b': 2}
+
+#### You could argue that if your function does not change the value of the passed object then it's not a problem.  If the function does not modify the argument but leaks a reference to it (by returning it, yielding it, calling some other function with it as an argument, or so on), then the same problem can occur. It's recommended to always use None, even if the function is written carefully to avoid such bugs, purely so that seemingly-innocuous changes to the function cannot break it.
+
+Better:
+```
+>>> def f(key, value, hash=None):
+...     if not hash:
+...         hash = {}
+...     hash[key] = value
+...     return hash
+
+>>> print(f('a', 1))
+{'a': 1}
+>>> print(f('b', 2))
+{'b': 2}
+```
