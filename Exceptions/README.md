@@ -133,11 +133,12 @@ else:
 try:
     do_some_operations(some_arg)
 except IOError as e:
-    log.exception(f"Some IO errors occured that we need to address here")
+    log.exception(f"Some IO errors occured that we can safely address here")
     reset_operations()
     cleanup_all_files()
 except OSError as e:
     log.exception(f"Some OS errors occured that we don't know how to handle here")
+    cleanup_all_files()
     raise
 except Exception as e:
     log.exception(f"Some other exception occured that we don't know how to handle here")
