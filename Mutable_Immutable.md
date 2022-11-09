@@ -110,3 +110,18 @@ This makes sense as our change to the copy did not create a new object (as for i
 [1, 2, 3, 4]
 ```
 
+### Using mutable objects as default function arg
+Be very careful using mutable objects as default args in a function/method. Python’s default arguments are evaluated only once when the function is defined, not each time the function is called. This means that if a mutable default argument is used and is mutated, it is mutated for all future calls to the function as well. This leads to buggy behaviour as the programmer expects the default value of that argument in each function call.
+
+Example:
+```
+>>> def f(value, key, hash={}):
+...     hash[value] = key
+...     return hash
+
+>>> print(f('a', 1))
+{'a': 1}
+>>> print(f('b', 2))
+{'a': 1, 'b': 2}
+```
+### Yikes! Did you expect the output to be {'b': 2}
