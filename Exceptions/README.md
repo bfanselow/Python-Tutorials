@@ -107,7 +107,7 @@ class Robot():
 
 ## Other exception recipes
 
-#### use "finally" to for performing (cleanup) tasks regardless of success or failure without aborting
+#### use "finally" for performing (cleanup) tasks regardless of success or failure without aborting
 ```
 try:
     do_some_file_operations(some_arg)
@@ -117,7 +117,7 @@ finally:
     cleanup_all_files()
 ```
 
-#### Use "else" to perform cleanup tasks only on success. Here, w only log on failure, but don't abort
+#### Use "else" for performing cleanup tasks only on success. Here, w only log on failure, but don't abort
 ```
 try:
     do_some_file_operations(some_arg)
