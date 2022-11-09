@@ -102,3 +102,82 @@ class Robot():
             logging.exception(msg)
             raise RobotError( "%s: %s" % (msg, e) ) 
 ```
+
+#### Exceptions are often used in Python for the "easier to ask for forgiveness than permission".  Example, suppose you need a function that takes positive numbers as strings and converts them to int
+
+>>> def to_integer(value):
+...     if value.isdigit():
+...         return int(value)
+...     return None
+...
+
+>>> to_integer("42")
+42
+>>> to_integer("one") is None
+True
+
+#### This works fine, but there’s some hidden repetition in this function. The call to int() internally performs all the required checks to convert the input string to an actual integer number.  Because the checks are already part of int(), testing the input string with .isdigit() duplicates the checks already in place. To avoid this unnecessary repetition and its corresponding overhead, you can use the EAFP style and do something like this:
+
+>>> def to_integer(value):
+...     try:
+...         return int(value)
+...     except ValueError:
+...         return None
+...
+
+>>> to_integer("42")
+42
+>>> to_integer("one") is None
+True
+
+
+## Other exception recipes
+
+#### use "finally" to for performing (cleanup) tasks regardless of success or failure without aborting
+```
+try:
+    do_some_file_operations(some_arg)
+except Exception as e:
+    log.exception(f"Some errors occured when passing arg: {some_arg}")
+finally:
+    cleanup_all_files()
+```
+
+#### Use "else" to perform cleanup tasks only on success. Here, w only log on failure, but don't abort
+```
+try:
+    do_some_file_operations(some_arg)
+except Exception as e:
+    log.exception(f"Some errors occured. All files left in current state")
+else:
+    cleanup_all_files()
+```
+
+-----
+#### Exceptions are often used in Python for the "easier to ask for forgiveness than permission".  Example, suppose you need a function that takes positive numbers as strings and converts them to int
+
+>>> def to_integer(value):
+...     if value.isdigit():
+...         return int(value)
+...     return None
+...
+
+>>> to_integer("42")
+42
+>>> to_integer("one") is None
+True
+
+#### This works fine, but there’s some hidden repetition in this function. The call to int() internally performs all the required checks to convert the input string to an actual integer number.  Because the checks are already part of int(), testing the input string with .isdigit() duplicates the checks already in place. To avoid this unnecessary repetition and its corresponding overhead, you can use the EAFP style and do something like this:
+
+>>> def to_integer(value):
+...     try:
+...         return int(value)
+...     except ValueError:
+...         return None
+...
+
+>>> to_integer("42")
+42
+>>> to_integer("one") is None
+True
+
