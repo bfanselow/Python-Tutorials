@@ -104,7 +104,7 @@ class Robot():
 ```
 
 #### Exceptions are often used in Python for the "easier to ask for forgiveness than permission".  Example, suppose you need a function that takes positive numbers as strings and converts them to int
-
+```
 >>> def to_integer(value):
 ...     if value.isdigit():
 ...         return int(value)
@@ -115,9 +115,9 @@ class Robot():
 42
 >>> to_integer("one") is None
 True
-
+```
 #### This works fine, but there’s some hidden repetition in this function. The call to int() internally performs all the required checks to convert the input string to an actual integer number.  Because the checks are already part of int(), testing the input string with .isdigit() duplicates the checks already in place. To avoid this unnecessary repetition and its corresponding overhead, you can use the EAFP style and do something like this:
-
+```
 >>> def to_integer(value):
 ...     try:
 ...         return int(value)
@@ -129,7 +129,7 @@ True
 42
 >>> to_integer("one") is None
 True
-
+```
 
 ## Other exception recipes
 
