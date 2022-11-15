@@ -1,5 +1,5 @@
 # Exception Handling
-Exceptions are first and foremost a control flow tool allowing to break out of the normal execution flow and pass control (and some informations) to any arbitrary place up in the call stack.  If you catch an exception, it means you intend to do something about it, even if that something is just output a custom logging message before ignoring it or re-raising it. If the only thing you do is re-raise it, then you shouldn't have caught it in the first place. (This might indicate that the class of error you are catching is too broad.)
+Exceptions are first and foremost a control flow tool allowing to break out of the normal execution flow and pass control (and some information) to any arbitrary place up in the call stack.  If you catch an exception, it means you intend to do something about it, even if that something is just output a custom logging message before ignoring it or re-raising it. If the only thing you do is re-raise it, then you shouldn't have caught it in the first place. (This might indicate that the class of error you are catching is too broad.)
 
 
 ## Do's and Don'ts of Python Exception Handling
