@@ -1,6 +1,13 @@
+# Exception Handling
+Exceptions are first and foremost a control flow tool allowing to break out of the normal execution flow and pass control (and some informations) to any arbitrary place up in the call stack.  If you catch an exception, it means you intend to do something about it, even if that something is just output a custom logging message before ignoring it or re-raising it. If the only thing you do is re-raise it, then you shouldn't have caught it in the first place. (This might indicate that the class of error you are catching is too broad.)
+
+
 ## Do's and Don'ts of Python Exception Handling
 The key to writing Python exception patterns is to understand well what the application should do when it encounters an error with your *try* statement.  Do you need to know about the exception at all at this point?  If not, why not just avoid try/catch altogether and let the parent/caller handle it; if the caller doesn't handle it, it will eventually bubble all the way up and your program will abort with a traceback.  Maybe you don't need to handle it at the level of the try, but you do want to log something.  Maybe you want to perform some immediate recovery tasks (i.e. cleanup tasks) but still want to let the caller address whether or not to abort.  Maybe you want to peform some cleanup tasks on both success and failure.  Decide what you want to do when an error occurs at this point, see what the caller will do (if anything) with an exception raised by your try. Also, decide how to proceed if successful.  From these decisions you should be able to construct a useful recipe.
 
+When in doubt, consider this approach: let exceptions "lie where they lie". That is to say, don't unnecessarily hide them or re-raise a different exception. It's sometimes good practice to let the callee fail rather than trying to capture and hide all kinds of error conditions. Obviously this topic is and can be a little subjective; but if you don't hide or raise a different exception, then it's much easier to debug your code and much easier for the callee of your functions or api to understand what went wrong.
+
+#### Don’t catch exceptions unless you need to take an immediate action as a result of the exception, such as immediate cleanup, etc.
 
 #### The absolute worst python anti-pattern: catching all exceptions and silently continuing (a.k.a. "swallowing" all exceptions).
 ```
