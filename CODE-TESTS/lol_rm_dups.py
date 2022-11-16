@@ -30,9 +30,9 @@ def prune(lol):
 def rm_dup_items(lol):
     for i, sl in enumerate(lol):
         lol[i] = list(set(sl)) # rm dup items within a list
-        for j, nsl in enumerate(lol[i+1:]):
+        for j, nsl in enumerate(lol[i+1:], start=1):
             if set(sl).intersection(nsl):
-                lol[(i + j + 1)] = list(set(nsl).difference(sl))
+                lol[(i + j)] = list(set(nsl).difference(sl))
     prune(lol)
 
 # test with these tuples of input/expected-output pairs
