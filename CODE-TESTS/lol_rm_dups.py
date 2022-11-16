@@ -35,7 +35,7 @@ def rm_dup_items(lol):
                 lol[(i + j + 1)] = list(set(nsl).difference(sl))
     prune(lol)
 
-# test with the tuples of input/expected-output pairs
+# test with these tuples of input/expected-output pairs
 tpl_lols = [
  (
   [
