@@ -28,11 +28,13 @@ def prune(lol):
             del lol[i]
 
 def rm_dup_items(lol):
-    for i, sl in enumerate(lol):
-        lol[i] = list(set(sl)) # rm dup items within a list
-        for j, nsl in enumerate(lol[i+1:], start=1):
-            if set(sl).intersection(nsl):
-                lol[(i + j)] = list(set(nsl).difference(sl))
+    for i, subl in enumerate(lol):
+        set_subl = set(subl) # rm dup items within a list
+        lol[i] = list(set_subl)
+        # rm dups in the remaining sub-lists
+        for j, next_subl in enumerate(lol[i+1:], start=1):
+            if set_subl.intersection(next_subl):
+                lol[(i + j)] = list(set(next_subl).difference(subl))
     prune(lol)
 
 # test with these tuples of input/expected-output pairs
