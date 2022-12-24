@@ -77,7 +77,10 @@ This is because ```+=``` compiles to an INPLACE_ADD bytecode. However, the im
 There's no way to know without becoming an expert on each implementation: testing alone can never prove the absence of race-related bad behaviors. For example, there have been subtle threading bugs in CPython's implementation that went undiscovered for years, until some unlikely combination of HW, OS and workload just happened to provoke races that were always possible but were just never seen before.
 
 #### Bottom line!
-Instead of guessing at the undocumented implementation details of CPython, use a mtuex when in doubt.
+Instead of guessing at the undocumented implementation details of CPython, use a mtuex/lock when in doubt.
 
 #### Note on threading.lock
 By default, ```lock.acquire()``` will block execution of the thread until the lock is released by a different thread. If you pass ```blocking=False``` to the function, the call will not block, and will return immediately. Its return value specifies whether or not your thread has actually acquired the lock. This can be useful in some locking scenarios.
+
+A **lock** allows only one thread to enter the part that's locked and the lock is not shared with any other processes.
+A **mutex** is the same as a lock but it can be system wide (shared by multiple processes).
