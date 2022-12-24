@@ -9,7 +9,7 @@ A race condition occurs when the behaviour of the system or code relies on the s
 #### Global Interpreter Lock (GIL)
 This is exactly what the CPython GIL does. It prevents race conditions by ensuring that only a single thread is running at any given time. This makes life easier for some Python programmers but at the same time it imposes a limitation since multi-core systems cannot be exploited in the context of threading.
 Due to the GIL, there is only ever one thread per process active to execute Python bytecode; the bytecode evaluation loop is protected by it.
-The lock is released every sys.getswitchinterval() seconds, at which point a thread switch can take place. This means that for Python code, a thread switch can still take place, but only between byte code instructions. Any code that relies on thread safety needs to take this into account. Actions that can be done in one bytecode can be thread safe, everything else is not.
+The lock is released every ```sys.getswitchinterval()``` seconds, at which point a thread switch can take place. This means that for Python code, a thread switch can still take place, but only between byte code instructions. Any code that relies on thread safety needs to take this into account. Actions that can be done in one bytecode can be thread safe, everything else is not.
 
 
 A Python process cannot run threads in parallel but it can run them concurrently through context switching during I/O bound operations. Note that parallelism and concurrency may sound equivalent terms but in practice they are not.
