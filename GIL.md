@@ -4,7 +4,7 @@
 
 
 #### Race Condition
-A race condition occurs when the behaviour of the system or code relies on the sequence of execution that is defined by uncontrollable events. In thread-safe code, Thread safe - the final result of operations performed by multiple threads is independent of the order in which the threads run
+A race condition occurs when the behaviour of the system or code relies on the sequence of execution that is defined by uncontrollable events. In thread-safe code, the final result of operations performed by multiple threads is independent of the order in which the threads run
 
 #### Global Interpreter Lock (GIL)
 This is exactly what the CPython GIL does. It prevents race conditions by ensuring that only a single thread is running at any given time. This makes life easier for some Python programmers but at the same time it imposes a limitation since multi-core systems cannot be exploited in the context of threading.
