@@ -78,9 +78,10 @@ There's no way to know without becoming an expert on each implementation: test
 
 #### Bottom line!
 Instead of guessing at the undocumented implementation details of CPython, use a mtuex/lock when in doubt.
+A **lock** allows only one thread to enter the part that's locked and the lock is not shared with any other processes.
+A **mutex** is the same as a lock but it can be system wide (shared by multiple processes).
 
 #### Note on threading.lock
 By default, ```lock.acquire()``` will block execution of the thread until the lock is released by a different thread. If you pass ```blocking=False``` to the function, the call will not block, and will return immediately. Its return value specifies whether or not your thread has actually acquired the lock. This can be useful in some locking scenarios.
 
-A **lock** allows only one thread to enter the part that's locked and the lock is not shared with any other processes.
-A **mutex** is the same as a lock but it can be system wide (shared by multiple processes).
+
