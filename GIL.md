@@ -46,8 +46,9 @@ i += 1 resolves to four opcodes: load i, load 1, add the two, and store it back 
 Making it threadsafe is straightforward; add a lock:
 
 ```
-#!/usr/bin/python
+
 import threading
+
 i = 0
 i_lock = threading.Lock()
 
