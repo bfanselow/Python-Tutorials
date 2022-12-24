@@ -77,4 +77,4 @@ There's no way to know without becoming an expert on each implementation: test
 Either use a mutex, or rely on undocumented implementation details of CPython.
 
 #### Note on threading.lock
-By default, ```lock.acquire()``` will block execution of the thread until the lock is released by a different thread. If you pass block=False to the function, the call will not block, and will return immediately. Its return value specifies whether or not your thread has actually acquired the lock.
+By default, ```lock.acquire()``` will block execution of the thread until the lock is released by a different thread. If you pass ```blocking=False``` to the function, the call will not block, and will return immediately. Its return value specifies whether or not your thread has actually acquired the lock.
