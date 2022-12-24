@@ -70,7 +70,7 @@ for t in threads:
 assert i == 1000000, i
 ```
 
-Note due to the internals of  the Cpython implemntation ```l += [1]```  is thread-safe but ```l = l + [1]``` is not.
+It is interesting to note that due to the internals of the Cpython implemntation ```l += [1]```  is thread-safe but ```l = l + [1]``` is not.
 	•	+= compiles to an INPLACE_ADD bytecode.
 	•	The implementation of INPLACE_ADD for list objects is written entirely in C (no Python code is on the execution path, so the GIL can't be released between bytecodes).
 
