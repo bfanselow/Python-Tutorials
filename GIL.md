@@ -17,9 +17,9 @@ If you want to take advantage of the computational power of multi-processor and 
 
 Multi-processing side-steps the Global Interpreter Lock as it allows for every process spawned to have its own interpreter and thus its own GIL.
 
-The concept of GIL in general though is definitely not ideal given that in certain scenarios modern multiprocessor systems cannot be fully exploited. At the same time though, many long-running or blocking operations are being executed outside the GIL. Such operations include I/O, image processing and NumPy number crunching. Therefore, a GIL becomes a bottleneck only in multithreaded operations that spend time inside the GIL itself.
+The concept of GIL is not ideal given that in certain scenarios modern multiprocessor systems cannot be fully exploited. At the same time though, many long-running or blocking operations are being executed outside the GIL. Such operations include I/O, image processing and NumPy number crunching. Therefore, a GIL becomes a bottleneck only in multithreaded operations that spend time inside the GIL itself.
 
-This does NOT mean you can write code without thinking about race conditions.  For example:
+Having the GIL does **NOT** mean you can write code without thinking about race conditions.  For example:
 this code is absolutely, demonstrably not threadsafe. It fails consistently.
 
 ```
