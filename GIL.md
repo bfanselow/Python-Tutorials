@@ -71,7 +71,7 @@ assert i == 1000000, i
 ```
 
 Due to the internals of the Cpython implementation, it is hard to determine what is thread-safe. For example, even though ``` i += 1``` is not thread-safe,  ```l += [1]```  is thread-safe, but ```l = l + [1]``` is not.
-This is because ```+=``` for integers compiles to an INPLACE_ADD bytecode, whereas the implementation of INPLACE_ADD for list objects is written entirely in C (no Python code is on the execution path, so the GIL can't be released between bytecodes).
+This is because ```+=``` compiles to an INPLACE_ADD bytecode. However, the implementation of INPLACE_ADD for list objects is written entirely in C (no Python code is on the execution path, so the GIL can't be released between bytecodes).
 
 There's no way to know without becoming an expert on each implementation: testing alone can never prove the absence of race-related bad behaviors. For example, there have been subtle threading bugs in CPython's implementation that went undiscovered for years, until some unlikely combination of HW, OS and workload just happened to provoke races that were always possible but were just never seen before
 Either use a mutex, or rely on undocumented implementation details of CPython.
