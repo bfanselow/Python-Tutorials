@@ -75,3 +75,6 @@ This is because ```+=``` compiles to an INPLACE_ADD bytecode. However, the im
 
 There's no way to know without becoming an expert on each implementation: testing alone can never prove the absence of race-related bad behaviors. For example, there have been subtle threading bugs in CPython's implementation that went undiscovered for years, until some unlikely combination of HW, OS and workload just happened to provoke races that were always possible but were just never seen before
 Either use a mutex, or rely on undocumented implementation details of CPython.
+
+#### Note on threading.lock
+By default, ```lock.acquire()``` will block execution of the thread until the lock is released by a different thread. If you pass block=False to the function, the call will not block, and will return immediately. Its return value specifies whether or not your thread has actually acquired the lock.
