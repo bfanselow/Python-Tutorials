@@ -1,7 +1,7 @@
 #### Dependency injection is a principle that helps to decrease "Coupling" and increase "Cohesion".
 
 
-Coupling and cohesion are about how tough the components are tied.
+Coupling and cohesion basically characterize how tough the components are tied together.
 
  * **High coupling**: High coupling is like using glue. There is no easy way to disassemble components.
 
