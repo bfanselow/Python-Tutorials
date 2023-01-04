@@ -1,4 +1,4 @@
-#### Dependency injection is a principle that helps to decrease coupling and increase cohesion.
+#### Dependency injection is a principle that helps to decrease "Coupling" and increase "Cohesion".
 
 
 Coupling and cohesion are about how tough the components are tied.
