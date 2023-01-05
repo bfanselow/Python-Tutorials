@@ -136,10 +136,8 @@ In Python, you can monkey-patch anything, anytime. The problem with monkey-patch
 #### Summary
 Dependency injection provides you with several advantages:
 
- * **Flexibility**: As the components are more loosely coupled, it's easy to extend or change the functionality of a system by combining the components in different ways. You even can do it on the fly.
+ * **Clarity**: Dependency injection helps you reveal the dependencies.  “Explicit is better than implicit”. You have all the components and dependencies defined explicitly in a container, providing an overview and control of the application structure. It's simply easier to understand the system.
 
  * **Testability**: Testing is easier because you can easily inject mock objects instead of real objects.
 
- * **Clarity**: Dependency injection helps you reveal the dependencies.  “Explicit is better than implicit”. You have all the components and dependencies defined explicitly in a container, providing an overview and control of the application structure. It's simply easier to understand the system.
-
- *  **Maintainability and extendability**: All of the above benefits result in a system that is easier to maintain and extend.
+ * **Maintainability and extendability**: The above benefits, combined with the flexibility of a loosely coupled system, result in a system that is easier to maintain and extend.  You can even change the functionality of the system by combining the components in different ways on the fly.
