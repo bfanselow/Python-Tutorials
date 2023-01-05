@@ -4,7 +4,7 @@ shout out to Roman Mogylatov, who authored the article from which much of this i
 
 ---
 
-#### Dependency injection is a principle that helps to decrease "Coupling" and increase "Cohesion".
+#### Dependency injection is a coding pattern that can help you write loosely-coupled, highly-cohesive code.
 
 
 Coupling and cohesion basically characterize how tough the components are tied together.
@@ -17,9 +17,11 @@ Cohesion often correlates with coupling. Higher cohesion usually leads to lower 
 
 ![image](https://user-images.githubusercontent.com/24737190/210669149-ef4f7d37-c390-4e95-921c-a943839a6de0.png)
 
-Low coupling brings flexibility. Your code becomes easier to change and test.
+Low coupling increases flexibility and makes your code easir to change and test.
 
 #### So how do we implement dependency injection?
+
+Dependency Injection is a technique in which an object *receives* other objects that it depends on, eather than *creating* them.
 
 In general, do not construct objects that **create** other objects (dependncies). Provide a way to inject the dependencies instead.
 
