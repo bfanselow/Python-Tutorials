@@ -79,4 +79,69 @@ The drawback is that now you have to assemble the objects to be injected (i.e. t
 ### Dependancy Injector
 The solution to this is the ***Dependency Injector*** which will assemble and inject the dependencies.
 
+With the dependency injection pattern, objects lose the responsibility of assembling the dependencies. The Dependency Injector absorbs that responsibility.
 
+Dependency Injector helps to assemble and inject the dependencies.
+
+It provides a container and providers that help you with the objects assembly. When you need an object you place a Provide marker as a default value of a function argument. When you call this function, framework assembles and injects the dependency.
+
+```
+from dependency_injector import containers, providers
+from dependency_injector.wiring import Provide, inject
+
+class Container(containers.DeclarativeContainer):
+
+    config = providers.Configuration()
+
+    api_client = providers.Singleton(
+        ApiClient,
+        api_key=config.api_key,
+        timeout=config.timeout,
+    )
+
+    service = providers.Factory(
+        Service,
+        api_client=api_client,
+    )
+
+@inject
+def main(service: Service = Provide[Container.service]) -> None:
+    ...
+
+if __name__ == "__main__":
+    container = Container()
+    container.config.api_key.from_env("API_KEY", required=True)
+    container.config.timeout.from_env("TIMEOUT", as_=int, default=5)
+    container.wire(modules=[__name__])
+
+    main()  # <-- dependency is injected automatically
+
+    with container.api_client.override(mock.Mock()):
+        main()  # <-- overridden dependency is injected automatically
+```
+
+When you call the main() function the Service dependency is assembled and injected automatically.
+
+When you do testing, you call the container.api_client.override() method to replace the real API client with a mock. When you call main(), the mock is injected.
+
+You can override any provider with another provider.
+
+It also helps you in a re-configuring project for different environments: replace an API client with a stub on the dev or stage.
+
+Objects assembling is consolidated in a container. Dependency injections are defined explicitly. This makes it easier to understand and change how an application works.
+
+#### Testing, Monkey-patching and dependency injection
+In Python, you can monkey-patch anything, anytime. The problem with monkey-patching is that it’s too fragile. The cause of it is that when you monkey-patch you do something that wasn’t intended to be done. You monkey-patch the implementation details. When implementation changes the monkey-patching is broken.
+
+With dependency injection, you patch the interface, not an implementation - a much more stable approach.
+
+Also, monkey-patching is way too dirty to be used outside of the testing code for re-configuring the project for the different environments.
+
+#### Summary
+Dependency injection provides you with three advantages:
+
+ * Flexibility. The components are loosely coupled. You can easily extend or change the functionality of a system by combining the components in a different way. You even can do it on the fly.
+
+ * Testability. Testing is easier because you can easily inject mocks instead of real objects that use API or database, etc.
+
+ * Clearness and maintainability. Dependency injection helps you reveal the dependencies. Implicit becomes explicit. And “Explicit is better than implicit” (PEP 20 - The Zen of Python). You have all the components and dependencies defined explicitly in a container. This provides an overview and control of the application structure. It is easier to understand and change it.
