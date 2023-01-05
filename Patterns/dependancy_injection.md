@@ -64,3 +64,5 @@ if __name__ == "__main__":
         ),
     )
  ```
+
+Notice how ```ApiClient`` is decoupled from knowing where the options come from. You can read a key and a timeout from a configuration file, or get them from a database. ```Service``` is decoupled from the ```ApiClient```. Since it does not create it, you can provide a stub or other compatible object. ```main()``` is decoupled from ```Service```, receiving it as an argument.
