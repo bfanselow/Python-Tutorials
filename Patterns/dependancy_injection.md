@@ -1,6 +1,10 @@
 ## Dependancy Injection
 
-(many concepts pulled from https://python-dependency-injector.ets-labs.org/introduction/di_in_python.html by Roman Mogylatov)
+Ideas pulled from:
+ * https://python-dependency-injector.ets-labs.org/introduction/di_in_python.html by Roman Mogylatov
+ * https://bolu.dev/python/programming/2022/08/17/python-dep-inj.html
+ * https://levelup.gitconnected.com/dependency-injection-in-python-3-with-testing-55b64ca60ae1
+ * https://testdriven.io/blog/python-dependency-injection/
 
 --
 
