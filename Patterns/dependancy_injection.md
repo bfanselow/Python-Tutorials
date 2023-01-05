@@ -23,7 +23,7 @@ Low coupling increases flexibility and makes your code easir to change and test.
 
 Dependency Injection is a technique in which an object *receives* other objects that it depends on, rather than *creating* them.
 
-In general, do not construct objects that **create** other objects (dependncies). Provide a way to inject the dependencies instead.
+In general, do not construct objects that **create** other objects (dependancies). Provide a way to inject the dependancies instead.
 
 For example, instead of this:
 ```
