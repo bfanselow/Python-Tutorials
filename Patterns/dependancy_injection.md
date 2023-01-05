@@ -140,4 +140,6 @@ Dependency injection provides you with several advantages:
 
  * **Testability**: Testing is easier because you can easily inject mock objects instead of real objects.
 
- * **Clarity amd maintainability**: Dependency injection helps you reveal the dependencies.  “Explicit is better than implicit”. You have all the components and dependencies defined explicitly in a container, providing an overview and control of the application structure. It is easier to understand the system and to change it.
+ * **Clarity**: Dependency injection helps you reveal the dependencies.  “Explicit is better than implicit”. You have all the components and dependencies defined explicitly in a container, providing an overview and control of the application structure. It's simply easier to understand the system.
+
+ *  **Maintainability and extendability**: All of the above benefits result in a system that is easier to maintain and extend.
