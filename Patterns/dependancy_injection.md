@@ -81,11 +81,9 @@ The drawback is that now you have to assemble the objects to be injected (i.e. t
 ### Dependancy Injector
 The solution to this is the ***Dependency Injector*** which will assemble and inject the dependencies.
 
-With the dependency injection pattern, objects lose the responsibility of assembling the dependencies. The Dependency Injector absorbs that responsibility.
+With the dependency injection pattern, objects lose the responsibility of assembling the dependencies. The Dependency Injector takes responsibility for helping to assemble and inject the dependencies.
 
-Dependency Injector helps to assemble and inject the dependencies.
-
-It provides a container and providers that help you with the objects assembly. When you need an object you place a Provide marker as a default value of a function argument. When you call this function, framework assembles and injects the dependency.
+The Dependancy Injector provides a **Container** and **Providers** that help you with object assembly. When you need an object you place a Provide marker as a default value of a function argument. When you call this function, the framework assembles and injects the dependency.
 
 ```
 from dependency_injector import containers, providers
