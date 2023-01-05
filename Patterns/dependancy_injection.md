@@ -142,4 +142,4 @@ Dependency injection provides you with several advantages:
 
  * **Testability**: Testing is easier because you can easily inject mock objects instead of real objects.
 
- * **Clarity amd maintainability**: Dependency injection helps you reveal the dependencies. Implicit becomes explicit. And “Explicit is better than implicit” (PEP 20 - The Zen of Python). You have all the components and dependencies defined explicitly in a container. This provides an overview and control of the application structure. It is easier to understand and change it.
+ * **Clarity amd maintainability**: Dependency injection helps you reveal the dependencies.  “Explicit is better than implicit”. You have all the components and dependencies defined explicitly in a container, providing an overview and control of the application structure. It is easier to understand the system and to change it.
