@@ -1,13 +1,13 @@
 ## Dependancy Injection
 
-shout out to Roman Mogylatov, who authored the article from which much of this is drawn - https://python-dependency-injector.ets-labs.org/introduction/di_in_python.html
+(many concepts pulled from https://python-dependency-injector.ets-labs.org/introduction/di_in_python.html by Roman Mogylatov)
 
----
+--
 
 #### Dependency injection is a coding pattern that can help you write loosely-coupled, highly-cohesive code.
 
 
-Coupling and cohesion basically characterize how tough the components are tied together.
+Coupling and cohesion basically characterize how tightly the components are tied together.
 
  * **High coupling**: High coupling is like using glue. There is no easy way to disassemble components.
 
@@ -17,7 +17,7 @@ Cohesion often correlates with coupling. Higher cohesion usually leads to lower 
 
 ![image](https://user-images.githubusercontent.com/24737190/210669149-ef4f7d37-c390-4e95-921c-a943839a6de0.png)
 
-Low coupling increases flexibility and makes your code easir to change and test.
+Low coupling increases flexibility, makes your code cleaner, easier to understand and simpler to extend and test.
 
 #### So how do we implement dependency injection?
 
