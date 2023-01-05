@@ -66,3 +66,6 @@ if __name__ == "__main__":
  ```
 
 Notice how ```ApiClient``` is now decoupled from knowing where the options come from. You can read a key and a timeout from a configuration file, or get them from a database. ```Service``` is now decoupled from the ```ApiClient```. Since it does not create it, you can provide a stub or other compatible object. And ```main()``` is now decoupled from ```Service```, receiving it as an argument.
+
+### Everything comes with a cost
+Now you have to assemble the objects to be injected (i.e. the "service" object passed in main above).  This object assembly code might get duplicated. Over time, it will likely become harder to change the application structure.
