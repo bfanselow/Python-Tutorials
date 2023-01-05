@@ -1,3 +1,7 @@
+## Dependancy Injection.
+
+shout out to Roman Mogylatov - https://python-dependency-injector.ets-labs.org/introduction/di_in_python.html
+
 #### Dependency injection is a principle that helps to decrease "Coupling" and increase "Cohesion".
 
 
