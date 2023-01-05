@@ -133,17 +133,13 @@ It also helps you in a re-configuring project for different environments: replac
 Objects assembling is consolidated in a container. Dependency injections are defined explicitly. This makes it easier to understand and change how an application works.
 
 #### Testing, Monkey-patching and dependency injection
-In Python, you can monkey-patch anything, anytime. The problem with monkey-patching is that it’s too fragile. The cause of it is that when you monkey-patch you do something that wasn’t intended to be done. You monkey-patch the implementation details. When implementation changes the monkey-patching is broken.
-
-With dependency injection, you patch the interface, not an implementation - a much more stable approach.
-
-Also, monkey-patching is way too dirty to be used outside of the testing code for re-configuring the project for the different environments.
+In Python, you can monkey-patch anything, anytime. The problem with monkey-patching is that it’s fragile. since you are monkey-patching the implementation details. When implementation changes the monkey-patching is broken. With dependency injection, you patch the interface, not an implementation - a much more stable approach. Methods are easier to test. Dependencies are easier to mock. And tests don't have to change every time twe extend our application.
 
 #### Summary
 Dependency injection provides you with three advantages:
 
- * Flexibility. The components are loosely coupled. You can easily extend or change the functionality of a system by combining the components in a different way. You even can do it on the fly.
+ * **Flexibility**: The components are loosely coupled. You can easily extend or change the functionality of a system by combining the components in a different way. You even can do it on the fly.
 
- * Testability. Testing is easier because you can easily inject mocks instead of real objects that use API or database, etc.
+ * **Testability**: Testing is easier because you can easily inject mocks instead of real objects that use API or database, etc.
 
- * Clearness and maintainability. Dependency injection helps you reveal the dependencies. Implicit becomes explicit. And “Explicit is better than implicit” (PEP 20 - The Zen of Python). You have all the components and dependencies defined explicitly in a container. This provides an overview and control of the application structure. It is easier to understand and change it.
+ * **Clearness and maintainability**: Dependency injection helps you reveal the dependencies. Implicit becomes explicit. And “Explicit is better than implicit” (PEP 20 - The Zen of Python). You have all the components and dependencies defined explicitly in a container. This provides an overview and control of the application structure. It is easier to understand and change it.
