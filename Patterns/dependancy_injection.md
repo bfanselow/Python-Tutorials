@@ -69,3 +69,8 @@ Notice how ```ApiClient``` is now decoupled from knowing where the options come 
 
 ### Everything comes with a cost
 The drawback is that now you have to assemble the objects to be injected (i.e. the "service" object passed in main above).  This object assembly code might get duplicated. Over time, it will likely become harder to change the application structure.
+
+#### Dependancy Injector
+The solution to this is the ***Dependency Injector*** which will assemble and inject the dependencies.
+
+
