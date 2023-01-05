@@ -136,7 +136,7 @@ Objects assembling is consolidated in a container. Dependency injections are def
 In Python, you can monkey-patch anything, anytime. The problem with monkey-patching is that it’s fragile. since you are monkey-patching the implementation details. When implementation changes the monkey-patching is broken. With dependency injection, you patch the interface, not an implementation - a much more stable approach. Methods are easier to test. Dependencies are easier to mock. And tests don't have to change every time twe extend our application.
 
 #### Summary
-Dependency injection provides you with three advantages:
+Dependency injection provides you with several advantages:
 
  * **Flexibility**: The components are loosely coupled. You can easily extend or change the functionality of a system by combining the components in a different way. You even can do it on the fly.
 
