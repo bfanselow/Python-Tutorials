@@ -11,7 +11,7 @@ Coupling and cohesion basically characterize how tough the components are tied t
 
  * **High coupling**: High coupling is like using glue. There is no easy way to disassemble components.
 
- * **High cohesion**: High cohesion is like using screws. Opposite of high coupling, its easy to disassemble and re-assemble (perhpas in a different way). 
+ * **High cohesion**: High cohesion is like using screws. Opposite of high coupling, its easy to disassemble and re-assemble (perhaps in a different way). 
 
 Cohesion often correlates with coupling. Higher cohesion usually leads to lower coupling and vice versa.
 
