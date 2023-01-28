@@ -1,6 +1,5 @@
 ## One Line Sphinx Docstring Format
 
----
 ```
 def abc(a: int, c = [1,2]):
     """_summary_
