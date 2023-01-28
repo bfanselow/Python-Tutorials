@@ -1,7 +1,7 @@
 ## One Line Sphinx Docstring Format
 
 ---
-
+```
 def abc(a: int, c = [1,2]):
     """_summary_
 
@@ -14,3 +14,4 @@ def abc(a: int, c = [1,2]):
         raise AssertionError("a is more than 10")
 
     return c
+```
