@@ -107,7 +107,7 @@ The issue here is that changing the attribute will affect ALL instances of the c
 >>> Circle.some_data
 [0,1,2,3]
 # ^^^ generic class is affected!
-
+```
 
 ### Class-methods vs static-methods vs instance-methods
 **Instance Methods**
