@@ -36,8 +36,7 @@ class Circle:
         return 2*pi * self.radius
 ```
 
-The class attribute can be accessed from the class itself, as opposed to the instance attribute can only be accessed on an *instance* of the class.
-When you access an attribute via an instance of the class, Python searches for the attribute in the instance attribute list. If the instance attribute list doesn’t have that attribute, Python continues looking up the attribute in the class attribute list.
+The class attribute can be accessed from the class itself, as opposed to the instance attribute can only be accessed on an *instance* of the class. When you access an attribute via an instance of the class, Python searches for the attribute in the instance attribute list. If the instance attribute list doesn’t have that attribute, Python continues looking up the attribute in the class attribute list. Python classes and instances of classes each have their own distinct namespaces represented by the pre-defined attributes MyClass.__dict__ and instance_of_MyClass.__dict__, respectively. When you try to access Python attributes from an instance of a class, it first looks at its instance namespace. If it finds the attribute, it returns the associated value. If not, it then looks in the class namespace and returns the attribute (if it’s present, otherwise throwing an error).
 
 ```
 >>> from my_class import Circle, MyClass
