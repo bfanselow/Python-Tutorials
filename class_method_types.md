@@ -110,3 +110,60 @@ The issue here is that changing the attribute will affect ALL instances of the c
 
 
 ### Class-methods vs static-methods vs instance-methods
+**Instance Methods**
+The first method on MyClass, called method, is a regular instance method. That’s the basic, no-frills method type you’ll use most of the time. You can see the method takes one parameter, self, which points to an instance of MyClass when the method is called (but of course instance methods can accept more than just one parameter).
+
+Through the self parameter, instance methods can freely access attributes and other methods on the same object. This gives them a lot of power when it comes to modifying an object’s state.
+
+Not only can they modify object state, instance methods can also access the class itself through the self.__class__ attribute. This means instance methods can also modify class state.
+
+**Class Methods**
+Let’s compare that to the second method,  MyClass.classmethod. I marked this method with a @classmethod decorator to flag it as a class method.
+
+Instead of accepting a self parameter, class methods take a cls parameter that points to the class—and not the object instance—when the method is called.
+
+Because the class method only has access to this cls argument, it can’t modify object instance state. That would require access to self. However, class methods can still modify class state that applies across all instances of the class.
+
+**Static Methods**
+The third method, MyClass.staticmethod was marked with a @staticmethod decorator to flag it as a static method.
+
+This type of method takes neither a self nor a cls parameter (but of course it’s free to accept an arbitrary number of other parameters).
+
+Therefore a static method can neither modify object state nor class state. Static methods are restricted in what data they can access - and they’re primarily a way to namespace your methods.
+
+
+Which type of method to use is often just a good way to communicate something about the method.  Both static and class methods communicate that the method is essentailly unrelated to any specific instance of the class.  However, a static method further communicates that the method does not involve any data related to the class.  Class methods are a nice and clean way to provide for "factory functions".
+```
+import math
+class Pizza:
+    def __init__(self, ingredients):
+        self.ingredients = ingredients
+
+    def __repr__(self):
+        return f'Pizza({self.ingredients!r})'
+
+    def cook(self):
+        # refulat "instance" method: cook the pizza
+        pass
+
+    @classmethod
+    def margherita(cls):
+        return cls(['mozzarella', 'tomatoes'])
+
+    @classmethod
+    def prosciutto(cls):
+        return cls(['mozzarella', 'tomatoes', 'ham'])
+        
+    @staticmethod
+    def circle_area(r):
+        # circle "area" is not specific to "pizza"!
+        return r ** 2 * math.pi
+```
+
+```
+>>> Pizza.margherita()
+Pizza(['mozzarella', 'tomatoes'])
+
+>>> Pizza.prosciutto()
+Pizza(['mozzarella', 'tomatoes', 'ham'])
+```
