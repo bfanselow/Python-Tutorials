@@ -132,7 +132,7 @@ This type of method takes neither a self nor a cls parameter (but of course itâ€
 Therefore a static method can neither modify object state nor class state. Static methods are restricted in what data they can access - and theyâ€™re primarily a way to namespace your methods.
 
 
-Use of the different method types is often just a good way to **communicate** something about the method.  Both static and class methods communicate that the method is essentailly unrelated to any specific instance of the class.  However, a static method further communicates that the method does not involve any data related to the class.  Class methods are a nice and clean way to provide for "factory functions".
+Use of the different method types is often just a good way to **communicate** something about the method.  Both static and class methods communicate that the method is essentailly unrelated to any specific instance of the class.  A static method further communicates that the method does not involve any data related to the class.  Class methods are a nice and clean way to provide for "factory functions".
 ```
 import math
 class Pizza:
