@@ -143,7 +143,7 @@ class Pizza:
         return f'Pizza({self.ingredients!r})'
 
     def cook(self):
-        # refulat "instance" method: cook the pizza
+        # regular "instance" method: cook the pizza
         pass
 
     @classmethod
