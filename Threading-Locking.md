@@ -11,7 +11,7 @@ Any section of code that may be executed by two or more threads concurrently may
 
 **NOTE**: Race conditions can be a problem in Python when using mutlitple threads, even in the presence of the global interpreter lock (GIL). After learning about the global interpreter lock (GIL), many new Python programmers assume they can forgo using mutual-exclusion locks (see below) in their code altogether. If the GIL is already preventing Python threads from running on multiple CPU cores in parallel, it must also act as a lock for a program’s data structures, right? Some testing on types like lists and dictionaries may even show that this assumption appears to hold. But beware, this is not truly the case. The idea that there are no race conditions in Python because of the GIL is dangerously wrong. Even the simplest operations running concurrently by multiple threads can be vunerlable. For example, one thread may be adding values to a variable, while another thread is subtracting values from the same variable.
 
-Suppose we have two threads which can run concurrently, such as in a piece of Bank account management software that updates account balance. Let’s call them the *adder* thread and the *subtractor* thread. You might be calling the adder thread from a withdraw operation at an ATM machine, while a direct-deposit operation is running concurrently.
+Suppose we have two threads which can run concurrently, such as in a piece of Bank account management software that updates account balance. Let’s call them the *adder* thread and the *subtractor* thread. You might be calling the *subtractor* thread from a withdraw operation at an ATM machine, while a direct-deposit operation is running concurrently and calling the *adder* thread.
 ```
 ...
 # addder thread
