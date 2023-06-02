@@ -11,7 +11,7 @@ Any section of code that may be executed by two or more threads concurrently may
 
 **NOTE**: Race conditions can be a problem in Python when using mutlitple threads, even in the presence of the global interpreter lock (GIL). After learning about the global interpreter lock (GIL), many new Python programmers assume they can forgo using mutual-exclusion locks (see below) in their code altogether. If the GIL is already preventing Python threads from running on multiple CPU cores in parallel, it must also act as a lock for a program’s data structures, right? Some testing on types like lists and dictionaries may even show that this assumption appears to hold. But beware, this is not truly the case. The idea that there are no race conditions in Python because of the GIL is dangerously wrong. Even the simplest operations running concurrently by multiple threads can be vunerlable. For example, one thread may be adding values to a variable, while another thread is subtracting values from the same variable.
 
-Let’s call them an adder thread and a subtractor thread. 
+Suppose we have two threads which can run concurrently, such as in a piece of Bank account management software that updates account balance. Let’s call them the *adder* thread and the *subtractor* thread. You might be calling the adder thread from a withdraw operation at an ATM machine, while a direct-deposit operation is running concurrently.
 ```
 ...
 # addder thread
@@ -30,7 +30,7 @@ The operation of adding or subtracting from the variable is actually composed of
  2. Calculate a new value for the variable.
  3. Write a new value for the variable.
 
-The risk of race conditions is that a context switch between threads may occur at any point in this task. At some point, the operating system may context switch from the adding thread to the subtracting thread in the middle of updating the variable. Perhaps right at the point where it was about to write an updated value with an addition, say from the current value of 100 to the new value of 110. The subtracting thread runs and reads the current value as 100 and reduces the value from 100 to 90. The operating system context switches back to the adding thread and it picks up where it left off writing the value 110. This means that in this case, one subtraction operation was lost and the shared balance variable has an inconsistent value - a race condition.
+The risk of race conditions is that a context switch between threads may occur at any point in this (3-step) operation. At some point, the operating system may context switch from the adding thread to the subtracting thread in the middle of updating the variable. Suppose the adding thread is called to update the current value of 100 to the new value of 110. Suppose the OS context switches from adder to subtracter right after the adder's "read" step. The subtracting thread runs, reads the current value as 100 and reduces the value from 100 to 90. Now, the operating system context switches back to the adding thread. Tt picks up where it left off, calculating the new value and writing the value 110. This means that in this case, one subtraction operation was lost and the shared balance variable has an inconsistent value - a race condition.
 
 There are many ways to fix race conditions. One common way is to synchronize the access to the shared resource between the two threads using a **lock**, typically referred to as *mutual exclusion lock*, or **mutex** for short.
 
