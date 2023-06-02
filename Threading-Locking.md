@@ -30,6 +30,7 @@ The operation of adding or subtracting from the variable is actually composed of
  2. Calculate a new value for the variable.
  3. Write a new value for the variable.
 
+Numerous resource-access operations that might appear single-step on the surface are actually composed of multiple steps.
 The risk of race conditions is that a context switch between threads may occur at any point in this (3-step) operation. At some point, the operating system may context switch from the adding thread to the subtracting thread in the middle of updating the variable. Suppose the adding thread is called to update the current value of 100 to the new value of 110. Suppose the OS context switches from adder to subtracter right after the adder's "read" step. The subtracting thread runs, reads the current value as 100 and reduces the value from 100 to 90. Now, the operating system context switches back to the adding thread. Tt picks up where it left off, calculating the new value and writing the value 110. This means that in this case, one subtraction operation was lost and the shared balance variable has an inconsistent value - a race condition.
 
 There are many ways to fix race conditions. One common way is to synchronize the access to the shared resource between the two threads using a **lock**, typically referred to as *mutual exclusion lock*, or **mutex** for short.
