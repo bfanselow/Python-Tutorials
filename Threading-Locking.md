@@ -24,7 +24,7 @@ variable = variable + 10
 ```
 The operating system controls what threads execute and when, performing a **context switch** to pause the execution of a thread and store its state, while unpausing another thread and restoring its state.
 
-The adding or subtracting from the variable is actually composed of at least three steps:
+The operation of adding or subtracting from the variable is actually composed of at least three steps:
 
  1. Read the current value of the variable.
  2. Calculate a new value for the variable.
