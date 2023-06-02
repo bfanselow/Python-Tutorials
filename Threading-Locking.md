@@ -147,9 +147,9 @@ Running the example starts ten threads that all execute a custom target function
 
 #### Re-entrant Lock (RLock)
 An RLock differs from a regular (primitive) Lock in a few major ways:
- * ownership - a regular lock is not owned by a thread. It is "owned" by the block of code that aquires it.
- * recursion level - Each time a thread acquires the lock it must also release it, meaning that there are recursive levels of acquire and release for the owning thread.
- * speed - operations on regular locks can be slightly faster, though this is not usually enough to be important.
+ * *ownership* - a regular lock is not owned by a thread. It is "owned" by the block of code that aquires it.
+ * *recursion level* - Each time a thread acquires the lock it must also release it, meaning that there are recursive levels of acquire and release for the owning thread.
+ * *speed* - operations on regular locks can be slightly faster, though this is not usually enough to be important.
  
 A regular Lock can only be acquired once. It cannot be acquired again, even by the same thread, until it is released. An RLock on the other hand, can be acquired multiple times, by the same thread. A counter is incremented each time it is acquired by the same thread. It needs to be released the same number of times in order to be "unlocked". Another difference is that an acquired Lock can be released by any thread, while an acquired RLock can only be released by the thread which acquired it.  A regular lock is susceptible to **deadlocks**. We can imagine critical sections spread across a number of functions, each protected by the same lock. A thread may call across these functions in the course of normal execution and may call into one critical section from another critical section.
 
