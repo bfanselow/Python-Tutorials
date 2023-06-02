@@ -1,4 +1,4 @@
-## Threading and Locking
+# Threading, Race-conditions and Locks
 A **thread** is the smallest unit of processing that can be performed in an Operating System. Both processes and threads are created and managed by the operating system. A process consists of one or more threads - each one a sequence of such instructions within the program that can be executed independently of other codes. 
 
 Every Python program has at least one thread of execution called the *main thread*. Sometimes we may need to create additional threads in our program in order to execute code concurrently.
@@ -143,8 +143,37 @@ Running the example starts ten threads that all execute a custom target function
 >thread 9 got the lock, sleeping for 0.9514093969897454
 ```
 
-#### Advanced lock types
+## Advanced lock types
 
-**Re-entrant Lock (RLock)**
+#### Re-entrant Lock (RLock)
+An RLock differs from a regular (primitive) Lock in a few major ways:
+ * ownership - a regular lock is not owned by a thread. It is "owned" by the block of code that aquires it.
+ * recursion level - Each time a thread acquires the lock it must also release it, meaning that there are recursive levels of acquire and release for the owning thread.
+ * speed - operations on regular locks can be slightly faster, though this is not usually enough to be important.
+ 
+A regular Lock can only be acquired once. It cannot be acquired again, even by the same thread, until it is released. An RLock on the other hand, can be acquired multiple times, by the same thread. A counter is incremented each time it is acquired by the same thread. It needs to be released the same number of times in order to be "unlocked". Another difference is that an acquired Lock can be released by any thread, while an acquired RLock can only be released by the thread which acquired it.  A regular lock is susceptible to **deadlocks**. We can imagine critical sections spread across a number of functions, each protected by the same lock. A thread may call across these functions in the course of normal execution and may call into one critical section from another critical section.
 
-**Read/Write Locks** https://github.com/bfanselow/Python-Tutorials/blob/master/resource_lock.py
+A limitation of a (non-reentrant) mutex lock is that if a thread has acquired the lock that it cannot acquire it again. In fact, this situation will result in a deadlock as it will wait forever for the lock to be released so that it can be acquired, but it holds the lock and will not release it.
+
+#### Example
+A simple example can be seen with recursive code. Suppose a lock is used in a factorial function:
+```
+from threading import Lock
+
+lock = Lock()
+
+def factorial(n):
+    assert n > 0
+    if n == 1:
+        return 1
+    
+    with lock:       
+        out = n * factorial(n - 1)
+
+    return out
+```
+This function will cause a dead lock due to the recursive call. If we use RLock instead, however, the recursive calls can reenter the same lock as many times as needed. Hence the name reentrant (or recursive) lock.
+
+
+#### Read/Write Locks
+https://github.com/bfanselow/Python-Tutorials/blob/master/resource_lock.py
