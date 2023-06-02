@@ -172,7 +172,7 @@ def factorial(n):
 
     return out
 ```
-This function will cause a dead lock due to the recursive call. If we use RLock instead, however, the recursive calls can reenter the same lock as many times as needed. Hence the name reentrant (or recursive) lock.
+This function will cause a deadlock due to the recursive call. If we use RLock instead, however, the recursive calls can reenter the same lock as many times as needed. Hence the name reentrant (or recursive) lock.
 
 
 #### Read/Write Locks
