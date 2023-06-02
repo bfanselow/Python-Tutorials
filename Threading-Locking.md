@@ -34,7 +34,8 @@ The risk of race conditions is that a context switch between threads may occur a
 
 There are many ways to fix race conditions. One common way is to synchronize the access to the shared resource between the two threads using a **lock**, typically referred to as *mutual exclusion lock*, or **mutex** for short.
 
-A critical section can be protected by a mutex lock which will ensure that one and only one thread can access the variable at a time. This can be achieved by first creating a **threading.Lock** instance.
+A critical section can be protected by a mutex lock which will ensure that one and only one thread can access the variable at a time. This can be achieved by first creating a **threading.Lock** instance.  Without knowing exactly how the OS will synchronize the steps used to modify a resource it is best to use a lock on the resource.
+
 ```
 ...
 # create a lock
