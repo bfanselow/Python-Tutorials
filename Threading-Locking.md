@@ -142,3 +142,9 @@ Running the example starts ten threads that all execute a custom target function
 >thread 8 got the lock, sleeping for 0.932718580790764
 >thread 9 got the lock, sleeping for 0.9514093969897454
 ```
+
+#### Advanced lock types
+
+**Re-entrant Lock (RLock)**
+
+**Read/Write Locks** https://github.com/bfanselow/Python-Tutorials/blob/master/resource_lock.py
