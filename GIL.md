@@ -1,8 +1,8 @@
 ## CPython GIL
 
-* GIL enforces that only a single thread is running at any given time. As such, python threads to run in a (timeslicing) concurrency environment, instead of a true parallel environment..
-* GIL privent (most) but not all race-conditions.
-* When in doubt use a lock when modifying any resource in a multi-threaded environment.
+* GIL enforces that only a single thread is running at any given time. As such, python threads to run in a (timeslicing) concurrency environment, instead of a true parallel environment.
+* GIL prevents most, but not all race-conditions.
+* When in doubt, use a lock when modifying any resource in a multi-threaded environment.
 
 
 #### Race Condition
