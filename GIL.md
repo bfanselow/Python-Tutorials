@@ -3,7 +3,7 @@
 #### TL;DR
 * GIL enforces that only a single thread is running at any given time. As such, python threads run in a (timeslicing) concurrency environment, instead of a true parallel environment.
 * GIL prevents most, but not all race-conditions.
-* When in doubt, use a lock whenever multi-threads can modify the same resource.
+* When in doubt, use a lock whenever multiple threads can modify the same resource.
 
 
 #### Race Condition
