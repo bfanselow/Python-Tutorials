@@ -17,7 +17,7 @@ def test_some_time_sensitive_thing(target):
 
 # Approach 2
 # Suppose we have a method write_to_queue() in a module transport/telem.py, which adds {'time': datetime.utcnow().isoformat()} to the telem dict
-# upon pushing the this dict onto a queue.
+# upon pushing the this dict onto a queue. We want to assert that a date-string has been added to the dict on each push-to-queue.
 # We need to mock the datetime lib so that we can pin the return-value of utcnow() to a spcecific value.
 # Note that we are not mocking the return value of isoformat(), though we could. But this is just a formatting function
 # so it's cleaner to mock the utcnow() function.
