@@ -2,7 +2,7 @@
 # additional libs. We can *patch* or *mock* the module that you are using for getting date/time/datetime values
 
 
-# Approach 1
+# Approach 1 (patch)
 # Suppose you are using time.time() to get your time values and you need the returned value to be 60 seconds in future.
 # We can patch the "time" lib's time() method to return a specific value.
 def test_some_time_sensitive_thing(target):
@@ -15,12 +15,12 @@ def test_some_time_sensitive_thing(target):
     ...
 
 
-# Approach 2
+# Approach 2 (mock)
 # Suppose we have a method write_to_queue() in a module transport/telem.py, which adds {'time': datetime.utcnow().isoformat()} to the telem dict
 # upon pushing the this dict onto a queue. We want to assert that a date-string has been added to the dict on each push-to-queue.
 # We need to mock the datetime lib so that we can pin the return-value of utcnow() to a spcecific value.
-# Note that we are not mocking the return value of isoformat(), though we could. But this is just a formatting function
-# so it's cleaner to mock the utcnow() function.
+# Note that we are not mocking the return value of isoformat(), though we could. However, this is just a formatting function. It's a bit cleaner to
+# mock the utcnow() function to return a specific datetime object.
 @patch('transport.telem.datetime')
 def test_write_to_queue(mock_dt, target: TelemWriter): # mock_dt must be first arg; target is fixture for our target object that has the write_to_queue() method.
     dt_now = datetime.utcnow()  # returns a datetime object
