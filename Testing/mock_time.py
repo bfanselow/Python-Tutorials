@@ -1,5 +1,5 @@
 # Suppose we have a time sensitive test. We can use freezegun, or a couple simpler approaches without having to install any
-# additional libs. We *patch* the module that you are using for getting date/time/datetime values
+# additional libs. We can *patch* or *mock* the module that you are using for getting date/time/datetime values
 
 
 # Approach 1
