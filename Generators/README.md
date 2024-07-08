@@ -145,7 +145,7 @@ Traceback (most recent call last):
 Or try calling __next__() on the generator object directly on the console (useful for testing a generator):
 ```
 >>>
->>> from examples import infinite_sequence
+>>> from . import infinite_sequence
 >>> gen = infinite_sequence()
 >>> gen.__next__()
 0
@@ -203,7 +203,7 @@ def multi_yield():
     yield_2 = "This is result of second yield"
     yield 2 
 
->>> from examples import multi_yield
+>>> from . import multi_yield
 >>> gen = multi_yield()
 >>> print(next(gen))
 This is result of first yield 
@@ -239,7 +239,7 @@ def gen_counter_with_send(max):
         else:
             i += 1
 
->>> from examples import gen_counter_with_send
+>>> from . import gen_counter_with_send
 >>> gen = gen_counter_with_send(10)
 >>> next(gen)
 0
@@ -267,7 +267,7 @@ Calling close() is roughly equivalent to throw(GeneratorExit()). As its name sug
 
 **Example of send() and throw()**
 ```
->>> from examples import talk_gen
+>>> from . import talk_gen
 >>> gen = talk_gen('Bill')
 >>> next(gen)
 'Hi there Bill'
@@ -301,7 +301,7 @@ StopIteration
 
 **Example of close()**
 ```
->>> from examples import talk_gen
+>>> from . import talk_gen
 >>> gen = talk_gen('Bill')
 >>> next(gen)
 'Hi there Bill'
