@@ -1,17 +1,21 @@
 # Python Generators
 
 ## Summary
-Functions containing a **yield** statement are compiled as "generators". Using a yield expression in a function’s body causes that function to be a generator function, or just "Generator".
-
-These generator functions return a "generator object" (of type "iterator") which supports the iteration protocol methods - automatically supporting a \_\_next\_\_() method..  You can loop over the generator object with __next__() like a list. However, unlike lists, these "lazy iterators" do not store their contents in memory.  You only compute the next value when required. This makes generators memory and compute efficient; they refrain from saving long sequences in memory or doing all expensive computations upfront. On encountering the yield statement, the iterator returns the provided value and suspends the function's execution, preserving all local variables. Execution resumes on the following call to the iterator's next() method, picking up after the yield statement.
-
-**Example:**
+A generator is a function that returns an iterator that produces a sequence of values when iterated over. Generators are useful when we want to produce a large sequence of values, but we don't want to store all of them in memory at once. A Generator function is defined just like a regular function, using the *def* keyword, but instead of a *return* statement it uses the *yield* statement.
 ```
-def spell_word(word):
-    for c in word:
-        yield c
->>> from examples import spell_word
->>> gen = spell_word('hello')
+def generator_name(arg):
+    # statements
+    yield something
+```
+When the generator function is called, it does not execute the function body immediately. Instead, the generator function returns a "generator object" (of type "iterator") which supports the iteration protocol methods - automatically supporting a \_\_next\_\_() method..  You can loop over the generator object with __next__() like a list. However, unlike lists, these "lazy iterators" do not store their contents in memory.  You only compute the next value when required. This makes generators memory and compute efficient; they refrain from saving long sequences in memory or doing all expensive computations upfront. On encountering the yield statement, the iterator returns the provided value and suspends the function's execution, preserving all local variables. Execution resumes on the following call to the iterator's next() method, picking up after the yield statement.
+
+**Examples:**
+```
+>>> def letters_gen(word):
+...    for c in word:
+...        yield c
+
+>>> gen = letters_gen('hello')
 >>> next(gen)
 'h'
 >>> next(gen)
@@ -28,7 +32,30 @@ Traceback (most recent call last):
 StopIteration
 ```
 
+```
+def power_two_gen(max=0):
+    n = 0
+    while n < max:
+        yield 2 ** n
+        n += 1
+```
+
+We can also define a generator in a more consice syntax using a generator expression: *(expression for item in iterable)*
+**Example:**
+```
+>>> squares_generator = (i * i for i in range(5))
+>>> squares_generator
+<generator object <genexpr> at 0x7fc84808ff90>
+>>> for i in squares_generator
+...     print(i)
+...
+0
+1
+4
+9
+16
 ---
+
 ## When to use Generators
 
 ### Handling large data streams or files
