@@ -54,6 +54,7 @@ We can also define a generator in a more consice syntax using a generator expres
 4
 9
 16
+```
 ---
 
 ## When to use Generators
