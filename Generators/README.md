@@ -33,6 +33,28 @@ StopIteration
 ```
 
 ```
+def double_gen(n):
+    for x in range(n):
+        a = 2 * x
+        yield a
+        print(f"last value: {a}", end=', ')
+
+gen = double_gen(3)
+
+print(f"curr value: {next(gen)}") 
+# curr value: 0
+print(f"curr value: {next(gen)}") 
+# last value: 0, curr value: 2
+print(f"curr value: {next(gen)}") 
+# last value: 2, curr value: 4
+print(f"curr value: {next(gen)}") 
+# Traceback (most recent call last):
+#   File "<stdin>", line 1, in <module>
+# StopIteration
+# last value: 4,
+```
+
+```
 def power_two_gen(max=0):
     n = 0
     while n < max:
