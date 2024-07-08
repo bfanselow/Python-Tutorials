@@ -83,6 +83,9 @@ Generators can also be written as **expressions** with a syntax similar to list 
 ---
 
 ## When to use Generators
+* Handling large streams of data
+* Creating infinite sequences
+* Defining context-managers
 
 ### Handling large data streams or files
 One common use case of generators is to work with data streams or large files, for example handling large CSV files.
@@ -166,29 +169,6 @@ An alternative syntax can also be used: next(gen) just calls gen.\_\_next\_\_()
 ```
 ---
 
-## Generator Details
-
-When you call **next()** on a generator, the code within the function is executed up to yield.  When the Python yield statement is hit, the program suspends function execution and returns the yielded value. (In contrast, return stops function execution completely.) When a function is suspended, the "state" of that function is saved. This includes any variable bindings local to the generator, the instruction pointer, the internal stack, and any exception handling.  This allows you to resume function execution whenever you call one of the generator’s methods. In this way, all function evaluation picks back up right after yield. This can be demonstrated by using multiple Python yield statements:
-```
-def multi_yield():
-    yield_1 = "This is result of first yield"
-    yield yield_1
-    yield_2 = "This is result of second yield"
-    yield 2 
-
->>> from examples import multi_yield
->>> gen = multi_yield()
->>> print(next(gen))
-This is result of first yield 
->>> print(next(gen))
-This is result of second yield 
->>> print(next(gen))
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-StopIteration
-```
----
-
 ## Generators used to define Context-Managers
 Context managers are objects that define a context in which to perform a set of operations. Context managers can be defined by generators using the *@contextmanager* decorator, in which case, the *yield* keyword used in generator acts more like a separator between the code for entering and exiting the context manager.
 **Example**
@@ -211,10 +191,32 @@ with file_opener("hello_world.txt", "w") as f:
 Here have defined a file_opener() context manager using the @contextmanager decorator. The file_opener function is a generator function that yields a file object. The *try* block opens the file. The yield statement produces the file object, and temporarily suspends the generator function, allowing the calling code to resume execution. The calling code can use the file object to read or write data to the file. The finally block ensures that the file is closed properly when the context is exited, even if an exception is raised during execution.
 
 NOTE: You may also see the *yield* statement show up in other contexts, for example: coroutines, and asynchronous programming.
+```
 
+## Generator Details
 
+When you call **next()** on a generator, the code within the function is executed up to *yield*.  When the Python yield statement is hit, the program suspends function execution and returns the yielded value. (In contrast, return stops function execution completely.) When a function is suspended, the "state" of that function is saved. This includes any variable bindings local to the generator, the instruction pointer, the internal stack, and any exception handling.  This allows you to resume function execution whenever you call one of the generator’s methods. In this way, all function evaluation picks back up right after yield. This can be demonstrated by using multiple Python yield statements:
+```
+def multi_yield():
+    yield_1 = "This is result of first yield"
+    yield yield_1
+    yield_2 = "This is result of second yield"
+    yield 2 
+
+>>> from examples import multi_yield
+>>> gen = multi_yield()
+>>> print(next(gen))
+This is result of first yield 
+>>> print(next(gen))
+This is result of second yield 
+>>> print(next(gen))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
 ```
 ---
+
+## Lesser known details
 
 A generator object exposes some other methods that can be invoked to manipulate the generator. 
  * **send()**
