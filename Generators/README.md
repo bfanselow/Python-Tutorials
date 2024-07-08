@@ -190,7 +190,7 @@ StopIteration
 ---
 
 ## Generators used to define Context-Managers
-Context managers are objects that define a context in which a set of operations can be performed. Context managers can be defined by generators using the *@contextmanager* decorator, in which case, *yield* keyword used in generator acts more like a separator between code entering and exiting the context manager.
+Context managers are objects that define a context in which to perform a set of operations. Context managers can be defined by generators using the *@contextmanager* decorator, in which case, the *yield* keyword used in generator acts more like a separator between the code for entering and exiting the context manager.
 **Example**
 ```
 from contextlib import contextmanager
