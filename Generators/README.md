@@ -62,7 +62,10 @@ def power_two_gen(max=0):
         n += 1
 ```
 
-We can also define a generator in a more consice syntax using a generator expression: *(expression for item in iterable)*
+
+Generators can also be written as **expressions** with a syntax similar to list comprehensions.  Whereas list comprehensions return full lists, generator expressions return generators. Generators work the same whether they’re built from a function or an expression. Using an expression syntax allows you to define simple generators in a single line, with an assumed yield at the end of each inner iteration.
+
+
 **Example:**
 ```
 >>> squares_generator = (i * i for i in range(5))
@@ -186,13 +189,30 @@ StopIteration
 ```
 ---
 
-## Generators as expressions
-Generators can also be written as **expressions** with a syntax similar to list comprehensions.  Whereas list comprehensions return full lists, generator expressions return generators. Generators work the same whether they’re built from a function or an expression. Using an expression syntax allows you to define simple generators in a single line, with an assumed yield at the end of each inner iteration.
-
-Example:
+## Generators used to define Context-Managers
+Context managers are objects that define a context in which a set of operations can be performed. Context managers can be defined by generators using the *@contextmanager* decorator, in which case, *yield* keyword used in generator acts more like a separator between code entering and exiting the context manager.
+**Example**
 ```
->>> squares_listcomp = [num**2 for num in range(4)]
->>> squares_gen = (num**2 for num in range(4))
+from contextlib import contextmanager
+
+@contextmanager
+def file_opener(filename, mode):
+    try:
+        # enter context manager
+        f = open(filename, mode)
+        yield f
+        # exit context manager
+    finally:
+        f.close()
+
+with file_opener("hello_world.txt", "w") as f:
+    f.write("Hello World")
+```
+Here have defined a file_opener() context manager using the @contextmanager decorator. The file_opener function is a generator function that yields a file object. The *try* block opens the file. The yield statement produces the file object, and temporarily suspends the generator function, allowing the calling code to resume execution. The calling code can use the file object to read or write data to the file. The finally block ensures that the file is closed properly when the context is exited, even if an exception is raised during execution.
+
+NOTE: You may also see the *yield* statement show up in other contexts, for example: coroutines, and asynchronous programming.
+
+
 ```
 ---
 
