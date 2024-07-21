@@ -52,3 +52,9 @@ def test_isfile_side_effect(mock_isfile):
     mock_isfile.side_effect = side_effect
     assert my_isfile('foo') == 'Yes'
     assert my_isfile(FAKE_FILE) == 'No'
+
+
+def test_with_patch_getlogin():
+    """This is similar to the above, but uses the "with" syntax as opposed to a patch decorator"""
+    with patch('os.getlogin', return_value="barack.obama"):
+        assert(os.getlogin() == "barack.obama")
