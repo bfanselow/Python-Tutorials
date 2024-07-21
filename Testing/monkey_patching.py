@@ -43,8 +43,8 @@ def get_httpbin_origin():
       * Status Code of the HTTP Response
       * "origin" from the HTTP Response
     """
-    BASE_URL = 'http://httpbin.org/get'
-    r = requests.get(BASE_URL + 'get') ## this get mocked
+    BASE_URL = 'http://httpbin.org'
+    r = requests.get(BASE_URL + '/get') ## this get mocked
     key = "origin"
 
     ## this is what we will test below...
