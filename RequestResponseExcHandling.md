@@ -18,8 +18,8 @@ class ApiResponseError(Exception):
     pass
 
 def api_update_method(data):
-   url = "http://my.url.com"
-   endpoint = "api/public/myapi"
+    url = "http://my.url.com"
+    endpoint = "api/public/myapi"
     try:  # (1)
         resp = requests_retry_session().put(
             f"{url}/{endpoint}",
@@ -35,9 +35,9 @@ def api_update_method(data):
     except JSONDecodeError:
          raise ApiResponseError(f"Response did not contain valid JSON {resp.text}")
 
-     # Suppose our expected response is {"success": true, "message": "Record was updated"}
-     if not resp_data.get("success"):  # (4)
-         raise ApiResponseError(resp_data.get("message") or str(resp_data))
+    # Suppose our expected response is {"success": true, "message": "Record was updated"}
+    if not resp_data.get("success"):  # (4)
+        raise ApiResponseError(resp_data.get("message") or str(resp_data))
 
     return resp_data.get("message")
 ```
@@ -51,7 +51,7 @@ class ApiUpdateError(Exception):
 
 data = {
         "name": "fanselow",
-        "birthdate": birth_date,
+        "birthdate": "1966-11-15",
 }
 try:
     api_put(data)
