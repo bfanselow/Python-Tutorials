@@ -14,6 +14,7 @@ from requests.exceptions import RequestException
 from requests.exceptions import JSONDecodeError
 
 class ApiResponseError(Exception):
+    # this will allows us to put all of the exceptions raised in the req/resp process under a single one
     pass
 
 def api_update_method(data):
@@ -26,17 +27,17 @@ def api_update_method(data):
         )
         resp.raise_for_status() # (2); this will raise HTTPError which inherits from RequestException
     except RequestException as e:
-        throw ApiResponseError(f"Error updating API: {str(e)}")
+        raise ApiResponseError(f"Error updating API: {str(e)}")
 
     resp_data = None
     try:
         resp_data = resp.json() # (3)
     except JSONDecodeError:
-         throw ApiResponseError(f"Response did not contain valid JSON {resp.text}")
+         raise ApiResponseError(f"Response did not contain valid JSON {resp.text}")
 
      # Suppose our expected response is {"success": true, "message": "Record was updated"}
      if not resp_data.get("success"):  # (4)
-        throw ApiResponseError(resp_data.get("message") or str(resp_data))
+         raise ApiResponseError(resp_data.get("message") or str(resp_data))
 
     return resp_data.get("message")
 ```
@@ -45,13 +46,15 @@ def api_update_method(data):
 ```
 from .api import ApiResponseError, api_update_method
 
-class ApiUpdateError(Exception)
+class ApiUpdateError(Exception):
+    pass
+
 data = {
         "name": "fanselow",
         "birthdate": birth_date,
 }
 try:
-    api_put( )
+    api_put(data)
 except ApiResponseError as e:
-        raise ApiUpdateError(f"Failed to update: {str(data)}: {str(e)}")
+    raise ApiUpdateError(f"Failed to update: {str(data)}: {str(e)}")
 ```
