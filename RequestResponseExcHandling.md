@@ -8,7 +8,7 @@ https://requests.readthedocs.io/en/latest/_modules/requests/exceptions/
 3) Verify that the response is valid json before unpacking the JSON (catches errors at the API/encoding level)
 4) Unpack the json and look for content indicating successful application behavior (catches errors at the application level)
 
-**EXAMPLE method does performs an API request**
+**EXAMPLE method for executing an API request**
 ```
 from requests.exceptions import RequestException
 from requests.exceptions import JSONDecodeError
