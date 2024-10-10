@@ -43,7 +43,7 @@ def api_update_method(data):
 
 **Example CALLER for this api method**
 ```
-from .api import ApiResponseError
+from .api import ApiResponseError, api_update_method
 
 class ApiUpdateError(Exception)
 data = {
