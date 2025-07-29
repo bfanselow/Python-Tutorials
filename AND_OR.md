@@ -32,13 +32,13 @@ True
 * or always evaluates to the first operand when the first operand is truthy
 * or always evaluates to the second operand when the first operand is falsy
 
-## What about this?
+#### What about this?
 ```
 1 or 5/0
 >>> 1
 ```
 
-## WTF!?  Shouldn't this raise ZeroDivisionError?  Recall "lazy evaluation"?   Python doesn't even look at the second operend when the first is truthy.  You want to see the ZeroDivisionError?
+#### WTF!?  Shouldn't this raise ZeroDivisionError?  Recall "lazy evaluation"?   Python doesn't even look at the second operend when the first is truthy.  You want to see the ZeroDivisionError?
 ```
 >>> '' or 1/0
 Traceback (most recent call last):
