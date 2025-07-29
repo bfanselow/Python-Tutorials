@@ -66,7 +66,7 @@ False
 0
 ```
 
-#### The reasoning you need to understand *and* expressions is similar to *or* expressions, but the logic is reversed. The *and* keyword requires both operands to be truthy for the whole expression to be true (truthy). Therefore, Python if the first operend is truthy, Python needs to also check the second operand. In fact, in this case, the second operand will determine the value of the whole expression, as can be seen in the above examples.
+#### The reasoning you need to understand *and* expressions is similar to *or* expressions, but the logic is reversed. The *and* keyword requires both operands to be truthy for the whole expression to be true (truthy). Therefore, if the first operend is truthy, Python needs to also check the second operand. In fact, in this case, the second operand will determine the value of the whole expression, as can be seen in the above examples.
 
 #### What about when the first operend is *falsy*?  
 ```
