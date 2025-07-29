@@ -12,7 +12,7 @@ True
 True
 ```
 
-#### But, the operends on each side of the and/or do not need to be Boolean objects. Every Python object is either *truthy* or *falsy*. When you pass a *truthy* object to the built-in bool(), you get True. When you pass a *falsey* object to bool(), you get False. When evaulating expressions, Python will use the object's truthiness value if the object isn't a Boolean.
+#### The operends on each side of the and/or do not need to be Boolean objects. Every Python object is either *truthy* or *falsy*. When you pass a *truthy* object to the built-in bool(), you get True. When you pass a *falsey* object to bool(), you get False. When evaulating expressions, Python will use the object's truthiness value if the object isn't a Boolean.
 ```
 >>> 1 or 0
 1
@@ -48,8 +48,44 @@ Traceback (most recent call last):
 ZeroDivisionError: division by zero
 ```
 
+## AND expressions
 
 
+
+#### These are strightforwared, though not necessarily intuitive
+```
+>>> False and False
+False
+>>> True and True
+True
+>>> True and False
+False
+>>> False and True
+False
+>>> 3 and 0
+0
+```
+
+#### The reasoning you need to understand *and* expressions is similar to *or* expressions, but the logic is reversed. The *and* keyword requires both operands to be truthy for the whole expression to be true (truthy). Therefore, Python if the first operend is truthy, Python needs to also check the second operand. In fact, in this case, the second operand will determine the value of the whole expression, as can be seen in the above examples.
+
+#### What about when the first operend is *falsy*?  
+```
+>>> 0 and 1
+0
+>>> '' and 'hello'
+''
+```
+#### Since the *and* expression requires both operends to be *truthy* for the whole expression to be true, Python can short-circuit the evaulation if the first is *falsy*.  In fact, it won't even look at the second operend if the first is *falsy*.
+```
+>>> 0 and 3/0
+0
+```
+
+#### Hopefully, the fact that we don't get a ZeroDivisionError makes sense now, similar (but in reverse) to the *or* expression.
+
+#### In summary:
+* and always evaluates to the first operand when the first operand is falsy
+* and always evaluates to the second operand when the first operand is truthy
 
 
 
