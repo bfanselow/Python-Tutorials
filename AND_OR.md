@@ -1,6 +1,6 @@
 ## OR expressions
 
-#### These are intuitive
+#### These seem intuitive.  But do you really undestand the results?
 ```
 >>> False or False
 False
