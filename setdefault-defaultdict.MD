@@ -93,6 +93,6 @@ for record in sales_data:
     # then the sales value is added.
     total_sales_dd[region] += sales
 
-print(dict(total_sales_dd)) # NOTE: have to convert default-dict back to regular dict for printing
+print(dict(total_sales_dd)) # NOTE: have to convert a defaultdict back to regular dict for printing
 {'North': 225, 'South': 320, 'West': 300}
 ```
