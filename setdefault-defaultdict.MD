@@ -71,8 +71,9 @@ acc = deafultdict(<factory_function>)
 ### Factory functions take no arguments. They can be any of the built-in types (int, list, set, dict), custom-functions or lamda functions.
 
 ### In the second example above (summing all the values associated with a specific key), it’s probably simpler to use a defaultdict to initialize all values to zero.
-from collections import defaultdict
 ```
+from collections import defaultdict
+
 sales_data = [
     {'region': 'North', 'sales': 150},
     {'region': 'South', 'sales': 200},
