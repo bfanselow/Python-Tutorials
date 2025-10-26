@@ -64,7 +64,7 @@ KeyboardInterrupt
 ```
 
 # defaultdict
-### Using defaultdcit is very similar, in that any time you try to access a non-existent key, a “factory function” which initializes all values, is used.
+### Using defaultdict is very similar, in that any time you try to access a non-existent key, a “factory function” which initializes all values, is used.
 ```
 acc = deafultdict(<factory_function>)
 ```
