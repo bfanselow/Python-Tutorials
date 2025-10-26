@@ -36,9 +36,6 @@
 ... ]
 >>> 
 >>> acc = {}
->>> for d in data:
-... for d in data:
-KeyboardInterrupt
 >>> data = [
 ...     {'key': 'a', 'value': 1},
 ...     {'key': 'b', 'value': 1},
