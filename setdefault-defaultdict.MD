@@ -35,6 +35,7 @@
 ...     {'a': 1},
 ... ]
 >>> 
+>>> # Get list of values for each key
 >>> acc = {}
 >>> data = [
 ...     {'key': 'a', 'value': 1},
@@ -51,6 +52,8 @@
 ... 
 >>> acc
 {'a': [1, 2, 2], 'b': [1, 0, 3], 'c': [0, 1]}
+>>>
+>>> # Get sum of values for each key
 >>> sums = {}
 >>> 
 >>> for d in data:
