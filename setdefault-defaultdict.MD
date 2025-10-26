@@ -23,7 +23,7 @@
 {'a': 5, 'b': 4, 'c': 1, 'd': 0, 'e': 0}
 ```
 
-### This becomes super useful when building dictionary “accumulators”, iterating over data that is used to accumulated in some way in a final dict, such that we’re having to check for the existing of a dict key multiple times
+### This becomes super useful when building dictionary “accumulators”, iterating over data that is used to accumulated in some way in a final dict, such that we’re having to check for the existence of a dict key multiple times
 ```
 >>> data = [
 ...     {'a': 1},
