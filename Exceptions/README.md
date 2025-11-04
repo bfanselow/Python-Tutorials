@@ -184,3 +184,8 @@ True
 >>> to_integer("one") is None
 True
 ```
+
+----
+#### logger.error(exc_info=True) vs logger.exception()
+By setting exc_info=True, you explicitly instruct the logger to include exception information (type, value, and traceback) from the most recently handled exception (retrieved via sys.exc_info()).
+This approach is flexible as you can use exc_info=True with other logging levels (e.g., logger.warning("message", exc_info=True)), if you want to log exception details at a level other than ERROR. However, For clarity and conciseness when logging exceptions within an except block, logging.exception() is generally preferred, since it implicity log at ERROR level.
