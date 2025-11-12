@@ -63,6 +63,17 @@
 {'a': 5, 'b': 4, 'c': 1}
 ```
 
+### Another example - counting characters in a string
+```
+str = "the quick red fox jumped over the lazy brown dog"
+
+for c in list(str):
+     char_counts[c] = char_counts.setdefault(c, 0) + 1 
+
+print(char_counts)
+{'h': 3, 'e': 6, 'l': 4, 'o': 6, ' ': 10, 'w': 2, 'r': 4, 'd': 4, 't': 2, 'q': 1, 'u': 2, 'i': 1, 'c': 1, 'k': 1, 'f': 1, 'x': 1, 'j': 1, 'm': 1, 'p': 1, 'v': 1, 'a': 1, 'z': 1, 'y': 1, 'b': 1, 'n': 1, 'g': 1}
+```
+
 # defaultdict
 ### Using defaultdict is very similar, in that any time you try to access a non-existent key, a “factory function” which initializes all values, is used.
 ```
