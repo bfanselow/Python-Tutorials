@@ -1,0 +1,42 @@
+### What is a "naive" datetime object?
+When we create a python datetime object from a string or from datetime.now(), we often create a "naive" datetime object, meaning it does not have knowledge of the timezone.
+While this can often be inferred, especially in environments where all timestamps are assumed to be UTC, strictly speaking this could cause issues, such as when doing
+datetime math on the naive object against other datetime objects.
+
+#### Naive Example 1: creating from timestamp string
+```
+from datetime import datetime
+
+date_string = "2023-10-27 14:30:00"
+date_format = "%Y-%m-%d %H:%M:%S"
+```
+
+#### Using strptime to create a datetime object
+```
+naive_dt = datetime.strptime(date_string, date_format)
+
+print(f"Naive datetime object: {naive_dt}")
+print(f"Timezone information (tzinfo): {naive_dt.tzinfo}")
+```
+
+#### Solution
+```
+import pytz # or zoneinfo in Python 3.9+
+aware_dt = naive_dt.replace(tzinfo=pytz.utc)
+```
+
+#### Naive Example 2: creating from datetime.datetime.now()
+```
+from datetime import datetime
+
+naive_now = datetime.now()
+print(f”Naive now: {naive_now}")
+```
+
+#### Solution: call now() with tzinfo arg
+```
+from datetime import datetime, timezone
+
+aware_utc_now = datetime.now(timezone.utc)
+print(f"Aware UTC now: {aware_utc_now}")
+```
