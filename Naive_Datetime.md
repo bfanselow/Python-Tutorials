@@ -9,10 +9,7 @@ from datetime import datetime
 
 date_string = "2023-10-27 14:30:00"
 date_format = "%Y-%m-%d %H:%M:%S"
-```
 
-#### Using strptime to create a datetime object
-```
 naive_dt = datetime.strptime(date_string, date_format)
 
 print(f"Naive datetime object: {naive_dt}")
