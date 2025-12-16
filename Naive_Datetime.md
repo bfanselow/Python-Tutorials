@@ -12,14 +12,21 @@ date_format = "%Y-%m-%d %H:%M:%S"
 
 naive_dt = datetime.strptime(date_string, date_format)
 
-print(f"Naive datetime object: {naive_dt}")
-print(f"Timezone information (tzinfo): {naive_dt.tzinfo}")
+>>> print(f"Naive datetime object: {naive_dt}")
+Naive datetime object: 2023-10-27 14:30:00
+>>> print(f"Timezone information (tzinfo): {naive_dt.tzinfo}")
+Timezone information (tzinfo): None
 ```
 
 #### Solution
 ```
 import pytz # or zoneinfo in Python 3.9+
 aware_dt = naive_dt.replace(tzinfo=pytz.utc)
+
+>>> print(f"Aware datetime object: {aware_dt}")
+Aware datetime object: 2023-10-27 14:30:00+00:00
+>>> print(f"Timezone information (tzinfo): {aware_dt.tzinfo}")
+Timezone information (tzinfo): UTC
 ```
 
 #### Naive Example 2: creating from datetime.datetime.now()
@@ -27,7 +34,11 @@ aware_dt = naive_dt.replace(tzinfo=pytz.utc)
 from datetime import datetime
 
 naive_now = datetime.now()
-print(f”Naive now: {naive_now}")
+
+>>> print(f"Naive now: {naive_now}")
+Naive now: 2025-12-16 07:04:52.401555
+>>> print(f"Timezone information (tzinfo): {naive_now.tzinfo}")
+Timezone information (tzinfo): None
 ```
 
 #### Solution: call now() with tzinfo arg
@@ -35,5 +46,10 @@ print(f”Naive now: {naive_now}")
 from datetime import datetime, timezone
 
 aware_utc_now = datetime.now(timezone.utc)
-print(f"Aware UTC now: {aware_utc_now}")
+
+>>> print(f"Aware UTC now: {aware_utc_now}")
+Aware UTC now: 2025-12-16 14:05:52.481588+00:00
+
+>>> print(f"Timezone information (tzinfo): {aware_utc_now.tzinfo}")
+Timezone information (tzinfo): UTC
 ```
