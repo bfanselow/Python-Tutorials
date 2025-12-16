@@ -18,7 +18,7 @@ Naive datetime object: 2023-10-27 14:30:00
 Timezone information (tzinfo): None
 ```
 
-#### Solution
+#### Solution: use replace() method passing tzinfo
 ```
 import pytz # or zoneinfo in Python 3.9+
 aware_dt = naive_dt.replace(tzinfo=pytz.utc)
