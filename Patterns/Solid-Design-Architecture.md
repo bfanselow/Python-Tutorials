@@ -59,3 +59,17 @@ We may find that we want to persist Signals and Alerts to long-term storage, dec
 
 #### B) Handle Signals from "External" Signal Producers
 We find it necessary eto xpose a REST API into which Events (a.k.a. "Signals" in the new design) could be ingested from producers other than the internal producers running queries on the telemetry/logging. One example was ingestion of a webhook payload that Neuraspace sends to alert on Conjunction Events. The modular design of our new system lends itself well to adding such an API at a later time, if such a things continues to be needed. The API becomes just a new "Producer" pushing signals to the Signal Queue.  A simple model to consider:  AWS API Gateway → Lambda (with serializer) → Signal-Generator-Queue
+
+## SOLID principles
+#### Single Responsibility
+* Each module = one concern
+* Separate layers, each can be swapped out without effecting others
+
+#### Open/Closed
+
+#### Liskov Substitution
+
+#### Interface Segregation
+
+#### Dependency Inversion
+Inject Spark, configs, and storage layers
