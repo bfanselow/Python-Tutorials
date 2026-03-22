@@ -61,15 +61,16 @@ We may find that we want to persist Signals and Alerts to long-term storage, dec
 We find it necessary eto xpose a REST API into which Events (a.k.a. "Signals" in the new design) could be ingested from producers other than the internal producers running queries on the telemetry/logging. One example was ingestion of a webhook payload that Neuraspace sends to alert on Conjunction Events. The modular design of our new system lends itself well to adding such an API at a later time, if such a things continues to be needed. The API becomes just a new "Producer" pushing signals to the Signal Queue.  A simple model to consider:  AWS API Gateway → Lambda (with serializer) → Signal-Generator-Queue
 
 ## SOLID principles
-#### Single Responsibility
-* Each module = one concern
+#### Single Responsibility: One class, one job
 * Separate layers, each can be swapped out without effecting others
 
-#### Open/Closed
+#### Open/Closed: open for extension, but closed for modification (Add new stuff without breaking old stuff)
+* Instead of modifying an existing class to handle a new feature, you can create a new class that extends it.
+* Reduces risk of breaking existing functionality when adding new features.
 
-#### Liskov Substitution
+#### Liskov Substitution: be able to replace a parent class with a child class without breaking your program
 
-#### Interface Segregation
+#### Interface Segregation: Only implement what you need
 
-#### Dependency Inversion
-Inject Spark, configs, and storage layers
+#### Dependency Inversion Depend on interfaces, not concrete things
+* Inject Spark, configs, and storage layers
