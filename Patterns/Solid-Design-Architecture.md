@@ -68,9 +68,9 @@ We find it necessary eto xpose a REST API into which Events (a.k.a. "Signals" in
 * Instead of modifying an existing class to handle a new feature, you can create a new class that extends it.
 * Reduces risk of breaking existing functionality when adding new features.
 
-#### Liskov Substitution: be able to replace a parent class with a child class without breaking your program
+#### Liskov Substitution: Be able to replace a parent class with a child class without breaking your program
 
 #### Interface Segregation: Only implement what you need
 
-#### Dependency Inversion Depend on interfaces, not concrete things
+#### Dependency Inversion: Depend on interfaces, not concrete things
 * Inject Spark, configs, and storage layers
