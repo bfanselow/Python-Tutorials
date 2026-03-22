@@ -23,9 +23,9 @@ The system must enforce clear boundaries between components and allow independen
 Domain teams (system owners) should be able to define and manage their own Signals with minimal platform involvement. Goal: "Own your signals without needing to understand the system internals"
 * Provide a sandbox development layer (Databricks notebooks + templates)
 * Allow users to:
-  - Create Signal-Generators
-  - Test against real data
-  - Submit via PR for promotion to Production pipeline
+    - Create Signal-Generators
+    - Test against real data
+    - Submit via PR for promotion to Production pipeline
 * Abstract away platform complexity (clusters, repo structure, queue)
 
 #### 4) Targeted & Actionable Dispatch
@@ -42,13 +42,13 @@ Minor/temporary flow control updates, or routing rules, must be configurable by 
 #### 6) Observability & Operational Transparency
 The system must provide clear visibility into its behavior and health.
 * Track:
- - Signal-generator execution success/failure
- - Signal volume and trends
- - Queue lag / backlog
- - Dispatch success rates
+   - Signal-generator execution success/failure
+   - Signal volume and trends
+   - Queue lag / backlog
+   - Dispatch success rates
 * Provide:
- - Dashboards (signal store + metrics)
- - Alerting on system health issues using the system's own dispatch pipeline to directly escalate a health Alert
+   - Dashboards (signal store + metrics)
+   - Alerting on system health issues using the system's own dispatch pipeline to directly escalate a health Alert
 * Enable debugging: trace signal from generation → dispatch (MVP++)
 
 ### Potential Future Enhancements
