@@ -4,10 +4,13 @@
 
 #### Event-Driven
 Focus: Individual events as they occur
+
 How it works: A producer emits an event → a consumer reacts → optional state management
+
 Examples:
  * Traditional message queues (Celery, SQS, RabbitMQ)
  * Webhooks
+
 Characteristics:
 * Often stateless consumers
 * Events may be transient (once consumed, often gone)
@@ -17,14 +20,17 @@ Analogy: Someone rings a doorbell (event), and you react immediately—then it�
 
 #### Streaming-First
 Focus: Continuous, durable flow of data
+
 How it works:
  * Data is written to a persistent, append-only log or table
  * Consumers process it continuously, often with stateful operations
  * Late-arriving or repeated data can be replayed or reprocessed
+
 Examples:
  * Apache Spark Structured Streaming
  * Delta Live Tables on Databricks
  * Apache Kafka + stream processing
+
 Characteristics:
  * Built for real-time analytics, aggregation, and stateful operations
  * Durable storage of events/signals
