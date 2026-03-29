@@ -2,6 +2,8 @@
 
 ### Event-Driven vs Streaming-First: Conceptual Difference
 
+--------------------------------------------------------------------------------------------------------------------------------------
+
 #### Event-Driven
 Focus: Individual events as they occur
 
@@ -18,6 +20,7 @@ Characteristics:
 
 Analogy: Someone rings a doorbell (event), and you react immediately—then it’s done.
 
+--------------------------------------------------------------------------------------------------------------------------------------
 #### Streaming-First
 Focus: Continuous, durable flow of data
 
